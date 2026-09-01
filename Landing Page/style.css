@@ -1,0 +1,75 @@
+/*Utilizando root*/
+:root {
+    --fonte-titulo: "Nunito", sans-serif;
+    --fonte-corpo: "PT Sans", sans-serif;
+
+    --cor-titulo: #212121;
+    --cor-subtitulo: #313131;
+    --cor-corpo: #3F3F3F;
+}
+
+/* Importando fontes */
+
+.nunito-400 {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nunito-700 {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.pt-sans-regular {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pt-sans-bold {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.pt-sans-regular-italic {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.pt-sans-bold-italic {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.reem-kufi-400 {
+  font-family: "Reem Kufi", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+*-
+.nunito{
+    font-family: "Nunito";
+}
+/* Nav bar */
+#navbar {
+  display: flexbox;
+}
+#nav-links {
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+}
+
+#nav-topics {
+  color: var(--cor-titulo);
+}
+
