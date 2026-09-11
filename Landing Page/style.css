@@ -6,6 +6,9 @@
     --cor-titulo: #212121;
     --cor-subtitulo: #313131;
     --cor-corpo: #3F3F3F;
+
+    --cor-topicos-hover: #336D99;
+    --cor-topicos-selecionados: #388AC9;
 }
 
 /* Importando fontes */
@@ -53,23 +56,87 @@
   font-weight: 400;
   font-style: normal;
 }
-*-
+
 .nunito{
     font-family: "Nunito";
 }
-/* Nav bar */
-#navbar {
-  display: flexbox;
+/* Propriedades de reset (3 primeiras)*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #F0FFFC;
+
 }
-#nav-links {
-  list-style: none;
+/* Definindo o body com a fonte corpo por padrão*/
+
+body {
+  font-family: var(--fonte-corpo);
+}
+/* Garantir que o header vai ocupar a largura máxima, deixar documentado */
+header {
+  width: 100%;
+}
+/* NAVBAR*/
+  #navbar {
+    display: flex;
+    align-items: center;
+    background-color: #F0FFFC ;
+    justify-content: space-between;
+    padding: 10px 100px;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+    
+  }
+  /* flex: 1 = faz o elemento crescer e ocupar o espaço vazio  disponível dentro do container flex pai (sem isso, o elemento  fica do tamanho mínimo do próprio conteúdo, e o justify-content não tem espaço sobrando pra distribuir).Só funciona se o pai tiver display: flex.*/
+  nav {
+    flex : 1;
+  }
+
+
+  #nav-list{
+    display: flex;
+    list-style: none;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+
+  }
+  /* Deixar o "Início" já azulzinho ao entrar na landing = Dentro do elemento com id nav-list, pegue o primeiro li (filho do ul), e dentro do li, pegue o elemento com classe .nav-topics */
+  #nav-list li:first-child .nav-topics{
+    color: var(--cor-topicos-selecionados) ;
+  }
+  
+  #logo-nav {
+    height: 30px;
+    
+  
+  }
+
+  .nav-topics {
+    text-decoration: none;
+    color: var(--cor-titulo);
+    font-weight: 700;
+    font-family: var(--fonte-titulo);
+    
+  }
+  
+/* Botão cta */
+.button-default {
   text-decoration: none;
-  display: flex;
   font-family: var(--fonte-titulo);
   font-weight: 700;
+  padding: 6px 20px;
+  box-shadow: 0 0 10px #007A88;
+  border-radius: 8px;
+  color: #03A4B6;
+  transition: all 0.5s ease;
 }
 
-#nav-topics {
-  color: var(--cor-titulo);
+.button-default:hover {
+background-color: #03A4B6 ;
+color: #F0FFFC;
+box-shadow: 0 0 15px #007A88;
 }
-
+  
