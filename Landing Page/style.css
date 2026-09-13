@@ -220,3 +220,67 @@ h1 {
 .glass-icons {
 height: 25px;
 }
+/*MAIN -> SECTION 2 (o que combatemos) */
+#proposito {
+  padding-top: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+  
+/*Estilizando título e subtítulo */  
+
+#purpose-main-title {
+  color: var(--cor-titulo);
+  font-family: var(--fonte-titulo);
+  font-size: 30px;
+  font-weight: 850;
+}
+
+#purpose-main-subtitle{
+  color: var(--cor-subtitulo);
+  margin-bottom: 70px;
+  }
+.azul{
+color: var(--paleta-azul3);
+}
+/*Estilizando a div com o conteúdo principal */
+#purpose-div {
+  display: flex ;
+  width: fit-content;
+  
+  justify-content: center;
+  padding: 70px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  border-radius: 30px;
+  gap: 100px;
+}
+.purpose-titles {
+  color: #47606B;
+  font-size: 20px;
+  font-family: var(--fonte-titulo);
+  font-weight: 650;
+  transition: all 0.5s ease;
+  
+}
+.purpose-content {
+  text-align: center;
+}
+/* *quando o mouse estiver em cima de qualquer elemento com a classe .purpose-content (isso é o :hover), procure lá dentro dele um elemento que tenha a classe .purpose-icons, e aplique o estilo nesse elemento de dentro*/
+.purpose-content:hover .purpose-icons {
+  background-color: var(--paleta-azul3);
+}
+.purpose-content:hover .purpose-titles {
+  color: var(--paleta-azul3);
+}
+
+.purpose-icons {
+  background-color:#47606B ;
+  padding: 12px;
+  border-radius: 14px;
+  transition: all 0.5s ease;
+}
+.purpose-body {
+  font-size: 16px;
+}
