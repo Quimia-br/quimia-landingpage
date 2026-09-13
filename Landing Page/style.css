@@ -9,6 +9,17 @@
 
     --cor-topicos-hover: #336D99;
     --cor-topicos-selecionados: #388AC9;
+
+    --branco-esverdeado : #F0FFFC;
+
+    /* Paleta de cores */
+    --paleta-verde1 : #1EEE97;
+    --paleta-verde2: #00DC9D;
+    --paleta-verde3: #2BDC93;
+
+    --paleta-azul1: #4CF1FF;
+    --paleta-azul2: #5ADFDA;
+    --paleta-azul3: #02D1D6;
 }
 
 /* Importando fontes */
@@ -60,18 +71,18 @@
 .nunito{
     font-family: "Nunito";
 }
-/* Propriedades de reset (3 primeiras)*/
+/* Propriedades de reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #F0FFFC;
 
 }
 /* Definindo o body com a fonte corpo por padrão*/
 
 body {
   font-family: var(--fonte-corpo);
+  background-color: var(--branco-esverdeado);
 }
 /* Garantir que o header vai ocupar a largura máxima, deixar documentado */
 header {
@@ -81,19 +92,23 @@ header {
   #navbar {
     display: flex;
     align-items: center;
-    background-color: #F0FFFC ;
+    background-color: var(--branco-esverdeado) ;
     justify-content: space-between;
     padding: 10px 100px;
     border-radius: 0 0 30px 30px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-
-    
+    /* fazendo com que a nav fique fixa */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    /* garante que a navbar fique sempre por cima dos outros elementos, poruqe nenhum vai ter um z-index maior */
+    z-index: 1000;
   }
   /* flex: 1 = faz o elemento crescer e ocupar o espaço vazio  disponível dentro do container flex pai (sem isso, o elemento  fica do tamanho mínimo do próprio conteúdo, e o justify-content não tem espaço sobrando pra distribuir).Só funciona se o pai tiver display: flex.*/
   nav {
     flex : 1;
   }
-
 
   #nav-list{
     display: flex;
@@ -101,17 +116,18 @@ header {
     gap: 100px;
     justify-content: center;
     align-items: center;
-
+    transition: color 0.5s ease;
   }
   /* Deixar o "Início" já azulzinho ao entrar na landing = Dentro do elemento com id nav-list, pegue o primeiro li (filho do ul), e dentro do li, pegue o elemento com classe .nav-topics */
   #nav-list li:first-child .nav-topics{
     color: var(--cor-topicos-selecionados) ;
   }
-  
+  /* Hover dos topicos */
+  #nav-list :hover {
+    color: var(--cor-topicos-hover);
+  }
   #logo-nav {
     height: 30px;
-    
-  
   }
 
   .nav-topics {
@@ -119,7 +135,6 @@ header {
     color: var(--cor-titulo);
     font-weight: 700;
     font-family: var(--fonte-titulo);
-    
   }
   
 /* Botão cta */
@@ -136,7 +151,72 @@ header {
 
 .button-default:hover {
 background-color: #03A4B6 ;
-color: #F0FFFC;
+color: var(--branco-esverdeado);
 box-shadow: 0 0 15px #007A88;
 }
+/*MAIN -> SECTION 1 (tela inicial) */
+#inicio {
+  background-image: url(assets/images/background-tela\ inicial.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 90px;
+  /* 100% da altura da janela do navegador que está visível no momento, independente da tela do monitor do computador, se adaptando */
+  height: 100vh;
+  color: var(--branco-esverdeado);
+}
+/*Botão para mudar de landing*/
+#btn-target-audience {
+  border: 2px solid var(--branco-esverdeado) ;
+  border-radius: 40px;
+  /* corta qualquer coisa que tente ultrapassar o formato arredondado do container */
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  width: fit-content;
+  margin: 5px auto 0;
+}
+.target {
+  text-decoration: none;
+  color: var(--branco-esverdeado);
+  background-color: transparent;
+  padding: 2px 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+/* Criando a classe active para deixar um dos dois botões selecionados */
+.target.active {
+background-color: var(--paleta-azul2);
+color: var(--cor-titulo);
+border-radius: 30px;
+padding: 10px;
+}
+
+/* Estilizando h1 e subtitulo*/
+h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 50px;
+  font-weight: 900;
   
+}
+#title-and-subtitle {
+ margin: 30px 50px 70px;
+}
+
+.glass-retangles {
+  margin: 20px 50px; 
+  display: flex;
+  /* Efeito glass */
+  background-color: rgba(255,255,255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 16px;
+  padding: 20px;
+  align-items: center;
+  width: 400px;
+  justify-content: space-between;
+
+}
+.glass-icons {
+height: 25px;
+}
