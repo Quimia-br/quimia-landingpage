@@ -2,6 +2,7 @@
 :root {
     --fonte-titulo: "Nunito", sans-serif;
     --fonte-corpo: "PT Sans", sans-serif;
+    --fonte-quimia: "Reem Kufi", sans-serif;
 
     --cor-titulo: #212121;
     --cor-subtitulo: #313131;
@@ -15,7 +16,7 @@
     /* Paleta de cores */
     --paleta-verde1 : #1EEE97;
     --paleta-verde2: #00DC9D;
-    --paleta-verde3: #2BDC93;
+    --paleta-verde3: #2DBC93;
 
     --paleta-azul1: #4CF1FF;
     --paleta-azul2: #5ADFDA;
@@ -200,11 +201,11 @@ h1 {
   
 }
 #title-and-subtitle {
- margin: 30px 50px 70px;
+ margin: 30px 100px 70px;
 }
 
 .glass-retangles {
-  margin: 20px 50px; 
+  margin: 20px 100px; 
   display: flex;
   /* Efeito glass */
   background-color: rgba(255,255,255, 0.05);
@@ -222,7 +223,7 @@ height: 25px;
 }
 /*MAIN -> SECTION 2 (o que combatemos) */
 #proposito {
-  padding-top: 90px;
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -240,7 +241,7 @@ height: 25px;
 
 #purpose-main-subtitle{
   color: var(--cor-subtitulo);
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   }
 .azul{
 color: var(--paleta-azul3);
@@ -249,12 +250,12 @@ color: var(--paleta-azul3);
 #purpose-div {
   display: flex ;
   width: fit-content;
-  
   justify-content: center;
   padding: 70px;
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
   border-radius: 30px;
   gap: 100px;
+  margin-bottom: 50px;
 }
 .purpose-titles {
   color: #47606B;
@@ -282,5 +283,44 @@ color: var(--paleta-azul3);
   transition: all 0.5s ease;
 }
 .purpose-body {
-  font-size: 16px;
+  font-size: 18px;
+  color: var(--cor-corpo);
 }
+/* MAIN -> SECTION 3 (quimia) */
+#quimia {
+  display: flex;
+  padding: 120px 100px 0;
+  margin-right: 100px;
+  background-image: url(assets/images/blur-logo.svg);
+  background-size:500px;
+  background-position: right;
+  background-repeat: no-repeat;
+  /* Tirar depois*/
+  margin-bottom: 100px;
+  
+  flex: 1;
+  
+}
+#mokkers {
+  height: 300px;
+  background-color:none;
+  position: absolute;
+  right: 13%;
+  
+  
+}
+
+#quimia-title {
+font-family: var(--fonte-quimia);
+font-size: 30px;
+padding-bottom: 70px;
+color: var(--cor-titulo);
+}
+.quimia-body {
+  font-size: 18px;
+  padding-bottom: 40px;
+  color: var(--cor-corpo);
+}
+.verde {
+  color: var(--paleta-verde3 );
+} 
