@@ -85,6 +85,19 @@ body {
   font-family: var(--fonte-corpo);
   background-color: var(--branco-esverdeado);
 }
+.body {
+  font-size: 18px;
+  color: var(--cor-corpo);
+}
+.subtitle {
+  color: var(--cor-subtitulo);
+}
+.title {
+  color: var(--cor-titulo);
+  font-family: var(--fonte-titulo);
+  font-size:30px ;
+  font-weight: 600;
+}
 /* Garantir que o header vai ocupar a largura máxima, deixar documentado */
 header {
   width: 100%;
@@ -134,8 +147,8 @@ header {
   .nav-topics {
     text-decoration: none;
     color: var(--cor-titulo);
-    font-weight: 700;
     font-family: var(--fonte-titulo);
+    font-weight: 700;
   }
   
 /* Botão cta */
@@ -157,7 +170,7 @@ box-shadow: 0 0 15px #007A88;
 }
 /*MAIN -> SECTION 1 (tela inicial) */
 #inicio {
-  background-image: url(assets/images/background-tela\ inicial.png);
+  background-image: url(../images/background-tela\ inicial.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -181,8 +194,8 @@ box-shadow: 0 0 15px #007A88;
   text-decoration: none;
   color: var(--branco-esverdeado);
   background-color: transparent;
-  padding: 2px 12px;
-  font-size: 12px;
+  padding: 15px;
+  font-size: 15px;
   font-weight: 600;
 }
 /* Criando a classe active para deixar um dos dois botões selecionados */
@@ -190,14 +203,14 @@ box-shadow: 0 0 15px #007A88;
 background-color: var(--paleta-azul2);
 color: var(--cor-titulo);
 border-radius: 30px;
-padding: 10px;
+padding: 15px;
 }
 
 /* Estilizando h1 e subtitulo*/
 h1 {
-  font-family: var(--fonte-titulo);
   font-size: 50px;
   font-weight: 900;
+  font-family: var(--fonte-titulo);
   
 }
 #title-and-subtitle {
@@ -223,7 +236,7 @@ height: 25px;
 }
 /*MAIN -> SECTION 2 (o que combatemos) */
 #proposito {
-  padding-top: 120px;
+  padding-top: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -232,15 +245,11 @@ height: 25px;
   
 /*Estilizando título e subtítulo */  
 
-#purpose-main-title {
-  color: var(--cor-titulo);
-  font-family: var(--fonte-titulo);
-  font-size: 30px;
+.purpose.title {
   font-weight: 850;
 }
 
-#purpose-main-subtitle{
-  color: var(--cor-subtitulo);
+.purpose.subtitle{
   margin-bottom: 50px;
   }
 .azul{
@@ -257,7 +266,7 @@ color: var(--paleta-azul3);
   gap: 100px;
   margin-bottom: 50px;
 }
-.purpose-titles {
+.purpose-div.title {
   color: #47606B;
   font-size: 20px;
   font-family: var(--fonte-titulo);
@@ -272,7 +281,7 @@ color: var(--paleta-azul3);
 .purpose-content:hover .purpose-icons {
   background-color: var(--paleta-azul3);
 }
-.purpose-content:hover .purpose-titles {
+.purpose-content:hover .purpose-div.title {
   color: var(--paleta-azul3);
 }
 
@@ -282,32 +291,30 @@ color: var(--paleta-azul3);
   border-radius: 14px;
   transition: all 0.5s ease;
 }
-.purpose-body {
-  font-size: 18px;
-  color: var(--cor-corpo);
-}
+
 /* MAIN -> SECTION 3 (quimia) */
 #quimia {
   display: flex;
   padding: 120px 100px 0;
   margin-right: 100px;
-  background-image: url(assets/images/blur-logo.svg);
+  background-image: url(../images/blur-logo.svg);
   background-size:500px;
   background-position: right;
   background-repeat: no-repeat;
-  /* Tirar depois*/
-  margin-bottom: 100px;
-  
   flex: 1;
+  position: relative;
   
 }
 #mokkers {
   height: 300px;
   background-color:none;
   position: absolute;
-  right: 13%;
+  right: 8%;
+  top: 200px;
   
-  
+}
+#quimia-content {
+  margin-bottom: 100px;
 }
 
 #quimia-title {
@@ -316,11 +323,77 @@ font-size: 30px;
 padding-bottom: 70px;
 color: var(--cor-titulo);
 }
-.quimia-body {
-  font-size: 18px;
+.quimia.body {
   padding-bottom: 40px;
-  color: var(--cor-corpo);
 }
 .verde {
   color: var(--paleta-verde3 );
 } 
+
+/*MAIN -> SECTION 4 (funcionalidades quimia) */
+#funcionalidades {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.func-left, .func-right {
+   padding: 100px 0;
+  display: flex;
+  width: 100%;  
+  justify-content: space-between;
+  align-items: center;
+}
+.func-right img {
+  border-radius: 0 20px 20px 0;
+  
+}
+.func-left img {
+  border-radius: 20px 0 0 20px;
+}
+.func-text {
+   padding: 0 100px;
+   display: flex;
+   flex-direction: column;
+   gap: 50px;
+}
+.func.title{
+  font-weight: 700;
+}
+.funcionalities-images {
+  height: 250px;
+}
+.funcionalities-icons {
+  background-color:#86DEC6;
+  padding: 10px;
+  border-radius: 8px;
+  height: 50px;
+  width: fit-content;
+  /*Colocar o ícone na borda da div*/  
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.whole-func {
+  position: relative;
+  width: 100%;
+  border: 5px solid #86DEC6 ;
+  border-radius: 35px 35px 0 0;
+}
+/* para todos os retângulos que contém o conteúdo menos o primeiro, puxe eles 30 pixels para cima */
+.whole-func:not(:first-child) {
+  margin-top: -30px;
+}
+
+.g {
+  background-color: #AAE8D7;
+  text-align: right;
+
+}
+.w {
+  background-color: var(--branco-esverdeado);
+}
+
+
