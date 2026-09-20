@@ -399,16 +399,41 @@ font-weight: 850;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  padding: 90px 100px 0;
+  padding: 120px 100px 0;
 }
 #video {
   height: 500px;
-  background: linear-gradient(to bottom right, #31E3B0,#77E5ED);
-  border-radius: 20px;
-  width: fit-content;
   padding: 30px;
+  background: linear-gradient(to bottom right, #31E3B0,#77E5ED);
+  border-radius: 20px ;
+  width: fit-content;
+  
 }
 .acess.title {
   margin-bottom: 70px;
 }
-
+/* MAIN -> SECTION 6 (CONHEÇA EQUIPE)*/
+#equipe {
+  margin-top: 120px;
+  box-shadow: 0 4px 15px var(--paleta-verde2);
+  border-radius: 70px 70px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 90px;  
+}
+#carrossel {
+  background-color: gray;
+  padding: 150px 400px;
+  margin: 60px;
+} 
+#comece-com {
+  display: flex;
+  gap: 10px;
+}
+.h3.title {
+  font-size: 25px;
+}
+.equipe.title {
+  margin-bottom: 20px;
+}
