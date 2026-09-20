@@ -415,7 +415,7 @@ font-weight: 850;
 /* MAIN -> SECTION 6 (CONHEÇA EQUIPE)*/
 #equipe {
   margin-top: 120px;
-  box-shadow: 0 4px 15px var(--paleta-verde2);
+  box-shadow: 0 -10px 30px -15px var(--paleta-verde2);
   border-radius: 70px 70px 0 0;
   display: flex;
   flex-direction: column;
@@ -436,4 +436,59 @@ font-weight: 850;
 }
 .equipe.title {
   margin-bottom: 20px;
+}
+/* FOOTER */
+footer {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#73F1C9,#88ECE5);
+  padding: 60px 100px 20px;
+  
+  
+}
+#footer-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+#footer-quimia{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+#footer-logo{
+  height: 50px;
+  background-color: var(--branco-esverdeado);
+  padding: 8px;
+  border-radius: 100px;
+}
+#atendimento {
+  display: flex;
+  gap: 10px;
+}
+#github , #insta, #email {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+h4 {
+  font-family: var(--fonte-quimia);
+  font-size: 30px;
+  font-weight: 500;
+}
+.footer-titles {
+  margin-bottom: 30px; 
+  color: var(--cor-titulo); 
+}
+#links-rapidos a {
+  text-decoration: none;
+}
+#links-rapidos {
+  gap: 10px;
+}
+#politica {
+  color: #5f5f5f;
+  text-align: right;
 }
