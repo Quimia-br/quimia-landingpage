@@ -96,7 +96,7 @@ body {
   color: var(--cor-titulo);
   font-family: var(--fonte-titulo);
   font-size:30px ;
-  font-weight: 600;
+  font-weight: 850;
 }
 /* Garantir que o header vai ocupar a largura máxima, deixar documentado */
 header {
@@ -245,10 +245,6 @@ height: 25px;
   
 /*Estilizando título e subtítulo */  
 
-.purpose.title {
-  font-weight: 850;
-}
-
 .purpose.subtitle{
   margin-bottom: 50px;
   }
@@ -322,6 +318,7 @@ font-family: var(--fonte-quimia);
 font-size: 30px;
 padding-bottom: 70px;
 color: var(--cor-titulo);
+font-weight: 850;
 }
 .quimia.body {
   padding-bottom: 40px;
@@ -396,4 +393,22 @@ color: var(--cor-titulo);
   background-color: var(--branco-esverdeado);
 }
 
+/*MAIN -> SECTION 5 (ACESSIBILIDADE) */
+#acessibilidade {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 90px 100px 0;
+}
+#video {
+  height: 500px;
+  background: linear-gradient(to bottom right, #31E3B0,#77E5ED);
+  border-radius: 20px;
+  width: fit-content;
+  padding: 30px;
+}
+.acess.title {
+  margin-bottom: 70px;
+}
 
