@@ -437,6 +437,9 @@ font-weight: 850;
 .equipe.title {
   margin-bottom: 20px;
 }
+#logo-final {
+  height: 35px;
+}
 /* FOOTER */
 footer {
   display: flex;
@@ -471,6 +474,9 @@ footer {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
+}
+#github a, #insta a, #email a, #ajuda a {
+  text-decoration: none;
 }
 
 h4 {
