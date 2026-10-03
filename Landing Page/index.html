@@ -1,191 +1,293 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal - Quimia</title>
-    <link rel="stylesheet" href="assets/style/style.css">
-    <link rel="icon" type="svg" href="assets/icons/logo.svg">
-    <!-- Importando as fontes -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Reem+Kufi:wght@400..700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div id="navbar">
-            <img src="assets/icons/logo.svg" alt="logo" id="logo-nav">
-            <nav>
-                <!--Adicionar js-->
-                <ul id="nav-list">
-                    <li><a href="#inicio"class="nav-topics" >Início</a></li>
-                    <li><a href="#proposito" class="nav-topics">Nosso Propósito</a></li>
-                    <li><a href="#quimia" class="nav-topics">Quimia</a></li>
-                    <li><a href="#equipe" class="nav-topics">Equipe</a></li>
-                </ul>
-            </nav>
-            <!-- botão, foi colocado fora da nav, para ficar mais espaçado dos tópicos na interface-->
-            <a href="#" class="button-default">Área Restrita</a>
-        </div>
-    </header>
-    <main>
-        <section id="inicio">
-            <!--Adicionar js-->
-            <div id="btn-target-audience">
-                <a class="target user active" href="#para-voce">Para você</a>
-                <a class="target company" href="#para-sua-empresa">Para sua empresa</a>
-            </div>
-            <div id="title-and-subtitle">
-                <h1>Viva a limpeza de um jeito <br>completamente diferente.</h1>
-            <!--Aplicar js-->
-            <p  >Tudo o que você precisa saber sobre seus produtos de limpeza, em um só lugar.</p>
-            </div>
-            <div id="glass">
-                <div class="glass-retangles">
-                    <p>Transforme a forma como você limpa sua casa</p>
-                    <img src="assets/icons/frase-inicio-1.svg" alt="Ícone vassoura" class="glass-icons">
-                </div>
-                <div class="glass-retangles">
-                    <p>Traga maior segurança para seu dia a dia</p>
-                    <img src="assets/icons/frase-inicio-2.svg" alt="Ícone escudo" class="glass-icons">
-                </div>
-                <div class="glass-retangles">
-                    <p>Entenda a complexidade de cada produto</p>
-                    <img src="assets/icons/frase-inicio-3.svg" alt="Ícone produto" class="glass-icons">
-                </div>
-            </div>
-        </section>
-        <section id="proposito">
-            <h2 class="purpose title">O que combatemos</h2>
-            <p class="purpose subtitle">Entenda o que torna a faxina do cotidiano mais <b class="azul">perigosa</b> do que parece.</p>
-            <div id="purpose-div">
-                <div class="purpose-content">
-                    <img src="assets/icons/dificuldade.svg" alt="Ícone dúvida" class="purpose-icons">
-                    <p class="purpose-div title">Dificuldade de <br> entender rótulos</p>
-                    <br><br>
-                    <p class="purpose-div body">Os rótulos estão cheios <br> de termos técnicos que <br> a maioria dos <br> consumidores não <br> consegue interpretar, <br>comprometendo o uso <br>seguro dos produtos. </p>
-                </div>
-                <div class="purpose-content">
-                    <img src="assets/icons/misturas-inadequadas.svg" alt="Ícone briho" class="purpose-icons">
-                    <p class="purpose-div title">Misturas <br>inadequadas</p>
-                    <br><br>
-                    <p class="purpose-div body">Combinações que <br>parecem inofensivas <br>podem gerar reações <br>químicas graves, e é <br>assim que grande parte <br>dos acidentes <br>domésticos acontencem.</p>
-                </div>
-                <div class="purpose-content">
-                    <img src="assets/icons/descarte-incorreto.svg" alt="Ícone lixeira" class="purpose-icons">
-                    <p class="purpose-div title">Descarte <br>incorreto</p>
-                    <br><br>
-                    <p class="purpose-div body">Descartados no lixo <br>comum ou na pia, esses <br>produtos contaminam <br>solo e água, colocando <br>em risco quem os <br>manuseia sem saber o <br>que contém.</p>
-                </div>
-            </div>
-        </section>
-        <section id="quimia">
-            <div id="quimia-content">
-                <h2 id="quimia-title">Quimia</h2>
-                <p class="quimia body">Limpar a casa faz parte da rotina de qualquer pessoa, mas fazer isso <br>com <b class="verde">segurança</b> nem sempre é tão simples quanto parece.</p>
-                <p class="quimia body">Desenvolvemos o Quimia como a solução ideal para o seu<br>cotidiano, tornando o uso correto dos produtos algo <b class="verde">acessível</b> para<br>todos.</p> 
-                <p class="quimia body">Um app pensado para guiar você em cada etapa da faxina, de um <br>jeito prático e <b class="verde">descomplicado</b>.</p> 
-                <p class="quimia body">Conheça o que ele oferece:</p>
-            </div>
-            <div id="quimia-images">
-                <img src="assets/images/mokkers.svg" alt="Mokkers quimia" id="mokkers">
-            </div>
-        </section>
-        <section id="funcionalidades">
-            
-            <div class="whole-func g">
-                <img src="assets/icons/escaneie-produtos.svg" alt="Ícone qr-code" class="funcionalities-icons">
-                <div class="func-right">
-                    <img src="assets/images/escaneie-produtos.png" alt="Imagem de vários produtos de limpeza" class="funcionalities-images">
-                    <div class="func-text">
-                        <h3 class="func title">Escaneie produtos</h3>
-                        <p class="func body">Escaneie qualquer produto de limpeza e tenha acesso instantêneo a <b>instruções <br>claras</b>, alertas de segurança e orientações de uso.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="whole-func w">
-                <img src="assets/icons/evite-misturas.svg" alt="Ícone produto de limpeza" class="funcionalities-icons">
-                <div class="func-left">
-                    <div class="func-text">
-                        <h3 class="func title">Evite misturas perigosas</h3>
-                        <p class="func body">Cheque a compatibilidade entre seus produtos de limpeza e <b class="verde">evite combinações <br>arriscadas.</b> Quer mais precisão? Inclua a superfície, ela faz toda a diferença.</p>
-                    </div>
-                    <img src="assets/images/evite-misturas.png" alt="Imagem mistura de produtos" class="funcionalities-images">
-                </div>   
-            </div>
-            <div class="whole-func g">
-                <img src="assets/icons/monte-sua-estante.svg" alt="Ícone estante de livros" class="funcionalities-icons">
-                <div class="func-right">
-                    <img src="assets/images/monte-sua-estante.png" alt="Uma imagem de uma estante de produtos de limpeza" class="funcionalities-images">
-                    <div class="func-text">
-                        <h3 class="func title">Monte sua estante virtual</h3>
-                        <p class="func body">Crie sua <b>estante personalizada</b> com os produtos que fazem parte da sua rotina, para<br> não perder de vista as instruções daqueles que mais importam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="whole-func w">
-                <img src="assets/icons/explore-suas-proximidades.svg" alt="Ícone localização" class="funcionalities-icons">
-                <div class="func-left">
-                    <div class="func-text">
-                        <h3 class="func title">Explore suas proximidades</h3>
-                        <p class="func body">Descubra <b class="verde">pontos de descarte e lojas </b>perto de você para descartar produtos de<br> forma mais responsável e tornar sua rotina mais prática e consciente.</p>
-                    </div>
-                    <img src="assets/images/explore-proximidades.png" alt="Um mapa de localização" class="funcionalities-images">
-                </div>
-            </div>
-        </section>
-        <section id="acessibilidade">
-            <h2 class="acess title">Trazendo a <b class="azul">acessibilidade</b> que os rótulos não têm.</h2>
-            <video src="assets/images/acessibilidade.mp4" autoplay loop muted id="video"></video>
-        </section>
-        <section id="equipe">
-            <h3 class="equipe title">Conheça a nossa equipe!</h3>
-            <p class="subtitle">Composta por alunos do 1° e 2° ano do Instituto J&F, unidos por um propósito: fazer a diferença.</p>
-            <div id="carrossel">Será feito com JS</div>
-            <div id="comece-com">
-                <h3 class="h3 title">Começe agora com Quimia</h3>
-                <img src="assets/icons/logo.svg" alt="Logo quimia" id="logo-final">
-            </div>
-            
-        </section>
-    </main>   
-    <footer>
-        <div id="footer-quimia">
-            <h4>Quimia</h4>
-            <img src="assets/icons/logo.svg" alt="Logo quimia" id="footer-logo">
-        </div>
-        <div id="footer-body">
-            <div id="info-contato">
-                <p class="footer-titles">INFORMAÇÕES DE <br>CONTATO</p>
-                <div id="footer-content">
-                    <div id="github">
-                        <img src="assets/icons/github.svg" alt="Ícone github" class="footer-icons">
-                        <a href="https://github.com/Quimia-br" class="body" target="_blank">Quimia-br</a>
-                    </div>
-                    <div id="insta">
-                        <img src="assets/icons/arroba.svg" alt="Ícone arroba" class="footer-icons">
-                        <a href="https://www.instagram.com/quimia.app/" class="body" target="_blank">quimia.app</a>
-                    </div>
-                </div>
-            </div>
-            <div id="links-rapidos">
-                <p class="footer-titles">LINKS RÁPIDOS</p>
-                <a href="#inicio" class="body">
-                        Voltar ao início
-                    <img src="assets/icons/voltar-inicio.svg" alt="Ícone seta para cima" class="footer-icons">
-                </a>
-            </div>
-            <div id="ajuda">
-                <p class="footer-titles">AJUDA</p>
-                <div id="atendimento">
-                    <a href="https://mail.google.com/mail/u/0/#search/quimia.app%40gmail.com?compose=new" target="_blank"class="body">Atendimento ao cliente
-                        <img src="assets/icons/atendimento-cliente.svg" alt="Ícone link externo" class="footer-icons">
-                    </a>
-                    
-                </div>                        
-            </div>
-        </div>
-            <p id="politica">Política de privacidade 2026</p>
-    </footer>
-</body>
-</html>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Principal - Quimia</title>
+  <link rel="stylesheet" href="assets/style/style.css">
+  <link rel="icon" type="svg" href="assets/icons/logo.svg">
+  <!-- Importing the fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Reem+Kufi:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div id="navbar">
+      <img src="assets/icons/logo.svg" alt="logo" id="nav-logo">
+      <nav id="main-nav">
+        
+        <ul id="nav-list">
+          <li><a href="#home" class="nav-link">Início</a></li>
+          <li><a href="#purpose" class="nav-link">Nosso Propósito</a></li>
+          <li><a href="#about" class="nav-link">Quimia</a></li>
+          <li><a href="#team" class="nav-link">Equipe</a></li>
+          <li class="nav-button-item"><a href="#" class="button-default">Área Restrita</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <svg class="open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home">
+      <!-- Add js -->
+      <div id="audience-switch">
+        <a class="audience-button user active" href="#para-voce">Para você</a>
+        <a class="audience-button company" href="#para-sua-empresa">Para sua empresa</a>
+      </div>
+      <div id="hero-text">
+        <h1>Viva a limpeza de um jeito <br>completamente diferente.</h1>
+        <!-- Apply js -->
+        <p>Tudo o que você precisa saber sobre seus produtos de limpeza, em um só lugar.</p>
+      </div>
+      <div id="glass-list">
+        <div class="glass-card">
+          <p>Transforme a forma como você limpa sua casa</p>
+          <img src="assets/icons/frase-inicio-1.svg" alt="Ícone vassoura" class="glass-icon">
+        </div>
+        <div class="glass-card">
+          <p>Traga maior segurança para seu dia a dia</p>
+          <img src="assets/icons/frase-inicio-2.svg" alt="Ícone escudo" class="glass-icon">
+        </div>
+        <div class="glass-card">
+          <p>Entenda a complexidade de cada produto</p>
+          <img src="assets/icons/frase-inicio-3.svg" alt="Ícone produto" class="glass-icon">
+        </div>
+      </div>
+    </section>
+
+    <section id="purpose">
+      <h2 class="purpose title">O que combatemos</h2>
+      <p class="purpose subtitle">Entenda o que torna a faxina do cotidiano mais <b class="text-blue">perigosa</b> do que parece.</p>
+      <div id="purpose-cards">
+        <div class="purpose-card">
+          <img src="assets/icons/dificuldade.svg" alt="Ícone dúvida" class="purpose-icon">
+          <p class="purpose-text title">Dificuldade de <br> entender rótulos</p>
+          <br><br>
+          <p class="purpose-text body">Os rótulos estão cheios <br> de termos técnicos que <br> a maioria dos <br> consumidores não <br> consegue interpretar, <br>comprometendo o uso <br>seguro dos produtos. </p>
+        </div>
+        <div class="purpose-card">
+          <img src="assets/icons/misturas-inadequadas.svg" alt="Ícone brilho" class="purpose-icon">
+          <p class="purpose-text title">Misturas <br>inadequadas</p>
+          <br><br>
+          <p class="purpose-text body">Combinações que <br>parecem inofensivas <br>podem gerar reações <br>químicas graves, e é <br>assim que grande parte <br>dos acidentes <br>domésticos acontecem.</p>
+        </div>
+        <div class="purpose-card">
+          <img src="assets/icons/descarte-incorreto.svg" alt="Ícone lixeira" class="purpose-icon">
+          <p class="purpose-text title">Descarte <br>incorreto</p>
+          <br><br>
+          <p class="purpose-text body">Descartados no lixo <br>comum ou na pia, esses <br>produtos contaminam <br>solo e água, colocando <br>em risco quem os <br>manuseia sem saber o <br>que contém.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div id="about-content">
+        <h2 id="about-title">Quimia</h2>
+        <p class="about body">Limpar a casa faz parte da rotina de qualquer pessoa, mas fazer isso <br>com <b class="text-green">segurança</b> nem sempre é tão simples quanto parece.</p>
+        <p class="about body">Desenvolvemos o Quimia como a solução ideal para o seu<br>cotidiano, tornando o uso correto dos produtos algo <b class="text-green">acessível</b> para<br>todos.</p>
+        <p class="about body">Um app pensado para guiar você em cada etapa da faxina, de um <br>jeito prático e <b class="text-green">descomplicado</b>.</p>
+        <p class="about body">Conheça o que ele oferece:</p>
+      </div>
+      <div id="about-images">
+        <img src="assets/images/mokkers.svg" alt="Mokkers quimia" id="phone-mockup">
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="feature-card feature-green">
+        <img src="assets/icons/escaneie-produtos.svg" alt="Ícone qr-code" class="feature-icon">
+        <div class="feature-right">
+          <img src="assets/images/escaneie-produtos.png" alt="Imagem de vários produtos de limpeza" class="feature-image">
+          <div class="feature-text">
+            <h3 class="feature title">Escaneie produtos</h3>
+            <p class="feature body">Escaneie qualquer produto de limpeza e tenha acesso instantâneo a <b>instruções <br>claras</b>, alertas de segurança e orientações de uso.</p>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card feature-white">
+        <img src="assets/icons/evite-misturas.svg" alt="Ícone produto de limpeza" class="feature-icon">
+        <div class="feature-left">
+          <div class="feature-text">
+            <h3 class="feature title">Evite misturas perigosas</h3>
+            <p class="feature body">Cheque a compatibilidade entre seus produtos de limpeza e <b class="text-green">evite combinações <br>arriscadas</b>, colocando a segurança da sua família, em primeiro lugar.</p>
+          </div>
+          <img src="assets/images/evite-misturas.png" alt="Imagem mistura de produtos" class="feature-image">
+        </div>
+      </div>
+      <div class="feature-card feature-green">
+        <img src="assets/icons/monte-sua-estante.svg" alt="Ícone estante de livros" class="feature-icon">
+        <div class="feature-right">
+          <img src="assets/images/monte-sua-estante.png" alt="Uma imagem de uma estante de produtos de limpeza" class="feature-image">
+          <div class="feature-text">
+            <h3 class="feature title">Monte sua estante virtual</h3>
+            <p class="feature body">Crie sua <b>estante personalizada</b> com os produtos que fazem parte da sua rotina, para<br> não perder de vista as instruções daqueles que mais importam.</p>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card feature-white">
+        <img src="assets/icons/explore-suas-proximidades.svg" alt="Ícone localização" class="feature-icon">
+        <div class="feature-left">
+          <div class="feature-text">
+            <h3 class="feature title">Explore suas proximidades</h3>
+            <p class="feature body">Descubra <b class="text-green">pontos de descarte e lojas </b>perto de você para descartar produtos de<br> forma mais responsável e tornar sua rotina mais prática e consciente.</p>
+          </div>
+          <img src="assets/images/explore-proximidades.png" alt="Um mapa de localização" class="feature-image">
+        </div>
+      </div>
+    </section>
+
+    <section id="accessibility">
+      <h2 class="accessibility title">Trazendo a <b class="text-blue">acessibilidade</b> que os rótulos não têm.</h2>
+      <video src="assets/images/acessibilidade.mp4" autoplay loop muted playsinline id="accessibility-video"></video>
+    </section>
+
+    <section id="team">
+      <div id="team-box">
+        <h3 class="team title">Conheça a nossa equipe!</h3>
+        <p class="subtitle">Composta por alunos do 1° e 2° ano do Instituto J&F, unidos por um propósito: fazer a diferença.</p>
+        <div id="carousel">
+          <button class="arrow-blue" id="prev-button"><img src="assets/carrossel/setinha-esquerda.png" alt=""></button>
+          <div class="cards-window">
+            <div class="cards-track">
+              <div class="member-card">
+                <img src="assets/carrossel/membro1.png" alt="Membro 1">
+                <span class="member-label">
+                  <p class="member-name">Beatriz Martinez</p>
+                  <p class="member-role">UX/UI Designer</p>
+                </span>
+              </div>
+              <div class="member-card">
+                <img src="assets/carrossel/membro2.png" alt="Membro 2">
+                <span class="member-label">
+                  <p class="member-name">Daniel Filho</p>
+                  <p class="member-role">Analista de Dados & UX/UI Designer</p>
+                </span>
+              </div>
+              <div class="member-card">
+                <img src="assets/carrossel/membro3.png" alt="Membro 3">
+                <span class="member-label">
+                  <p class="member-name">Felipe Graciano</p>
+                  <p class="member-role">Analista de Dados</p>
+                </span>
+              </div>
+              <div class="member-card">
+                <img src="assets/carrossel/membro4.png" alt="Membro 4">
+                <span class="member-label">
+                  <p class="member-name">Letícia Naumes</p>
+                  <p class="member-role">Front-End Developer & UX/UI Designer</p>
+                </span>
+              </div>
+              <div class="member-card">
+                <img src="assets/carrossel/membro5.png" alt="Membro 5">
+                <span class="member-label">
+                  <p class="member-name">Miguel Felix</p>
+                  <p class="member-role">Back-End Developer</p>
+                </span>
+              </div>
+              <div class="member-card">
+                <img src="assets/carrossel/membro6.png" alt="Membro 6">
+                <span class="member-label">
+                  <p class="member-name">Nicolas Delecrode</p>
+                  <p class="member-role">Back-End Developer</p>
+                </span>
+              </div>
+              <div class="member-card">
+                <img src="assets/carrossel/membro7.png" alt="Membro 7">
+                <span class="member-label">
+                  <p class="member-name">Davi Lacerda</p>
+                  <p class="member-role">Analista de Dados</p>
+                </span>
+              </div>
+              <div class="member-card">
+                <img src="assets/carrossel/membro8.png" alt="Membro 8">
+                <span class="member-label">
+                  <p class="member-name">Eduardo Policarpo</p>
+                  <p class="member-role">Full-Stack Developer</p>
+                </span>
+              </div>
+              <div class="member-card">
+                <img src="assets/carrossel/membro9.png" alt="Membro 9">
+                <span class="member-label">
+                  <p class="member-name">Felipe Jorge</p>
+                  <p class="member-role">Full-Stack Developer</p>
+                </span>
+              </div>
+              <div class="member-card">
+                <img src="assets/carrossel/membro10.png" alt="Membro 10">
+                <span class="member-label">
+                  <p class="member-name">Gabriela Benfica</p>
+                  <p class="member-role">UX/UI Designer</p>
+                </span>
+              </div>
+              <div class="member-card">
+                <img src="assets/carrossel/membro11.png" alt="Membro 11">
+                <span class="member-label">
+                  <p class="member-name">Giulia Manara</p>
+                  <p class="member-role">Analista de Dados</p>
+                </span>
+              </div>
+              <div class="member-card">
+                <img src="assets/carrossel/membro12.png" alt="Membro 12">
+                <span class="member-label">
+                  <p class="member-name">Gustavo Sousa</p>
+                  <p class="member-role">Full-Stack Developer</p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <button class="arrow-green" id="next-button"><img src="assets/carrossel/setinha-direita.png" alt="Setinha"></button>
+        </div> <!-- fecha carousel -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div id="footer-brand">
+      <h4>Quimia</h4>
+      <img src="assets/icons/logo.svg" alt="Logo quimia" id="footer-logo">
+    </div>
+    <div id="footer-body">
+      <div id="contact-info">
+        <p class="footer-title">INFORMAÇÕES DE <br>CONTATO</p>
+        <div id="contact-links">
+          <div id="github">
+            <img src="assets/icons/github.svg" alt="Ícone github" class="footer-icon">
+            <a href="https://github.com/Quimia-br" class="body" target="_blank">Quimia-br</a>
+          </div>
+          <div id="instagram">
+            <img src="assets/icons/arroba.svg" alt="Ícone arroba" class="footer-icon">
+            <a href="https://www.instagram.com/quimia.app/" class="body" target="_blank">quimia.app</a>
+          </div>
+        </div>
+      </div>
+      <div id="quick-links">
+        <p class="footer-title">LINKS RÁPIDOS</p>
+        <a href="#home" class="body">
+          Voltar ao início
+          <img src="assets/icons/voltar-inicio.svg" alt="Ícone seta para cima" class="footer-icon">
+        </a>
+      </div>
+      <div id="help">
+        <p class="footer-title">AJUDA</p>
+        <div id="support">
+          <a href="https://mail.google.com/mail/u/0/#search/quimia.app%40gmail.com?compose=new" target="_blank" class="body">Atendimento ao cliente
+            <img src="assets/icons/atendimento-cliente.svg" alt="Ícone link externo" class="footer-icon">
+          </a>
+        </div>
+      </div>
+    </div>
+    <p id="privacy-policy">Política de privacidade 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
