@@ -929,31 +929,40 @@ h1 {
   font-size: clamp(14px, min(1.3vw, 1.95vh), 18px);
   line-height: 1.5;
 }
-/* MAIN -> SECTION 5 (ACCESSIBILITY) */
-#accessibility {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  padding: 120px 100px 0;
-  position: relative;
-  z-index: 2;
-  background-color: var(--mint-white);
-  padding-bottom: 120px;
-}
 
-#accessibility-video {
-  height: 500px;
-  padding: 30px;
-  background: linear-gradient(to bottom right, #31E3B0, #77E5ED);
-  border-radius: 20px;
-  width: fit-content;
+#accessibility {
+  --accessibility-padding-top: var(--section-spacing-half);
+  --accessibility-padding-bottom: var(--section-spacing-half);
+  --accessibility-gap: clamp(20px, 4.5vh, 54px);
+  padding: var(--accessibility-padding-top) var(--section-padding-inline) var(--accessibility-padding-bottom);
 }
 
 .accessibility.title {
-  margin-bottom: 70px;
+  max-width: 1000px;
 }
 
+.accessibility-content {
+  display: grid;
+  grid-template-columns: minmax(340px, 1fr) minmax(0, 620px);
+  align-items: start;
+  gap: 48px;
+  margin-top: var(--accessibility-gap);
+}
+
+.accessibility-content .info-list {
+  max-width: 580px;
+  padding-top: 10px;
+}
+
+.accessibility-image {
+  justify-self: end;
+  width: auto;
+  max-width: 100%;
+  height: min(413px, calc(var(--section-available) - var(--accessibility-padding-top) - var(--accessibility-gap) - 2.8 * var(--title-size) - 24px));
+  aspect-ratio: 620 / 413;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+}
 /* MAIN -> SECTION 6 (MEET THE TEAM) */
 #team {
   position: relative;
