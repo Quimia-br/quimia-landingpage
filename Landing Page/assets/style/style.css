@@ -769,60 +769,77 @@ h1 {
 .data-source a:hover {
   color: var(--mint-white);
 }
-/* MAIN -> SECTION 3 (about Quimia) */
+
 #about {
-  display: flex;
-  padding: 120px 100px 0;
-  flex: 1;
+  --about-padding-top: var(--section-spacing-half);
   position: relative;
-  z-index: 2;
-  background-color: var(--mint-white);
   overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 760px) minmax(0, 568px);
+  justify-content: space-between;
+  align-items: end;
+  column-gap: 40px;
+  padding: var(--about-padding-top) var(--section-padding-inline) 0;
+}
+
+#about-content {
+  align-self: center;
+  padding-bottom: clamp(32px, 9vh, 150px);
+}
+
+#about-title {
+  max-width: 760px;
+}
+
+#about-content .info-list {
+  margin-top: clamp(24px, 6.5vh, 90px);
+}
+
+#about-content .button-default {
+  margin-top: clamp(40px, 10vh, 120px);
 }
 
 #about-images {
-  --phone-height: 400px;      /* phone height */
-  --blur-scale: 1.25;  /* blur size relative to the phone (500px / 400px, as it was) */
-  position: absolute;
-  right: 5%;
-  top: 150px;
+  --phone-height: auto;
+  --blur-scale: 1;
+  position: relative;
   isolation: isolate;
+  justify-self: end;
+  width: min(100%, 568px, calc((var(--section-available) - var(--about-padding-top)) * 568 / 732));
+  aspect-ratio: 568 / 732;
 }
 
 #about-images::before {
   content: "";
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: calc(var(--phone-height) * var(--blur-scale));
-  height: calc(var(--phone-height) * var(--blur-scale));
-  transform: translate(-50%, -50%);
-  background: url(../images/blur-logo.svg) center / contain no-repeat;
+  inset: 0;
   z-index: -1;
+  background:
+    radial-gradient(ellipse 9.24% 7.17% at 88.82% 69.4%, var(--palette-blue-6) 98%, transparent 100%),
+    radial-gradient(ellipse 50% 38.8% at 50% 41.8%, var(--surface-about-circle) 99.5%, transparent 100%);
+  transform: scale(var(--blur-scale));
+  transform-origin: 50% 41.8%;
+  pointer-events: none;
+}
+
+#about-images::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 7.04%;
+  width: 17.96%;
+  aspect-ratio: 1;
+  border: 6px solid var(--palette-blue-4);
+  border-radius: 50%;
   pointer-events: none;
 }
 
 #phone-mockup {
-  display: block;
+  position: absolute;
+  top: 15.44%;
+  left: 4.23%;
+  width: 82.75%;
   height: var(--phone-height);
-}
-
-#about-content {
-  margin-bottom: 100px;
-  position: relative;
-  z-index: 1x;
-}
-
-#about-title {
-  font-family: var(--font-brand);
-  font-size: 30px;
-  padding-bottom: 70px;
-  color: var(--color-title);
-  font-weight: 850;
-}
-
-.about.body {
-  padding-bottom: 40px;
 }
 
 /* MAIN -> SECTION 4 (Quimia features) */
