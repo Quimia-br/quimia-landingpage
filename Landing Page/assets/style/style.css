@@ -963,39 +963,71 @@ h1 {
   object-fit: cover;
   border-radius: var(--radius-card);
 }
-/* MAIN -> SECTION 6 (MEET THE TEAM) */
+
 #team {
+  --team-padding-top: var(--section-spacing-half);
+  --team-padding-bottom: var(--section-spacing-half);
+  --team-photo-gap: clamp(18px, 4vh, 56px);
   position: relative;
-  z-index: 2;
-  background-color: var(--mint-white);
+  isolation: isolate;
+  overflow: hidden;
+  padding: var(--team-padding-top) 0 var(--team-padding-bottom);
+}
+
+#team::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--team-padding-top) - 50px);
+  left: 50%;
+  z-index: -1;
+  width: max(100%, 1100px);
+  aspect-ratio: 1440 / 212;
+  background: url("../images/equipe-onda.svg") center / 100% 100% no-repeat;
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 
 #team-box {
-  box-shadow: 0 -10px 30px -15px var(--palette-green-2);
-  border-radius: 70px 70px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 90px;
+  padding-inline: var(--page-gutter);
+  text-align: center;
 }
 
-#start-with {
-  display: flex;
-  gap: 10px;
+.team.subtitle {
+  max-width: 760px;
+  margin-top: clamp(10px, 2vh, 20px);
+  font-size: clamp(15px, 1.2vw, 17px);
 }
 
-.h3.title {
-  font-size: 25px;
+.team-photo-wrapper {
+  position: relative;
+  isolation: isolate;
+  max-width: 100%;
+  margin-top: var(--team-photo-gap);
 }
 
-.team.title {
-  margin-bottom: 20px;
+.team-photo-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -10.18%;
+  left: -48.53%;
+  z-index: -1;
+  width: 176.53%;
+  height: 122.65%;
+  background: url("../images/equipe-formas.svg") center / 100% 100% no-repeat;
+  pointer-events: none;
 }
 
-#final-logo {
-  height: 35px;
+#team-photo {
+  width: auto;
+  max-width: 100%;
+  height: min(600px, calc(var(--section-available) - var(--team-padding-top) - var(--team-photo-gap) - 1.4 * var(--title-size) - 68px));
+  aspect-ratio: 854 / 565;
+  object-fit: cover;
+  border-radius: var(--radius-card);
 }
-
 /* CAROUSEL */
 #carousel {
   display: flex;
