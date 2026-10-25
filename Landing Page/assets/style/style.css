@@ -960,8 +960,12 @@ h1 {
   aspect-ratio: 1920 / 980;
 }
 
-#quimiaSom[hidden] {
-  display: none;
+video::cue {
+  background: transparent;
+  color: #000;
+  text-shadow: none;
+  font-family: "PT Sans", sans-serif;
+  font-size: 1.1em;
 }
 
 @media (max-width: 768px) {
