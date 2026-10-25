@@ -968,6 +968,69 @@ video::cue {
   font-size: 0.95em;
 }
 
+.demo-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.demo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+  width: 280px;
+  max-width: 100%;
+  font-family: var(--font-title);
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.demo-button-secondary {
+  height: 48px;
+  font-size: 16px;
+  color: var(--palette-slate-1);
+  background-color: transparent;
+  border: 2px solid var(--palette-slate-1);
+}
+
+.demo-button-secondary:hover {
+  color: var(--mint-white);
+  background-color: var(--palette-slate-1);
+}
+
+.demo-button-primary {
+  height: 56px;
+  font-size: 18px;
+  color: var(--mint-white);
+  background-color: var(--palette-slate-1);
+  border: 0;
+}
+
+.demo-button-primary:hover {
+  background-color: #3A515B;
+  box-shadow: 0 8px 20px rgba(71, 96, 107, 0.4);
+  transform: translateY(-2px);
+}
+
+.demo-button-primary:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.demo-button-icon {
+  flex-shrink: 0;
+}
+
 @media (max-width: 768px) {
   .quimia-video {
     max-width: 480px;
@@ -975,6 +1038,11 @@ video::cue {
 
   .quimia-video video {
     aspect-ratio: 1080 / 1350;
+  }
+
+  .demo-button {
+    width: 100%;
+    max-width: 320px;
   }
 }
 
