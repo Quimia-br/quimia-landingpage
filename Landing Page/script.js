@@ -198,3 +198,52 @@ setInterval(changePhrase, pauseTime + duration * 2);
     }
   });
 })();
+
+// Vídeo de demonstração
+var demoVideo = document.getElementById('quimiaVideo');
+var soundButton = document.getElementById('quimiaSom');
+
+if (demoVideo && soundButton) {
+  var mobileQuery = window.matchMedia('(max-width: 768px)');
+  var videoVersions = {
+    desktop: {
+      src: 'assets/videos/quimia-demo-com-voz-desktop.mp4',
+      poster: 'assets/images/capa-desktop.jpg'
+    },
+    mobile: {
+      src: 'assets/videos/quimia-demo-com-voz-celular.mp4',
+      poster: 'assets/images/capa-celular.jpg'
+    }
+  };
+  var soundOn = false;
+  var currentVersion = '';
+
+  function loadVideoVersion() {
+    var version = mobileQuery.matches ? 'mobile' : 'desktop';
+
+    if (soundOn || version === currentVersion) {
+      return;
+    }
+    currentVersion = version;
+    demoVideo.poster = videoVersions[version].poster;
+    demoVideo.querySelector('source').src = videoVersions[version].src;
+    demoVideo.load();
+    demoVideo.play().catch(function () {});
+  }
+
+  loadVideoVersion();
+  mobileQuery.addEventListener('change', loadVideoVersion);
+
+  soundButton.addEventListener('click', function () {
+    soundOn = true;
+    demoVideo.currentTime = 0;
+    demoVideo.muted = false;
+    demoVideo.loop = false;
+    if (demoVideo.textTracks[0]) {
+      demoVideo.textTracks[0].mode = 'showing';
+    }
+    demoVideo.controls = true;
+    soundButton.hidden = true;
+    demoVideo.play().catch(function () {});
+  });
+}
