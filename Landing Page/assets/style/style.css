@@ -965,7 +965,7 @@ video::cue {
   color: #000;
   text-shadow: none;
   font-family: "PT Sans", sans-serif;
-  font-size: 1.1em;
+  font-size: 0.95em;
 }
 
 @media (max-width: 768px) {
