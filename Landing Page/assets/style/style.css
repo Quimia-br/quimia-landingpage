@@ -1028,177 +1028,109 @@ h1 {
   object-fit: cover;
   border-radius: var(--radius-card);
 }
-/* CAROUSEL */
-#carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-  margin: 60px 0 0;
-}
 
-/* Strip that holds all the cards and is moved by JavaScript */
-.cards-track {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  transition: transform 0.5s ease-in-out;
-}
-
-/* Fixed frame: hides whatever goes past the edges */
-.cards-window {
-  flex: 1;
-  max-width: 900px;
-  overflow: hidden;
-  padding: 60px 0;
-}
-
-.member-card {
-  position: relative;
-  flex-shrink: 0;
-  width: 256px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  transition: transform 0.5s ease-in-out;
-}
-
-.member-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* Middle card, which is bigger */
-.member-card.active {
-  transform: scale(1.17);
-}
-
-.member-label {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--mint-white);
-  padding: 8px 12px;
-  border-radius: 10px 10px 0 0;
-  width: fit-content;
-}
-
-.member-label p {
-  font-family: var(--font-body);
-  font-size: 12px;
-  color: var(--color-body);
-}
-
-.member-name {
-  font-weight: 800;
-}
-
-.cards-track.no-transition,
-.cards-track.no-transition .member-card {
-  transition: none;
-}
-
-/* Arrows */
-.arrow-blue,
-.arrow-green {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  cursor: pointer;
-  border: none;
-  border-radius: 12px;
-}
-
-.arrow-blue img,
-.arrow-green img {
-  display: block;
-  width: 24px;
-  height: 24px;
-}
-
-.arrow-blue {
-  background-color: var(--palette-blue-2);
-}
-
-.arrow-green {
-  background-color: var(--palette-green-2);
-}
-
-/* FOOTER */
 footer {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(#73F1C9, #88ECE5);
-  padding: 60px 100px 20px;
+  margin-top: var(--section-spacing-half);
+  padding: 48px var(--section-padding-inline) 40px;
+  background: linear-gradient(90deg, #9DF0E9, #8CF4D3);
   border-radius: 30px 30px 0 0;
-  position: relative;
-  z-index: 2;
-}
-
-#footer-body {
-  display: flex;
-  justify-content: space-between;
 }
 
 #footer-brand {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 8px;
+}
+
+.footer-brand-name {
+  font-family: var(--font-brand);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-subtitle);
 }
 
 #footer-logo {
-  height: 50px;
-  background-color: var(--mint-white);
-  padding: 8px;
-  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+  padding: 7px;
+  background-color: var(--surface-logo);
+  border-radius: 50%;
+}
+
+#footer-body {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 64px;
+}
+
+.footer-title {
+  margin-bottom: 22px;
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--color-subtitle);
+}
+
+#contact-info .footer-title {
+  max-width: 160px;
+}
+
+#contact-links,
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+#contact-links {
+  gap: 18px;
+}
+
+.footer-links {
+  gap: 12px;
+}
+
+#github,
+#instagram,
+#email {
+  display: flex;
+}
+
+footer a.body {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--color-subtitle);
+  text-decoration: none;
+}
+
+footer a.body[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.footer-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
 }
 
 #support {
   display: flex;
-  gap: 10px;
-}
-
-#github,
-#instagram {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-#github a,
-#instagram a,
-#help a {
-  text-decoration: none;
-}
-
-h4 {
-  font-family: var(--font-brand);
-  font-size: 30px;
-  font-weight: 500;
-}
-
-.footer-title {
-  margin-bottom: 30px;
-  color: var(--color-title);
-}
-
-#quick-links a {
-  text-decoration: none;
-}
-
-#quick-links {
-  gap: 10px;
 }
 
 #privacy-policy {
-  color: #5f5f5f;
-  text-align: right;
+  align-self: flex-end;
+  margin-top: 30px;
+  font-size: 14px;
+  color: rgba(33, 33, 33, 0.5);
 }
 
 /* Responsividade*/
