@@ -992,7 +992,7 @@ video::cue {
   white-space: nowrap;
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+  transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 .demo-button-secondary {
@@ -1017,14 +1017,7 @@ video::cue {
 }
 
 .demo-button-primary:hover {
-  background-color: #3A515B;
-  box-shadow: 0 8px 20px rgba(71, 96, 107, 0.4);
-  transform: translateY(-2px);
-}
-
-.demo-button-primary:active {
-  box-shadow: none;
-  transform: translateY(0);
+  background-color: var(--palette-slate-hover);
 }
 
 .demo-button-icon {
