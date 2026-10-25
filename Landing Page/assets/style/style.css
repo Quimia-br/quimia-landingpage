@@ -8,22 +8,66 @@
   --color-subtitle: #313131;
   --color-body: #3F3F3F;
 
-  --color-nav-hover: #336D99;
+  --color-nav-hover: #457285;
   --color-nav-active: #388AC9;
 
   --mint-white: #F0FFFC;
 
-  /* Color palette */
   --palette-green-1: #1EEE97;
   --palette-green-2: #00DC9D;
   --palette-green-3: #2DBC93;
+  --palette-green-4: #2EC298;
+  --palette-green-5: #25A783;
+  --palette-green-6: #1C9271;
+  --palette-green-7: #296553;
 
   --palette-blue-1: #4CF1FF;
   --palette-blue-2: #5ADFDA;
   --palette-blue-3: #02D1D6;
+  --palette-blue-4: #33A4B0;
+  --palette-blue-5: #7FC2DD;
+  --palette-blue-6: #7FDDE7;
+  --palette-blue-7: #2B97A8;
+
+  --palette-slate-1: #47606B;
+  --palette-slate-2: #3E5762;
+  --palette-slate-3: #4E6C79;
+  --palette-slate-4: #628492;
+  --palette-slate-5: #22353E;
+  --palette-slate-hover: #5B7884;
+
+  --surface-mint: #E1F1EE;
+  --surface-feature-hover: #D0E7E3;
+  --surface-features: #D2F0EA;
+  --surface-feature-active: #BFDFD9;
+  --surface-about-circle: #CFEFF2;
+  --surface-logo: #ECFDFF;
+
+  --navbar-height: 70px;
+  --viewport-height: 100vh;
+  --section-available: calc(var(--viewport-height) - var(--navbar-height));
+  --title-size: clamp(26px, min(3vw, 5.2vh), 40px);
+  --section-spacing: clamp(112px, 12vw, 150px);
+  --section-spacing-half: calc(var(--section-spacing) / 2);
+  --page-gutter: clamp(20px, 7vw, 100px);
+  --content-max: 1240px;
+  --section-padding-inline: max(var(--page-gutter), calc((100% - var(--content-max)) / 2));
+
+  --radius-card: 20px;
+  --radius-pill: 999px;
+  --shadow-navbar: 0 0 20px rgba(0, 0, 0, 0.25);
+  --shadow-soft: 0 0 25px rgba(0, 0, 0, 0.25);
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
 }
 
-/* Importing fonts */
+@supports (height: 100svh) {
+
+  :root {
+    --viewport-height: 100svh;
+  }
+}
+
 .nunito-400 {
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
@@ -70,39 +114,82 @@
 }
 
 .nunito {
-  font-family: "Nunito";
+  font-family: var(--font-title);
 }
 
-/* Reset properties */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Setting body font as the default */
+html {
+  scrollbar-color: var(--palette-slate-4) var(--mint-white);
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   font-family: var(--font-body);
+  line-height: 1.5;
+  color: var(--color-body);
   background-color: var(--mint-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.3;
 }
 
 .body {
-  font-size: 18px;
+  font-size: clamp(15px, min(1.4vw, 2.3vh), 20px);
+  line-height: 1.65;
   color: var(--color-body);
 }
 
 .subtitle {
+  font-size: clamp(16px, 1.4vw, 20px);
   color: var(--color-subtitle);
 }
 
 .title {
-  color: var(--color-title);
   font-family: var(--font-title);
-  font-size: 30px;
-  font-weight: 850;
+  font-size: var(--title-size);
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--color-title);
 }
 
-/* Reusable text colors */
 .text-blue {
   color: var(--palette-blue-3);
 }
@@ -111,103 +198,205 @@ body {
   color: var(--palette-green-3);
 }
 
-/* Makes sure the header takes the full width (keep documented) */
+.text-green-light {
+  color: var(--palette-green-1);
+}
+
+.text-green-dark {
+  color: var(--palette-green-5);
+}
+
+.text-green-deep {
+  color: var(--palette-green-6);
+}
+
+.text-teal {
+  color: var(--palette-blue-4);
+}
+
+.text-sky {
+  color: var(--palette-blue-5);
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 1100;
+  padding: 10px 16px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--mint-white);
+  text-decoration: none;
+  background-color: var(--palette-slate-1);
+  border-radius: 8px;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-nav-active);
+  outline-offset: 3px;
+}
+
+.button-default {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 8px 30px;
+  font-family: var(--font-title);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 3px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+}
+
+.button-default[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.button-large {
+  min-height: clamp(48px, 6.6vh, 60px);
+  padding-inline: 44px;
+  font-size: clamp(18px, 2.6vh, 22px);
+}
+
+.button-dark {
+  color: var(--mint-white);
+  background-color: var(--palette-slate-1);
+}
+
+.button-dark:hover {
+  background-color: var(--palette-slate-hover);
+}
+
+.button-light {
+  color: var(--color-body);
+  background-color: var(--mint-white);
+}
+
+.button-light:hover {
+  background-color: var(--palette-blue-5);
+}
+
+.button-outline {
+  color: var(--mint-white);
+  background-color: transparent;
+  border-color: var(--mint-white);
+}
+
+.button-outline:hover {
+  color: var(--palette-blue-5);
+  border-color: var(--palette-blue-5);
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 5vh, 64px);
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.info-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+}
+
+.info-item .body {
+  padding-top: 8px;
+}
+
 header {
   width: 100%;
 }
 
-/* NAVBAR */
 #navbar {
-  display: flex;
-  align-items: center;
-  background-color: var(--mint-white);
-  justify-content: space-between;
-  padding: 15px 100px;
-  border-radius: 0 0 30px 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  /* keeps the navbar fixed on screen */
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
-  /* keeps the navbar always on top, because no other element has a higher z-index */
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  height: var(--navbar-height);
+  padding: 0 64px;
+  background-color: var(--mint-white);
+  border-radius: 0 0 20px 20px;
+  box-shadow: var(--shadow-navbar);
 }
 
-/* flex: 1 = makes the element grow and fill the free space inside its flex parent (without it, the element is only as big as its content, and justify-content has no leftover space to distribute). Only works if the parent has display: flex. */
-nav {
+.nav-home {
+  display: flex;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+#nav-logo {
+  width: 36px;
+  height: 36px;
+}
+
+#main-nav {
   flex: 1;
-  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
 }
 
 #nav-list {
   display: flex;
-  list-style: none;
-  gap: 100px;
-  justify-content: center;
   align-items: center;
-  transition: color 0.5s ease;
+  gap: clamp(24px, 5vw, 86px);
+  width: 100%;
 }
 
-/* "Área Restrita" button stays inside the list (it is needed in the mobile menu),
-   but on large screens it is taken out of the flow and pinned to the right edge of
-   the nav, which has the same distance from the navbar border as the logo on the left.
-   The topics stay centered because the button no longer takes part in the flex layout. */
+#nav-list > li:first-child {
+  margin-left: auto;
+}
+
 #nav-list .nav-button-item {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/* Hover of the nav topics.
-   Only applies to the links (.nav-link). It used to be "#nav-list :hover", which matched
-   any element and painted the "Área Restrita" button text blue on blue.
-   It comes BEFORE .active on purpose: if both apply, .active wins. */
-#nav-list .nav-link:hover {
-  color: var(--color-nav-hover);
-}
-
-/* The link with the active class turns blue */
-#nav-list .nav-link.active {
-  color: var(--color-nav-active);
-}
-
-#nav-logo {
-  height: 30px;
+  margin-left: auto;
 }
 
 .nav-link {
-  text-decoration: none;
-  color: var(--color-title);
+  display: inline-block;
+  padding: 8px 0;
   font-family: var(--font-title);
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-title);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--transition-base);
 }
 
-/* Responsiveness */
-#menu-toggle,
-.nav-cta {
+@media (hover: hover) {
+
+  #nav-list .nav-link:hover {
+    color: var(--color-nav-hover);
+  }
+}
+
+#menu-toggle {
   display: none;
 }
-
-/* CTA button */
-.button-default {
-  text-decoration: none;
-  font-family: var(--font-title);
-  font-weight: 700;
-  padding: 6px 20px;
-  box-shadow: 0 0 7px #007A88;
-  border-radius: 8px;
-  color: #03A4B6;
-  transition: all 0.5s ease;
-}
-
-.button-default:hover {
-  background-color: #03A4B6;
-  color: var(--mint-white);
-  box-shadow: 0 0 7px #007A88;
-}
-
 /* MAIN -> SECTION 1 (home screen) */
 #home {
   background-image: url(../images/background-tela\ inicial.png);

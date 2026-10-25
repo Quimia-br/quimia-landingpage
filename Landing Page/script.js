@@ -1,40 +1,3 @@
-// Navbar topicos
-var navLinks = document.querySelectorAll('.nav-link');
-var sections = [];
-
-navLinks.forEach(function (link) {
-  var id = link.getAttribute('href').replace('#', '');
-  sections.push(document.getElementById(id));
-});
-
-function markNavLink(index) {
-  navLinks.forEach(function (link) {
-    link.classList.remove('active');
-  });
-
-  navLinks[index].classList.add('active');
-}
-
-function updateNavbar() {
-  var triggerLine = window.innerHeight * 0.35;
-  var currentIndex = 0;
-
-  sections.forEach(function (section, index) {
-    if (section.getBoundingClientRect().top <= triggerLine) {
-      currentIndex = index;
-    }
-  });
-
-  var reachedBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-  if (reachedBottom) {
-    currentIndex = sections.length - 1;
-  }
-  markNavLink(currentIndex);
-}
-
-window.addEventListener('scroll', updateNavbar);
-updateNavbar();
-
 // Animação ao navegar pelo site
 document.querySelectorAll('a[href^="#"]').forEach(function (link) {
   link.addEventListener('click', function (event) {
@@ -51,7 +14,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     }
   });
 });
-
 
 // Frases subtítulo h1
 var subtitle = document.querySelector('#hero-text p');
