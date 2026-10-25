@@ -51,7 +51,7 @@
         <p class="hero-phrase active">Tudo o que você precisa saber sobre seus produtos de limpeza, em um só lugar
         </p>
         <div class="hero-actions">
-          <a href="#" class="button-default button-light button-large" data-link="appDownload">Baixe o app</a>
+          <a href="#" class="button-default button-light" data-link="appDownload">Baixe o app</a>
           <a href="#features" class="button-default button-outline button-large">Veja como funciona</a>
         </div>
       </div>
@@ -147,10 +147,49 @@
           <p class="about body">O Quimia busca tornar esse conhecimento mais acessível, contribuindo para uma rotina de limpeza mais segura, prática e descomplicada.</p>
         </li>
       </ul>
-      <a href="#" class="button-default button-dark button-large" data-link="appDownload">Baixe o app</a>
+      <a href="#" class="button-default button-dark" data-link="appDownload">Baixe o app</a>
     </div>
     <div id="about-images">
       <img src="assets/images/mockup-boas-vindas.png" alt="Tela de boas-vindas do app Quimia" id="phone-mockup" width="450" height="724">
+    </div>
+  </section>
+  <section id="features">
+    <h2 class="features title" id="features-title">Recursos pensados para o seu <span class="text-green-dark">cotidiano</span></h2>
+    <div class="feature-showcase">
+      <div class="feature-left">
+        <div id="feature-panel" role="tabpanel">
+          <img src="assets/images/tela-escanear.png" alt="Tela de escaneamento de rótulo do app Quimia" class="feature-image active" data-feature="scan" width="360" height="724">
+          <img src="assets/images/tela-misturas.png" alt="Tela de alerta de mistura perigosa do app Quimia" class="feature-image" data-feature="mixtures" width="360" height="724" aria-hidden="true">
+          <img src="assets/images/tela-estante.png" alt="Tela da estante virtual do app Quimia" class="feature-image" data-feature="shelf" width="360" height="724" aria-hidden="true">
+          <img src="assets/images/tela-proximidades.png" alt="Tela de pontos de descarte e lojas próximas do app Quimia" class="feature-image" data-feature="nearby" width="360" height="724" aria-hidden="true">
+        </div>
+      </div>
+      <div class="feature-right" role="tablist" aria-label="Recursos do Quimia" aria-orientation="vertical">
+        <button type="button" class="feature-card active" id="feature-tab-scan" role="tab" aria-selected="true" aria-controls="feature-panel" data-feature="scan">
+          <span class="feature-text">
+            <span class="feature title">Escaneie <span class="text-green-deep">produtos</span></span>
+            <span class="feature body">Cadastre seus produtos pelo rótulo e consulte instruções de uso, alertas de segurança e orientações de limpeza.</span>
+          </span>
+        </button>
+        <button type="button" class="feature-card" id="feature-tab-mixtures" role="tab" aria-selected="false" aria-controls="feature-panel" data-feature="mixtures" tabindex="-1">
+          <span class="feature-text">
+            <span class="feature title">Evite misturas <span class="text-green-deep">perigosas</span></span>
+            <span class="feature body">Verifique a compatibilidade entre seus produtos, evite misturas arriscadas e faça escolhas mais seguras.</span>
+          </span>
+        </button>
+        <button type="button" class="feature-card" id="feature-tab-shelf" role="tab" aria-selected="false" aria-controls="feature-panel" data-feature="shelf" tabindex="-1">
+          <span class="feature-text">
+            <span class="feature title">Monte sua <span class="text-green-deep">estante virtual</span></span>
+            <span class="feature body">Organize seus produtos em uma estante personalizada e consulte suas informações sempre que precisar.</span>
+          </span>
+        </button>
+        <button type="button" class="feature-card" id="feature-tab-nearby" role="tab" aria-selected="false" aria-controls="feature-panel" data-feature="nearby" tabindex="-1">
+          <span class="feature-text">
+            <span class="feature title">Explore suas <span class="text-green-deep">proximidades</span></span>
+            <span class="feature body">Encontre pontos de descarte e lojas próximas, facilitando sua rotina e incentivando práticas mais sustentáveis.</span>
+          </span>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -158,7 +197,7 @@
       <h2 class="accessibility title">Trazendo a <b class="text-blue">acessibilidade</b> que os rótulos não têm.</h2>
       <video src="assets/images/acessibilidade.mp4" autoplay loop muted playsinline id="accessibility-video"></video>
     </section>
-
+    
     <section id="team">
       <div id="team-box">
         <h3 class="team title">Conheça a nossa equipe!</h3>
