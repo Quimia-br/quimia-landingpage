@@ -1133,156 +1133,111 @@ footer a.body[aria-disabled="true"] {
   color: rgba(33, 33, 33, 0.5);
 }
 
-/* Responsividade*/
-/* Acessibilidade, uso do tab*/
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--color-nav-active);
-  outline-offset: 3px;
-}
-
-/* 1200px */
+/* Responsiveness*/
 @media (max-width: 1200px) {
 
   #navbar {
-    padding: 15px 40px;
+    padding: 0 40px;
   }
 
   #nav-list {
-    gap: 50px;
+    gap: 32px;
   }
 
-  .nav-link,
-  .button-default {
-    white-space: nowrap;
-  }
-
-  .feature.body br,
-  .about.body br {
-    display: none;
-  }
-
-  #about {
-    padding-inline: 40px;
-  }
-
-  #about-content {
-    max-width: calc(100% - 380px);
-  }
-
-  .feature-text {
-    padding: 0 50px;
-  }
-}
-
-
-/* 1024px*/
-@media (max-width: 1024px) {
-
-  #navbar {
-    padding: 15px 30px;
-  }
-
-  #nav-list {
-    gap: 30px;
-  }
-
-  h1 {
-    font-size: 44px;
-  }
-
-  h1 br,
-  .purpose-text.body br {
-    display: none;
-  }
-
-  #hero-text {
-    margin: 30px 40px 50px;
-  }
-
-  .glass-card {
-    margin: 20px 40px;
-    width: auto;
-    max-width: 400px;
-    gap: 16px;
-  }
-
-  .glass-icon {
-    flex-shrink: 0;
-  }
-
-  #purpose-cards {
-    width: calc(100% - 80px);
-    padding: 50px 30px;
+  #data-cards {
     gap: 40px;
   }
 
-  .purpose-card {
-    flex: 1;
+  .data-stat-wide {
+    gap: 32px;
   }
 
-  /* Quimia: texto em cima e mokker em baixo */
   #about {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 100px 40px 70px;
-  }
-
-  #about-content {
-    flex: none;
-    max-width: none;
-    margin-bottom: 40px;
-  }
-
-  #about-images {
-    --phone-height: clamp(240px, 45vw, 340px);
-    position: relative;
-    right: auto;
-    top: auto;
-    align-self: center;
-    width: fit-content;
-  }
-
-  .feature-text {
-    padding: 0 40px;
-    gap: 30px;
-  }
-
-  .feature-image {
-    max-width: 45%;
-    object-fit: cover;
-  }
-
-  #accessibility {
-    padding: 100px 40px;
-  }
-
-  #accessibility-video {
-    width: 100%;
-    max-width: 560px;
-    height: auto;
-    padding: 20px;
-  }
-
-  #team-box {
-    padding: 70px 30px;
-  }
-
-  #carousel {
-    gap: 10px;
-  }
-
-  footer {
-    padding: 60px 40px 20px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
   }
 }
 
-
-/* 900px */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
 
   #navbar {
-    padding: 12px 20px;
+    padding: 0 30px;
+  }
+
+  #nav-list {
+    gap: 22px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  #nav-list .button-default {
+    padding-inline: 20px;
+    font-size: 17px;
+  }
+
+  #purpose::before {
+    top: 220px;
+    height: calc(100% - 260px);
+  }
+
+  #purpose-cards {
+    gap: 24px;
+    padding-inline: 28px;
+  }
+
+  #data {
+    --data-wave-height: 110px;
+    padding-top: 190px;
+    padding-bottom: 110px;
+  }
+
+  #data-cards {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 680px;
+    gap: 32px;
+  }
+
+  .data-stat {
+    min-height: 140px;
+  }
+
+  .data-number {
+    font-size: clamp(44px, 7vw, 64px);
+  }
+
+  .feature-showcase {
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  }
+
+  #feature-panel {
+    width: 100%;
+    height: auto;
+  }
+
+  .feature-card {
+    padding: 24px;
+  }
+
+  .team-photo-wrapper {
+    width: min(854px, 100%);
+  }
+
+  #team-photo {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 900px) {
+
+  :root {
+    --navbar-height: 64px;
+  }
+
+  #navbar {
+    justify-content: space-between;
+    padding: 0 20px;
     transition: border-radius 0s linear 0.4s;
   }
 
@@ -1291,16 +1246,15 @@ button:focus-visible {
     transition-delay: 0s;
   }
 
-  /* COnfigurações do menu */
   #menu-toggle {
     display: grid;
     place-items: center;
     width: 44px;
     height: 44px;
+    color: var(--color-title);
     background: none;
     border: none;
     border-radius: 8px;
-    color: var(--color-title);
     cursor: pointer;
   }
 
@@ -1330,22 +1284,23 @@ button:focus-visible {
     transform: none;
   }
 
-  #navbar nav {
+  #main-nav {
     position: absolute;
     top: 100%;
     left: 0;
+    display: block;
     width: 100%;
     max-height: 0;
     overflow: hidden;
     visibility: hidden;
     background-color: var(--mint-white);
-    border-radius: 0 0 30px 30px;
+    border-radius: 0 0 20px 20px;
     transition: max-height 0.4s ease, visibility 0s linear 0.4s;
   }
 
-  #navbar nav.open {
-    max-height: calc(100vh - 70px);
-    max-height: calc(100dvh - 70px);
+  #main-nav.open {
+    max-height: calc(100vh - var(--navbar-height));
+    max-height: calc(100dvh - var(--navbar-height));
     overflow-y: auto;
     visibility: visible;
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
@@ -1354,332 +1309,377 @@ button:focus-visible {
 
   #nav-list {
     flex-direction: column;
-    gap: 24px;
-    padding: 24px 20px;
+    gap: 20px;
+    padding: 24px 20px 28px;
   }
 
+  #nav-list > li:first-child,
   #nav-list .nav-button-item {
-    position: static;
-    transform: none;
+    margin-left: 0;
   }
 
-
-  #navbar > .button-default {
-    display: none;
+  .nav-link {
+    font-size: 17px;
   }
 
-  .nav-cta {
-    display: block;
-  }
-}
-
-
-/* 768px */
-@media (max-width: 768px) {
-
-  :root {
-    --card-width: 220px;
-    --card-gap: 24px;
-  }
-
-  h1 {
-    font-size: 38px;
-  }
-
-  #hero-text {
-    margin: 28px 24px 40px;
-  }
-
-  .glass-card {
-    margin: 14px 24px;
-  }
-
-
-  #purpose {
-    padding-top: 80px;
-    border-radius: 40px 40px 0 0;
-    text-align: center;
-  }
-
-  #purpose .purpose.title,
-  #purpose .purpose.subtitle {
-    padding-inline: 24px;
-  }
-
-  .purpose.subtitle {
-    margin-bottom: 36px;
-  }
-
-  #purpose-cards {
-    flex-direction: column;
-    width: calc(100% - 48px);
-    padding: 36px 24px;
-    gap: 40px;
+  #nav-list .button-default {
+    font-size: 18px;
   }
 
   #about {
-    padding: 80px 24px 60px;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
   }
 
-  #about-title {
-    padding-bottom: 40px;
+  #about-content {
+    justify-self: stretch;
+    padding-bottom: 72px;
   }
 
-  .about.body {
-    padding-bottom: 28px;
+  #about-images {
+    justify-self: center;
+    width: min(420px, 100%);
   }
 
-  /* Funcionalidades: imagem em cima, texto em baixo */
-  .feature-left,
-  .feature-right {
-    flex-direction: column;
-    gap: 30px;
-    padding: 60px 0 50px;
+  .accessibility-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 44px;
   }
 
-  .feature-left {
-    flex-direction: column-reverse;
-  }
-
-  .feature-left img,
-  .feature-right img {
-    width: calc(100% - 48px);
-    max-width: 400px;
+  .accessibility-image {
+    justify-self: start;
+    width: 100%;
+    max-width: 620px;
     height: auto;
-    border-radius: 20px;
-  }
-
-  .feature-text {
-    padding-inline: 24px;
-    gap: 20px;
-    text-align: center;
-  }
-
-  .feature-icon {
-    height: 40px;
-    padding: 8px;
-  }
-
-  #accessibility {
-    padding: 80px 24px;
-  }
-
-  .accessibility.title {
-    margin-bottom: 40px;
-  }
-
-  /* Equipe: setinhas em baixo */
-  #team-box {
-    padding: 60px 20px;
-    border-radius: 40px 40px 0 0;
-    text-align: center;
-  }
-
-  #carousel {
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 30px;
-  }
-
-  .cards-window {
-    order: -1;
-    flex: 0 0 100%;
-    max-width: 100%;
-    padding: 40px 0;
-  }
-
-  .arrow-blue,
-  .arrow-green {
-    padding: 12px;
-    border-radius: 10px;
-  }
-
-  
-  footer {
-    padding: 50px 24px 20px;
   }
 
   #footer-body {
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .footer-title {
-    margin-bottom: 16px;
-  }
-
-  #privacy-policy {
-    margin-top: 32px;
-    text-align: center;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    column-gap: 80px;
   }
 }
-/* ==========================================================
-   TELAS PEQUENAS
-   #home tem altura fixa (sticky) de 100vh, então seu conteúdo deve caber
-   na altura da tela.*/
-/* --- Up to 720px tall: compact #home --- */
-@media (max-height: 720px) {
+
+@media (max-width: 768px) {
+
+  .info-list {
+    gap: 36px;
+  }
+
+  .info-item {
+    gap: 18px;
+  }
+
+  .info-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .info-item .body {
+    padding-top: 4px;
+  }
+
+  .button-large {
+    min-height: 54px;
+    padding-inline: 32px;
+    font-size: 20px;
+  }
 
   #home {
-    padding-top: 76px;
-  }
-
-  #audience-switch {
-    margin-top: 0;
-  }
-
-  .audience-button,
-  .audience-button.active {
-    padding: 10px 14px;
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: clamp(24px, min(6vh, 8vw), 44px);
+    padding-top: calc(var(--navbar-height) + 40px);
+    padding-bottom: 48px;
   }
 
   #hero-text {
-    margin-block: 16px 20px;
+    margin-top: 48px;
+  }
+
+  h1 {
+    font-size: clamp(32px, 8vw, 44px);
   }
 
   #hero-text p {
-    font-size: 15px;
+    margin-top: 24px;
+    font-size: 17px;
   }
 
-  .glass-card {
-    margin-block: 8px;
-    padding: 12px 16px;
+  .hero-actions {
+    margin-top: 40px;
+    gap: 14px;
   }
 
-  .glass-card p {
-    font-size: 14px;
-  }
-}
-
-/* 500px */
-@media (max-height: 500px) {
-
-  #home {
-    padding-top: 72px;
+  #hero-highlights {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    padding-top: 56px;
   }
 
-  #glass-list {
-    display: flex;
-    flex-wrap: wrap;
-    padding-inline: 32px;
-  }
-
-  .glass-card {
-    flex: 1 1 200px;
-    margin: 6px 8px;
-    max-width: none;
-  }
-}
-
-/*480px*/
-@media (max-width: 480px) {
-
-  :root {
-    --card-width: 200px;
-    --card-gap: 20px;
-  }
-
-  .body {
+  .hero-highlight {
     font-size: 16px;
   }
 
-  .title,
-  #about-title {
-    font-size: 26px;
+  .hero-highlight-icon {
+    width: 42px;
+    height: 42px;
   }
 
-  h1 {
-    font-size: 32px;
+    #purpose::before {
+    top: 180px;
+    height: auto;
+    aspect-ratio: 1440 / 765;
   }
 
-  #hero-text {
-    margin: 24px 20px 32px;
-  }
-
-  .glass-card {
-    margin: 14px 20px;
-    padding: 16px;
-  }
-
-  .audience-button,
-  .audience-button.active {
-    padding: 12px;
-    font-size: 14px;
+  #purpose::after {
+    content: "";
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    aspect-ratio: 1440 / 765;
+    background: url("../images/onda-riscos.svg") center / 100% 100% no-repeat;
+    transform: rotate(180deg);
+    pointer-events: none;
   }
 
   #purpose-cards {
-    width: calc(100% - 40px);
-    padding: 30px 20px;
+    grid-template-columns: 1fr;
+    row-gap: 44px;
+    max-width: 520px;
+    margin-top: 44px;
+    padding: 40px 24px;
   }
 
-  #purpose .purpose.title,
-  #purpose .purpose.subtitle {
-    padding-inline: 20px;
+  .purpose-icon {
+    width: 72px;
+    height: 72px;
+    padding: 14px;
   }
 
-  #about {
-    padding: 70px 20px 50px;
+  .purpose-text.title {
+    font-size: 20px;
+  }
+
+  .purpose-card {
+    grid-row: auto;
+    grid-template-rows: none;
+  }
+
+  .purpose-text.body {
+    max-width: 340px;
+    margin-top: 16px;
+  }
+
+  #data {
+    padding-top: 160px;
+  }
+
+  #data::before {
+    top: 80px;
+    width: 260px;
+    height: 250px;
+  }
+
+  .data-card {
+    padding: 32px 24px 28px;
+  }
+
+  .data-stats {
+    margin-top: 28px;
+  }
+
+  .data-stat {
+    min-height: 130px;
+    padding: 18px;
+  }
+
+  .data-text {
+    margin-top: 32px;
+  }
+
+  #about-content .info-list {
+    margin-top: 40px;
+  }
+
+  #about-content .button-default {
+    margin-top: 44px;
+  }
+
+  #features {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .feature-showcase {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+    margin-top: 44px;
+  }
+
+  #feature-panel {
+    max-width: 240px;
+  }
+
+  .feature-right {
+    gap: 14px;
+  }
+
+  .feature.title {
+    font-size: 18px;
+  }
+
+  .feature.body {
+    font-size: 16px;
   }
 
   #accessibility {
-    padding: 70px 20px;
+    --accessibility-gap: 36px;
   }
 
-  #accessibility-video {
-    padding: 12px;
-    border-radius: 16px;
-  }
-
-  #team-box {
-    padding: 50px 16px;
+  #team {
+    --team-photo-gap: 44px;
   }
 
   footer {
-    padding: 40px 20px 20px;
+    padding-top: 40px;
+    padding-bottom: 28px;
+  }
+
+  #footer-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .footer-title {
+    margin-bottom: 14px;
+    font-size: 18px;
+  }
+
+  #contact-info .footer-title {
+    max-width: none;
+  }
+
+  #privacy-policy {
+    align-self: center;
+    margin-top: 36px;
   }
 }
 
+@media (max-width: 480px) {
 
-/* 360px*/
+  :root {
+    --title-size: 26px;
+  }
+
+  .audience-button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .hero-actions .button-default {
+    flex: 1 1 100%;
+  }
+
+  .data-case .data-stats,
+  .data-survey .data-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .data-stat-wide {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-inline: 18px;
+  }
+
+  .data-stat {
+    min-height: 0;
+  }
+
+  #about-content .button-default {
+    width: 100%;
+  }
+
+  .feature-card {
+    padding: 22px 18px;
+  }
+
+  footer a.body {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 360px) {
 
-  h1 {
-    font-size: 29px;
-  }
-
   #navbar {
-    padding: 10px 16px;
+    padding: 0 16px;
+  }
+}
+
+@media (min-width: 1025px) and (max-height: 640px) {
+
+  #purpose-cards {
+    margin-top: 18px;
+    padding-block: 22px 20px;
   }
 
-  .audience-button,
-  .audience-button.active {
-    padding: 10px;
-    font-size: 13px;
+  .purpose-text.body {
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  #data {
+    --data-wave-height: 44px;
+    padding-top: calc(var(--data-wave-height) + 12px);
+    padding-bottom: 16px;
+  }
+
+  #data-cards {
+    margin-top: 14px;
+  }
+
+  .data-card {
+    padding-block: 14px 12px;
+  }
+
+  .data-stats {
+    margin-top: 10px;
+  }
+
+  #features {
+    --features-padding: 12px;
+    --features-gap: 10px;
+  }
+
+  .feature-right {
+    gap: 6px;
+  }
+
+  .feature-card {
+    padding-block: 7px;
   }
 
   .feature-text {
-    padding-inline: 16px;
+    gap: 2px;
+  }
+
+  .feature.body {
+    line-height: 1.4;
   }
 }
 
-
-
-
-
-/* ==========================================================
-   MOTION ACCESSIBILITY
-   ========================================================== */
 @media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
 
   *,
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
     animation-duration: 0.01ms !important;
   }
 }
