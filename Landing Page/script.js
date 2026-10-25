@@ -252,7 +252,7 @@ if (demoVideo && soundButton) {
   soundButton.addEventListener('click', function () {
     var turnOn = demoVideo.muted;
 
-    setSound(turnOn, turnOn);
+    setSound(turnOn, false);
   });
 
   demoVideo.addEventListener('ended', function () {
