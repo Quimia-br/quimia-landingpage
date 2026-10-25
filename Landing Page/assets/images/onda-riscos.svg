@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="765" viewBox="0 1156 1440.5 765" preserveAspectRatio="none" fill="none">
+<path d="M418.5 1253.5C293.7 1155.9 87.5 1166.17 0 1183.5V1288.5C64.8333 1282 206.8 1303.4 256 1441C305.2 1578.6 410.833 1668.33 457.5 1696C524.167 1722.33 684.4 1752.9 792 1664.5C899.6 1576.1 992.5 1627.67 1025.5 1664.5C1062.98 1712.58 1100.52 1751.96 1137 1784.07C1269.89 1901 1388.85 1921.35 1440.5 1913.5V1638C1226.1 1399.6 896.5 1355.33 758.5 1363C697.167 1367.17 543.3 1351.1 418.5 1253.5Z" fill="url(#onda-riscos-gradiente)"/>
+<defs>
+<linearGradient id="onda-riscos-gradiente" x1="720.25" y1="1172.22" x2="720.25" y2="1914.99" gradientUnits="userSpaceOnUse">
+<stop stop-color="#5ADFEA"/>
+<stop offset="0.682692" stop-color="#47606B"/>
+</linearGradient>
+</defs>
+</svg>

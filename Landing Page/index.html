@@ -20,7 +20,6 @@
       <a href="#home" class="nav-home">
         <img src="assets/icons/logo.svg" alt="" id="nav-logo" width="36" height="36">
       </a>
-
       <nav id="main-nav">
         <ul id="nav-list">
           <li><a href="#purpose" class="nav-link">Riscos Domésticos</a></li>
@@ -33,66 +32,66 @@
           </li>
         </ul>
       </nav>
+        <button type="button" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+          <svg class="open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </header>
 
-      <button type="button" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
-        <svg class="open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <main>
+  <main id="main-content">
     <section id="home">
-      <!-- Add js -->
-      <div id="audience-switch">
+      <nav id="audience-switch">
         <a class="audience-button user active" href="#para-voce">Para você</a>
-        <a class="audience-button company" href="#para-sua-empresa">Para sua empresa</a>
-      </div>
-      <div id="hero-text">
-        <h1>Viva a limpeza de um jeito <br>completamente diferente.</h1>
-        <!-- Apply js -->
-        <p>Tudo o que você precisa saber sobre seus produtos de limpeza, em um só lugar.</p>
-      </div>
-      <div id="glass-list">
-        <div class="glass-card">
-          <p>Transforme a forma como você limpa sua casa</p>
-          <img src="assets/icons/frase-inicio-1.svg" alt="Ícone vassoura" class="glass-icon">
-        </div>
-        <div class="glass-card">
-          <p>Traga maior segurança para seu dia a dia</p>
-          <img src="assets/icons/frase-inicio-2.svg" alt="Ícone escudo" class="glass-icon">
-        </div>
-        <div class="glass-card">
-          <p>Entenda a complexidade de cada produto</p>
-          <img src="assets/icons/frase-inicio-3.svg" alt="Ícone produto" class="glass-icon">
-        </div>
-      </div>
-    </section>
+        <a class="audience-button company" href="#para-sua-empresa" data-link="companyPage">Para sua empresa</a>
+      </nav>
 
-    <section id="purpose">
-      <h2 class="purpose title">O que combatemos</h2>
-      <p class="purpose subtitle">Entenda o que torna a faxina do cotidiano mais <b class="text-blue">perigosa</b> do que parece.</p>
-      <div id="purpose-cards">
-        <div class="purpose-card">
-          <img src="assets/icons/dificuldade.svg" alt="Ícone dúvida" class="purpose-icon">
-          <p class="purpose-text title">Dificuldade de <br> entender rótulos</p>
-          <br><br>
-          <p class="purpose-text body">Os rótulos estão cheios <br> de termos técnicos que <br> a maioria dos <br> consumidores não <br> consegue interpretar, <br>comprometendo o uso <br>seguro dos produtos. </p>
-        </div>
-        <div class="purpose-card">
-          <img src="assets/icons/misturas-inadequadas.svg" alt="Ícone brilho" class="purpose-icon">
-          <p class="purpose-text title">Misturas <br>inadequadas</p>
-          <br><br>
-          <p class="purpose-text body">Combinações que <br>parecem inofensivas <br>podem gerar reações <br>químicas graves, e é <br>assim que grande parte <br>dos acidentes <br>domésticos acontecem.</p>
-        </div>
-        <div class="purpose-card">
-          <img src="assets/icons/descarte-incorreto.svg" alt="Ícone lixeira" class="purpose-icon">
-          <p class="purpose-text title">Descarte <br>incorreto</p>
-          <br><br>
-          <p class="purpose-text body">Descartados no lixo <br>comum ou na pia, esses <br>produtos contaminam <br>solo e água, colocando <br>em risco quem os <br>manuseia sem saber o <br>que contém.</p>
+      <div id="hero-text">
+        <h1 id="home-title">Viva a limpeza de um jeito <span class="text-green-light">completamente diferente</span></h1>
+        <p class="hero-phrase active">Tudo o que você precisa saber sobre seus produtos de limpeza, em um só lugar
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="button-default button-light button-large" data-link="appDownload">Baixe o app</a>
+          <a href="#features" class="button-default button-outline button-large">Veja como funciona</a>
         </div>
       </div>
+
+      <ul id="hero-highlights">
+        <li class="hero-highlight">
+          <img src="assets/icons/frase-inicio-1.svg" alt="" class="hero-highlight-icon" width="50" height="50">
+          <p>Transforme a forma como você limpa sua casa</p>
+        </li>
+        <li class="hero-highlight">
+          <img src="assets/icons/frase-inicio-2.svg" alt="" class="hero-highlight-icon" width="50" height="50">
+          <p>Traga maior segurança para o seu dia a dia</p>
+        </li>
+        <li class="hero-highlight">
+          <img src="assets/icons/frase-inicio-3.svg" alt="" class="hero-highlight-icon" width="50" height="50">
+          <p>Entenda a complexidade de cada produto</p>
+        </li>
+      </ul>
     </section>
+    <section id="purpose">
+      <h2 class="purpose title" id="purpose-title">O lado <span class="text-blue">pouco conhecido</span> dos produtos de limpeza</h2>
+      <p class="purpose subtitle">Entenda o que torna a faxina do cotidiano mais perigosa do que parece.</p>
+      <ul id="purpose-cards">
+        <li class="purpose-card">
+            <img src="assets/icons/dificuldade.svg" alt="" class="purpose-icon" width="84" height="84">
+            <h3 class="purpose-text title">Dificuldade de entender rótulos</h3>
+            <p class="purpose-text body">Os rótulos estão cheios de termos técnicos que a maioria dos consumidores não consegue interpretar, comprometendo o uso seguro dos produtos.</p>
+        </li>
+        <li class="purpose-card">
+          <img src="assets/icons/misturas-inadequadas.svg" alt="" class="purpose-icon" width="84" height="84">
+          <h3 class="purpose-text title">Misturas inadequadas</h3>
+          <p class="purpose-text body">Combinações que parecem inofensivas podem gerar reações químicas graves, e é assim que grande parte dos acidentes domésticos acontecem.</p>
+        </li>
+        <li class="purpose-card">
+          <img src="assets/icons/descarte-incorreto.svg" alt="" class="purpose-icon" width="84" height="84">
+          <h3 class="purpose-text title">Descarte incorreto</h3>
+          <p class="purpose-text body">Descartados no lixo comum ou na pia, esses produtos contaminam solo e água, colocando em risco quem os manuseia sem saber o que contém.</p>
+        </li>
+      </ul>
+  </section>
 
     <section id="about">
       <div id="about-content">
