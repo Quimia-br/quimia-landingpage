@@ -1170,7 +1170,7 @@ video::cue {
 
 .download-modal-store img {
   display: block;
-  width: auto;
+  width: 160px;
   height: 52px;
 }
 
