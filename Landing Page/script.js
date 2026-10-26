@@ -259,3 +259,31 @@ if (demoVideo && soundButton) {
     setSound(false, true);
   });
 }
+
+
+// Fazendo os buttons de dowload app funcionarem
+
+function dowloadApp() {
+
+  const appStore = "https://apps.apple.com/br/app//spotify-music-and-podcasts/id324684580";
+  const playStore = "https://play.google.com/store/apps/details?id=com.spotify.music";
+  const fallback = "https://seusite.com/download";
+
+  const userAgent = navigation.userAgent;
+
+  const isIOS =
+    /iPhone|iPad|iPod/i.test(userAgent) ||
+    (navigator.platform === "MacIntel" &&
+     navigator.maxTouchPoints > 1);
+    
+  const isAndroid = /Android/i.test(userAgent);
+
+  if (isIOS){
+    window.location.href = appStore;
+  } else if (isAndroid){
+    window.location.href = playStore;
+  } else {
+    window.location.href = fallback;
+  }
+
+}
