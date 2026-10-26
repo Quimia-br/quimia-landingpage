@@ -1020,10 +1020,6 @@ video::cue {
   background-color: var(--palette-slate-hover);
 }
 
-.demo-button-icon {
-  flex-shrink: 0;
-}
-
 @media (max-width: 768px) {
   .quimia-video {
     max-width: 480px;
