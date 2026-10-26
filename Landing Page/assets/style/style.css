@@ -1039,6 +1039,151 @@ video::cue {
   }
 }
 
+.download-modal {
+  position: fixed;
+  inset: 0;
+  width: min(440px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100% - 32px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  color: var(--color-title);
+  background-color: var(--mint-white);
+  border: 0;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+}
+
+.download-modal::backdrop {
+  background-color: rgba(34, 53, 62, 0.6);
+}
+
+.download-modal-accent {
+  height: 6px;
+  background: linear-gradient(to right, var(--palette-green-1), #5ADFEA);
+}
+
+.download-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color var(--transition-base);
+}
+
+.download-modal-close:hover {
+  background-color: var(--surface-mint);
+}
+
+.download-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 32px 32px;
+}
+
+.download-modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.download-modal-title {
+  font-family: var(--font-title);
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-title);
+}
+
+.download-modal-text {
+  font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--color-body);
+}
+
+.download-modal-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.download-modal-qr-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 240px;
+  height: 240px;
+  padding: 16px;
+  background-color: #FFFFFF;
+  border: 2px solid #5ADFEA;
+  border-radius: var(--radius-card);
+}
+
+.download-modal-qr-box img,
+.download-modal-qr-box canvas,
+.download-modal-qr-box svg {
+  display: block;
+  width: 206px;
+  height: 206px;
+}
+
+.download-modal-qr-caption {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+  text-align: center;
+  color: var(--color-title);
+}
+
+.download-modal-stores {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding-top: 4px;
+}
+
+.download-modal-store {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.download-modal-store img {
+  display: block;
+  width: auto;
+  height: 52px;
+}
+
+@media (max-width: 480px) {
+  .download-modal-content {
+    padding: 40px 20px 24px;
+  }
+
+  .download-modal-stores {
+    flex-direction: column;
+  }
+}
+
 #accessibility {
   --accessibility-padding-top: var(--section-spacing-half);
   --accessibility-padding-bottom: var(--section-spacing-half);
