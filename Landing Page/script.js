@@ -1,9 +1,13 @@
 // Animação ao navegar pelo site
 document.querySelectorAll('a[href^="#"]').forEach(function (link) {
   link.addEventListener('click', function (event) {
-    event.preventDefault();
-
     var targetId = this.getAttribute('href');
+
+    if (targetId.charAt(0) !== '#') {
+      return;
+    }
+
+    event.preventDefault();
 
     if (targetId === '#') {
       return;
