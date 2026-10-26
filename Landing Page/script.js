@@ -279,7 +279,7 @@ const downloadModal = document.getElementById('downloadModal');
 const downloadModalClose = document.getElementById('downloadModalClose');
 const downloadQr = document.getElementById('downloadQr');
 
-function dowloadApp() {
+function downloadApp() {
 
   const userAgent = navigator.userAgent;
 
@@ -301,10 +301,12 @@ function dowloadApp() {
   }
 }
 
+// Aplica a função acima de download em todos os botões de download
+
 document.querySelectorAll('[data-link="appDownload"]').forEach(function (button) {
   button.addEventListener('click', function (event) {
     event.preventDefault();
-    dowloadApp();
+    downloadApp();
   });
 });
 
