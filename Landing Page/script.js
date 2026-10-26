@@ -267,9 +267,9 @@ function dowloadApp() {
 
   const appStore = "https://apps.apple.com/br/app//spotify-music-and-podcasts/id324684580";
   const playStore = "https://play.google.com/store/apps/details?id=com.spotify.music";
-  const fallback = "https://seusite.com/download";
+  const fallback = "https://quimia.tech/download";
 
-  const userAgent = navigation.userAgent;
+  const userAgent = navigator.userAgent;
 
   const isIOS =
     /iPhone|iPad|iPod/i.test(userAgent) ||
@@ -285,5 +285,11 @@ function dowloadApp() {
   } else {
     window.location.href = fallback;
   }
-
 }
+
+document.querySelectorAll('[data-link="appDownload"]').forEach(function (button) {
+  button.addEventListener('click', function (event) {
+    event.preventDefault();
+    dowloadApp();
+  });
+});
