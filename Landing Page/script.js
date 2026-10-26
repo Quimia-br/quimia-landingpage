@@ -215,13 +215,12 @@ if (demoVideo && soundButton) {
       poster: 'assets/images/capa-celular.jpg'
     }
   };
-  var soundOn = false;
   var currentVersion = '';
 
   function loadVideoVersion() {
     var version = mobileQuery.matches ? 'mobile' : 'desktop';
 
-    if (soundOn || version === currentVersion) {
+    if (!demoVideo.muted || version === currentVersion) {
       return;
     }
     currentVersion = version;
@@ -231,19 +230,32 @@ if (demoVideo && soundButton) {
     demoVideo.play().catch(function () {});
   }
 
+  function setSound(on, restart) {
+    var track = demoVideo.textTracks[0];
+
+    if (restart) {
+      demoVideo.currentTime = 0;
+    }
+    demoVideo.muted = !on;
+    demoVideo.loop = !on;
+    if (track) {
+      track.mode = on ? 'showing' : 'hidden';
+    }
+    soundButton.setAttribute('aria-pressed', on ? 'true' : 'false');
+    soundButton.textContent = on ? '\uD83D\uDD07 Desativar som' : '\uD83D\uDD0A Ativar som';
+    demoVideo.play().catch(function () {});
+  }
+
   loadVideoVersion();
   mobileQuery.addEventListener('change', loadVideoVersion);
 
   soundButton.addEventListener('click', function () {
-    soundOn = true;
-    demoVideo.currentTime = 0;
-    demoVideo.muted = false;
-    demoVideo.loop = false;
-    if (demoVideo.textTracks[0]) {
-      demoVideo.textTracks[0].mode = 'showing';
-    }
-    demoVideo.controls = true;
-    soundButton.hidden = true;
-    demoVideo.play().catch(function () {});
+    var turnOn = demoVideo.muted;
+
+    setSound(turnOn, turnOn);
+  });
+
+  demoVideo.addEventListener('ended', function () {
+    setSound(false, true);
   });
 }
