@@ -5,6 +5,10 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
 
     var targetId = this.getAttribute('href');
 
+    if (targetId === '#') {
+      return;
+    }
+
     if (targetId === '#home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -263,11 +267,15 @@ if (demoVideo && soundButton) {
 
 // Fazendo os buttons de dowload app funcionarem
 
-function dowloadApp() {
+const appStoreUrl = "https://apps.apple.com/br/app//spotify-music-and-podcasts/id324684580";
+const playStoreUrl = "https://play.google.com/store/apps/details?id=com.spotify.music";
+const fallback = "https://quimia.tech/download";
 
-  const appStore = "https://apps.apple.com/br/app//spotify-music-and-podcasts/id324684580";
-  const playStore = "https://play.google.com/store/apps/details?id=com.spotify.music";
-  const fallback = "https://quimia.tech/download";
+const downloadModal = document.getElementById('downloadModal');
+const downloadModalClose = document.getElementById('downloadModalClose');
+const downloadQr = document.getElementById('downloadQr');
+
+function dowloadApp() {
 
   const userAgent = navigator.userAgent;
 
@@ -279,9 +287,11 @@ function dowloadApp() {
   const isAndroid = /Android/i.test(userAgent);
 
   if (isIOS){
-    window.location.href = appStore;
+    window.location.href = appStoreUrl;
   } else if (isAndroid){
-    window.location.href = playStore;
+    window.location.href = playStoreUrl;
+  } else if (downloadModal && typeof downloadModal.showModal === 'function') {
+    downloadModal.showModal();
   } else {
     window.location.href = fallback;
   }
@@ -293,3 +303,35 @@ document.querySelectorAll('[data-link="appDownload"]').forEach(function (button)
     dowloadApp();
   });
 });
+
+// Fechar o pop-up de instalação
+
+downloadModalClose.addEventListener('click', function () {
+  downloadModal.close();
+});
+
+downloadModal.addEventListener('click', function (event) {
+  if (event.target === downloadModal) {
+    downloadModal.close();
+  }
+});
+
+// Links das stores e QR Code
+
+document.getElementById('downloadAppStore').href = appStoreUrl;
+document.getElementById('downloadPlayStore').href = playStoreUrl;
+
+try {
+  downloadQr.innerHTML = '';
+
+  new QRCode(downloadQr, {
+    text: fallback,
+    width: 206,
+    height: 206,
+    colorDark: '#212121',
+    colorLight: '#ffffff'
+  });
+} catch (error) {
+  // Se o QR code não puder ser gerado, mostra um link para a página de download
+  downloadQr.innerHTML = '<a href="' + fallback + '">Acesse a página de download</a>';
+}
