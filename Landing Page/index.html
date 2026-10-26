@@ -293,6 +293,34 @@
     </div>
     <a href="#" id="privacy-policy">Política de privacidade 2026</a>
   </footer>
+  <!-- Pop-up de download: abrir com downloadModal.showModal() e fechar com downloadModal.close() -->
+  <dialog id="downloadModal" class="download-modal" aria-labelledby="download-modal-title">
+    <div class="download-modal-accent"></div>
+    <button type="button" id="downloadModalClose" class="download-modal-close" aria-label="Fechar">
+      <img src="assets/icons/fechar.svg" alt="" width="24" height="24">
+    </button>
+    <div class="download-modal-content">
+      <div class="download-modal-header">
+        <h2 id="download-modal-title" class="download-modal-title">Baixe o Quimia</h2>
+        <p class="download-modal-text">Aponte a câmera do celular para o QR code ou escolha sua loja.</p>
+      </div>
+      <div class="download-modal-qr">
+        <!-- Contêiner do QR code: o JS desenha o QR aqui dentro e substitui a imagem de exemplo -->
+        <div id="downloadQr" class="download-modal-qr-box">
+          <img src="assets/images/qr-code-placeholder.svg" alt="QR code para baixar o app Quimia" width="206" height="206">
+        </div>
+        <p class="download-modal-qr-caption">Escaneie com a câmera do celular</p>
+      </div>
+      <div class="download-modal-stores">
+        <a href="#" id="downloadAppStore" class="download-modal-store" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/selo-app-store.svg" alt="Baixar na App Store" width="160" height="52">
+        </a>
+        <a href="#" id="downloadPlayStore" class="download-modal-store" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/selo-google-play.svg" alt="Disponível no Google Play" width="182" height="52">
+        </a>
+      </div>
+    </div>
+  </dialog>
   <script src="script.js"></script>
 </body>
 
