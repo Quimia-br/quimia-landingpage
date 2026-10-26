@@ -930,6 +930,50 @@ h1 {
   line-height: 1.5;
 }
 
+#demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: var(--section-spacing-half) var(--page-gutter);
+  text-align: center;
+}
+
+.demo.subtitle {
+  max-width: 760px;
+}
+
+.quimia-video {
+  width: 100%;
+  max-width: 960px;
+  margin-top: 8px;
+  overflow: hidden;
+  background-color: var(--palette-slate-5);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+}
+
+.quimia-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1920 / 980;
+}
+
+#quimiaSom[hidden] {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .quimia-video {
+    max-width: 480px;
+  }
+
+  .quimia-video video {
+    aspect-ratio: 1080 / 1350;
+  }
+}
+
 #accessibility {
   --accessibility-padding-top: var(--section-spacing-half);
   --accessibility-padding-bottom: var(--section-spacing-half);
