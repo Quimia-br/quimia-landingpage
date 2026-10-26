@@ -271,29 +271,17 @@ if (demoVideo && soundButton) {
 
 // Fazendo os buttons de dowload app funcionarem
 
-const appStoreUrl = "https://apps.apple.com/br/app//spotify-music-and-podcasts/id324684580";
-const playStoreUrl = "https://play.google.com/store/apps/details?id=com.spotify.music";
-const fallback = "https://quimia.tech/download";
+const fallback = "https://quimia.tech";
 
 const downloadModal = document.getElementById('downloadModal');
 const downloadModalClose = document.getElementById('downloadModalClose');
 const downloadQr = document.getElementById('downloadQr');
 
 function downloadApp() {
+  const storeUrl = getMobileStoreUrl();
 
-  const userAgent = navigator.userAgent;
-
-  const isIOS =
-    /iPhone|iPad|iPod/i.test(userAgent) ||
-    (navigator.platform === "MacIntel" &&
-     navigator.maxTouchPoints > 1);
-    
-  const isAndroid = /Android/i.test(userAgent);
-
-  if (isIOS){
-    window.location.href = appStoreUrl;
-  } else if (isAndroid){
-    window.location.href = playStoreUrl;
+  if (storeUrl) {
+    window.location.href = storeUrl;
   } else if (downloadModal && typeof downloadModal.showModal === 'function') {
     downloadModal.showModal();
   } else {
@@ -331,7 +319,7 @@ try {
   downloadQr.innerHTML = '';
 
   new QRCode(downloadQr, {
-    text: fallback,
+    text: downloadPageUrl,
     width: 206,
     height: 206,
     colorDark: '#212121',
@@ -339,5 +327,5 @@ try {
   });
 } catch (error) {
   // Se o QR code não puder ser gerado, mostra um link para a página de download
-  downloadQr.innerHTML = '<a href="' + fallback + '">Acesse a página de download</a>';
+  downloadQr.innerHTML = '<a href="' + downloadPageUrl + '">Acesse a página de download</a>';
 }
