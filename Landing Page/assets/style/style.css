@@ -1184,6 +1184,42 @@ video::cue {
   }
 }
 
+.download-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 100vh;
+  padding: 32px 20px;
+  text-align: center;
+  background-color: var(--mint-white);
+}
+
+.download-page-logo {
+  width: 64px;
+  height: auto;
+}
+
+.download-page-title {
+  font-family: var(--font-title);
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-title);
+}
+
+.download-page-text {
+  font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--color-body);
+}
+
+.download-page .download-modal-stores {
+  margin-top: 8px;
+}
+
 #accessibility {
   --accessibility-padding-top: var(--section-spacing-half);
   --accessibility-padding-bottom: var(--section-spacing-half);
