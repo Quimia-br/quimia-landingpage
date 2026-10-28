@@ -57,6 +57,29 @@
           </div>
         </fieldset>
 
+        <div class="support-field" id="field-name">
+          <label class="support-label" for="name">Nome</label>
+          <input type="text" id="name" name="name" class="support-input" autocomplete="name" maxlength="80" placeholder="Como podemos chamar você?" required aria-describedby="name-error">
+          <p class="support-error" id="name-error" hidden>Informe seu nome.</p>
+        </div>
+
+        <fieldset class="support-field" id="field-contact">
+          <legend class="support-label">Como prefere receber o retorno?</legend>
+          <div class="support-segmented" role="radiogroup" aria-label="Forma de retorno">
+            <label class="support-segment">
+              <input type="radio" name="contactMethod" value="E-mail" checked>
+              <span>E-mail</span>
+            </label>
+            <label class="support-segment">
+              <input type="radio" name="contactMethod" value="Celular">
+              <span>Celular</span>
+            </label>
+          </div>
+          <label class="support-sublabel" for="contact" id="contact-label">Seu e-mail</label>
+          <input type="email" id="contact" name="contact" class="support-input" autocomplete="email" inputmode="email" maxlength="120" placeholder="nome@exemplo.com" required aria-describedby="contact-error">
+          <p class="support-error" id="contact-error" hidden>Informe um e-mail válido, como nome@exemplo.com.</p>
+        </fieldset>
+
         <div class="support-field" id="field-reason">
           <label class="support-label" for="reason">Qual o motivo do contato?</label>
           <div class="support-select-wrap">
@@ -73,6 +96,12 @@
             <img src="assets/support/icons/chevron-down.svg" alt="" class="support-select-icon" width="24" height="24">
           </div>
           <p class="support-error" id="reason-error" hidden>Escolha o motivo do seu contato.</p>
+        </div>
+
+        <div class="support-field" id="field-topic" hidden>
+          <label class="support-label" for="topic">Qual assunto você gostaria de tratar?</label>
+          <input type="text" id="topic" name="topic" class="support-input" maxlength="80" placeholder="Resuma em poucas palavras" aria-describedby="topic-error">
+          <p class="support-error" id="topic-error" hidden>Conte qual assunto você gostaria de tratar.</p>
         </div>
 
         <div class="support-field" id="field-message">
