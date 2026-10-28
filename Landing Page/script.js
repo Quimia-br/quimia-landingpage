@@ -19,6 +19,8 @@
       setAnswerState(button, !isOpen);
     });
   });
+})();
+
 // Transição ao trocar de landing (usuário / empresa)
 (() => {
   const audienceLinks = document.querySelectorAll('.audience-button:not(.active)');
