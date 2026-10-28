@@ -1514,6 +1514,7 @@ header {
   position: relative;
   display: grid;
   grid-row: span 3;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: subgrid;
   align-content: start;
   padding: clamp(18px, 3.4vh, 38px) 28px clamp(16px, 3vh, 32px);
@@ -1833,7 +1834,7 @@ footer {
 }
 
 /* Responsividade: menu hambúrguer */
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 
   :root {
     --navbar-height: 64px;
@@ -1928,5 +1929,347 @@ footer {
 
   .nav-button-item .button-default {
     width: 100%;
+  }
+}
+
+/* Responsividade: tablet e celular */
+@media (max-width: 1024px) {
+
+  #market-intelligence {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 28px;
+  }
+
+  #market-intelligence-title {
+    order: -1;
+    text-align: left;
+  }
+
+  #market-media {
+    height: auto;
+    min-height: 460px;
+  }
+
+  .market-card {
+    min-height: 0;
+  }
+
+  #product-registration {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+  }
+
+  #product-registration-title,
+  #product-registration-subtitle,
+  #registration-cards {
+    padding-left: 0;
+  }
+
+  #registration-cards {
+    max-width: none;
+    gap: 16px;
+  }
+
+  .registration-card {
+    min-height: 0;
+  }
+
+  #registration-media {
+    grid-column: 1;
+    grid-row: auto;
+    height: 320px;
+    margin-top: 24px;
+  }
+
+  #dashboard-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    height: auto;
+    border-radius: 30px;
+  }
+
+  .dashboard-tab {
+    height: 48px;
+    font-size: 16px;
+  }
+
+  .dashboard-panel:not(.active) {
+    display: none;
+  }
+
+  .dashboard-panel,
+  .dashboard-panel.behavior,
+  .dashboard-panel.category {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .dashboard-panel:not(.active) {
+    display: none;
+  }
+
+  .dashboard-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: auto;
+  }
+
+  .dashboard-photo-frame {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: 200px;
+  }
+
+  .dashboard-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    margin-inline: auto;
+    aspect-ratio: 400 / 329;
+    border-radius: 26px;
+  }
+
+  .dashboard-text,
+  .dashboard-panel.behavior .dashboard-text {
+    width: auto;
+    margin: 0;
+    text-align: left;
+  }
+
+  #privacy-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  #privacy-card {
+    width: 100%;
+    max-width: 531px;
+    margin-inline: auto;
+  }
+
+  #sustainability-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    min-height: 0;
+    padding: 32px 24px;
+  }
+
+  #sustainability-title {
+    margin-top: 0;
+  }
+
+  .sustainability-topic {
+    min-height: 0;
+  }
+
+  #steps {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    row-gap: 28px;
+    padding: 32px 24px;
+  }
+
+  #steps::before {
+    top: 60px;
+    right: auto;
+    bottom: 60px;
+    left: 51px;
+    width: 2px;
+    height: auto;
+    transform: none;
+  }
+
+  #steps .step {
+    grid-row: auto;
+    grid-template-columns: 55px minmax(0, 1fr);
+    grid-template-rows: none;
+    column-gap: 20px;
+    justify-items: start;
+    align-items: center;
+    text-align: left;
+  }
+
+  #steps .step-number {
+    grid-row: auto;
+    grid-column: 1;
+    margin-block: 0;
+  }
+
+  #steps .step .step-text {
+    grid-row: auto;
+    grid-column: 2;
+    align-self: center;
+    width: auto;
+    max-width: none;
+  }
+}
+
+@media (max-width: 900px) {
+
+  :root {
+    --title-size: clamp(26px, 5.6vw, 36px);
+  }
+
+  #home {
+    --home-cards-peek: 56px;
+  }
+
+  #home-cards {
+    grid-template-columns: minmax(0, 520px);
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .home-card {
+    min-height: 0;
+    padding: 20px 24px 28px;
+  }
+
+  #plan-cards {
+    grid-template-columns: minmax(0, 480px);
+    grid-template-rows: none;
+    justify-content: center;
+    gap: 44px 0;
+    min-height: 0;
+  }
+
+  .plan-card {
+    grid-row: auto;
+    grid-template-rows: none;
+  }
+
+  .plan-card.pro {
+    margin-top: 12px;
+  }
+
+  .plan-header {
+    min-height: 0;
+  }
+
+  .plan-features li {
+    font-size: 15px;
+  }
+
+  #footer-privacy {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .button-default {
+    min-height: 56px;
+    padding-inline: 24px;
+    font-size: 18px;
+    white-space: normal;
+  }
+
+  .home-card p,
+  .market-card-title,
+  .registration-card-title,
+  .dashboard-text-title,
+  .sustainability-topic-title,
+  .plan-includes {
+    font-size: 18px;
+  }
+
+  .link-tertiary {
+    font-size: 18px;
+  }
+
+  #market-cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  #market-media {
+    min-height: 0;
+    padding-top: 220px;
+  }
+
+  .registration-card {
+    padding: 16px 16px 20px;
+  }
+
+  #registration-media {
+    height: 240px;
+  }
+
+  .dashboard-photo-frame {
+    height: 160px;
+  }
+
+  #privacy-tag {
+    padding: 10px 18px;
+    font-size: 17px;
+  }
+
+  .info-item {
+    gap: 14px;
+  }
+
+  .faq-button {
+    padding: 20px;
+  }
+
+  .faq-answer {
+    padding-inline: 20px;
+  }
+
+  .faq-item:has(.faq-button[aria-expanded="true"]) .faq-answer {
+    padding-bottom: 20px;
+  }
+
+  .faq-answer p {
+    font-size: 17px;
+  }
+
+  .faq-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  footer {
+    padding-block: 40px 32px;
+  }
+
+  .footer-brand-name {
+    font-size: 30px;
+  }
+
+  .footer-title {
+    font-size: 18px;
+  }
+
+  .footer-link {
+    font-size: 17px;
+  }
+}
+
+/* Telas de toque: áreas de clique de pelo menos 44px */
+@media (pointer: coarse) {
+
+  .nav-home {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+  }
+
+  .footer-link {
+    min-height: 44px;
+  }
+
+  .footer-links {
+    gap: 0;
   }
 }

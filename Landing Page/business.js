@@ -163,7 +163,7 @@ const QUIMIA_LINKS = Object.freeze({
   const navbar = document.getElementById('navbar');
   const navMenu = document.getElementById('main-nav');
   const menuButton = document.getElementById('menu-toggle');
-  const largeScreen = window.matchMedia('(min-width: 1101px)');
+  const largeScreen = window.matchMedia('(min-width: 1201px)');
 
   const setMenu = (isOpen) => {
     navbar.classList.toggle('menu-open', isOpen);
