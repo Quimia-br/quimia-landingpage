@@ -1513,7 +1513,11 @@ footer a.body[aria-disabled="true"] {
   background-color: var(--mint-white);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.7s ease;
+}
+
+.page-transition.is-leaving {
+  background-color: #171919;
 }
 
 .page-transition.is-covering {
@@ -1526,7 +1530,7 @@ footer a.body[aria-disabled="true"] {
   height: auto;
   opacity: 0;
   transform: scale(0.85);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .page-transition.is-covering .page-transition-logo {
