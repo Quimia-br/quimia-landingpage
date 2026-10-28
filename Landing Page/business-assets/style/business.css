@@ -1231,3 +1231,113 @@ header {
 #privacy-link {
   margin-top: clamp(20px, 6vh, 88px);
 }
+
+#privacy-card {
+  --pu: calc(100cqw / 531);
+  container-type: inline-size;
+}
+
+.privacy-card-content {
+  padding: calc(30 * var(--pu)) calc(30 * var(--pu)) calc(30 * var(--pu));
+  font-family: var(--font-title);
+  background-color: #1F2322;
+  border: 1px solid #2B3130;
+  border-radius: calc(30 * var(--pu));
+}
+
+.privacy-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: calc(19 * var(--pu));
+  font-weight: 700;
+  line-height: 1.3;
+  color: #8E9A96;
+}
+
+.privacy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(7 * var(--pu));
+  padding: calc(6 * var(--pu)) calc(14 * var(--pu));
+  font-size: calc(15 * var(--pu));
+  background-color: #262A29;
+  border-radius: var(--radius-pill);
+}
+
+.privacy-badge img {
+  width: calc(16 * var(--pu));
+  height: calc(16 * var(--pu));
+}
+
+.privacy-users {
+  display: flex;
+  flex-direction: column;
+  gap: calc(15 * var(--pu));
+  margin-top: calc(22 * var(--pu));
+}
+
+.privacy-user {
+  display: flex;
+  align-items: center;
+  gap: calc(21 * var(--pu));
+  padding: calc(17 * var(--pu)) calc(30 * var(--pu)) calc(17 * var(--pu)) calc(21 * var(--pu));
+  background-color: #232826;
+  border-radius: calc(20 * var(--pu));
+}
+
+.privacy-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: calc(56 * var(--pu));
+  aspect-ratio: 1;
+  font-size: calc(24 * var(--pu));
+  font-weight: 800;
+  color: #9F9F9F;
+  background-color: var(--palette-teal-7);
+  border-radius: 50%;
+}
+
+.privacy-lines {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: calc(11 * var(--pu));
+}
+
+.privacy-lines span {
+  display: block;
+  width: 68%;
+  height: calc(13 * var(--pu));
+  background-color: #3A423F;
+  border-radius: var(--radius-pill);
+}
+
+.privacy-lines span + span {
+  width: 49%;
+  height: calc(10 * var(--pu));
+  background-color: #2E3634;
+}
+
+.privacy-user:nth-child(2) .privacy-lines span:first-child {
+  width: 54%;
+}
+
+.privacy-user:nth-child(2) .privacy-lines span + span {
+  width: 63%;
+}
+
+.privacy-user:nth-child(3) .privacy-lines span:first-child {
+  width: 73%;
+}
+
+.privacy-user:nth-child(3) .privacy-lines span + span {
+  width: 42%;
+}
+
+.privacy-user > img {
+  width: calc(24 * var(--pu));
+  height: calc(24 * var(--pu));
+}
