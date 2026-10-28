@@ -1,7 +1,7 @@
 const QUIMIA_LINKS = Object.freeze({
   userPage: { url: 'index.html', newTab: false },
-  basicPlan: { url: '', newTab: false },
-  proPlan: { url: '', newTab: false },
+  basicPlan: { url: 'https://quimia.app/', newTab: false },
+  proPlan: { url: 'https://quimia.app/', newTab: false },
   enterpriseQuote: { url: 'mailto:quimia.app@gmail.com?subject=Or%C3%A7amento%20Quimia%20Enterprise', newTab: false },
   restrictedArea: { url: '', newTab: false },
   privacyPolicy: { url: '', newTab: true }
