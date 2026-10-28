@@ -2088,3 +2088,31 @@ footer a.body[aria-disabled="true"] {
     animation-duration: 0.01ms !important;
   }
 }
+/* Responsividade: FAQ */
+@media (max-width: 768px) {
+  #faq-list {
+    gap: 16px;
+  }
+
+  .faq-button {
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .faq-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .faq-answer {
+    padding: 0 20px;
+  }
+
+  .faq-item:has(.faq-button[aria-expanded="true"]) .faq-answer {
+    padding-bottom: 24px;
+  }
+
+  .faq-answer p {
+    font-size: 17px;
+  }
+}
