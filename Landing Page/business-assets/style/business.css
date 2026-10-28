@@ -699,3 +699,208 @@ header {
   height: 100%;
   object-fit: cover;
 }
+
+#dashboards {
+  --menu-height: clamp(52px, 8vh, 69px);
+  --dash-gap: clamp(14px, 3vh, 32px);
+  --du: clamp(0.58px, min(calc((var(--section-fit) - 3 * var(--title-size) - var(--menu-height) - 2 * var(--dash-gap) - 56px) / 637), calc(min(100vw - 2 * var(--page-gutter), var(--content-max)) / 1274)), 1px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#dashboards-title {
+  max-width: 1060px;
+  text-align: center;
+}
+
+#dashboard-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: var(--menu-height);
+  margin-top: calc(var(--dash-gap) * 0.75);
+  padding: 6px 11px;
+  background-color: var(--color-surface);
+  border: 3px solid var(--palette-green-6);
+  border-radius: var(--radius-pill);
+}
+
+.dashboard-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  padding: 0 clamp(14px, 1.4vw, 20px);
+  font-family: var(--font-title);
+  font-size: clamp(17px, 2.6vh, 20px);
+  line-height: 1.2;
+  color: var(--color-title);
+  white-space: nowrap;
+  border-radius: var(--radius-pill);
+  transition: background-color var(--transition-base);
+}
+
+.dashboard-tab img {
+  width: 20px;
+  height: 20px;
+}
+
+.dashboard-tab:hover {
+  background-color: rgba(62, 80, 74, 0.45);
+}
+
+.dashboard-tab.active {
+  background-color: var(--palette-green-8);
+}
+
+#dashboard-panels {
+  display: grid;
+  width: 100%;
+  margin-top: var(--dash-gap);
+}
+
+.dashboard-panel {
+  --panel-w: 1131;
+  --visual-h: 521;
+  --photo-x: 0;
+  --photo-y: 112;
+  --card-x: 479;
+  --card-y: 0;
+  --text-x: 476;
+  --text-y: 414;
+  display: grid;
+  grid-area: 1 / 1;
+  width: min(100%, calc(var(--panel-w) * var(--du)));
+  margin-inline: auto;
+}
+
+.dashboard-panel.behavior {
+  --panel-w: 1143;
+  --visual-h: 532;
+  --photo-x: 521;
+  --photo-y: 123;
+  --card-x: 258;
+  --text-x: 6;
+  --text-y: 412;
+}
+
+.dashboard-panel.category {
+  --panel-w: 1274;
+  --visual-h: 524;
+  --photo-y: 115;
+  --card-x: 622;
+  --text-x: 622;
+  --text-y: 413;
+}
+
+.dashboard-panel:not(.active) {
+  visibility: hidden;
+}
+
+.dashboard-panel.active {
+  animation: dashboard-fade 0.45s ease both;
+}
+
+.dashboard-panel > * {
+  grid-area: 1 / 1;
+  align-self: start;
+}
+
+.dashboard-visual {
+  position: relative;
+  height: calc(var(--visual-h) * var(--du));
+}
+
+.dashboard-photo-frame {
+  position: absolute;
+  top: calc(var(--photo-y) * var(--du));
+  left: calc(var(--photo-x) * var(--du));
+  width: calc(622 * var(--du));
+  height: calc(409 * var(--du));
+  overflow: hidden;
+  border-radius: var(--radius-card);
+}
+
+.dashboard-photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--overlay-image);
+}
+
+.dashboard-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dashboard-card {
+  --cu: calc(100cqw / 400);
+  position: absolute;
+  top: calc(var(--card-y) * var(--du));
+  left: calc(var(--card-x) * var(--du));
+  z-index: 1;
+  width: calc(400 * var(--du));
+  height: calc(329 * var(--du));
+  overflow: hidden;
+  container-type: inline-size;
+  background-color: var(--chart-card);
+  border-radius: calc(26 * var(--du));
+}
+
+.dashboard-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--overlay-card);
+  pointer-events: none;
+}
+
+.dashboard-text {
+  position: relative;
+  z-index: 1;
+  --text-room: calc(50vw + 50% - var(--text-x) * var(--du) - var(--page-gutter));
+  --text-w: max(calc(652 * var(--du)), min(680px, var(--text-room)));
+  width: var(--text-w);
+  margin-top: calc(var(--text-y) * var(--du));
+  margin-left: calc(var(--text-x) * var(--du));
+}
+
+.dashboard-panel.behavior .dashboard-text {
+  --text-room: calc(50vw - 50% + (var(--text-x) + 652) * var(--du) - var(--page-gutter));
+  margin-left: calc((var(--text-x) + 652) * var(--du) - var(--text-w));
+  text-align: right;
+}
+
+.dashboard-text-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-white);
+}
+
+.dashboard-text p {
+  margin-top: 8px;
+  font-size: var(--text-size);
+  line-height: 1.4;
+  color: var(--color-body-muted);
+}
+
+.dashboard-link {
+  align-self: flex-start;
+  margin-top: clamp(12px, 2.4vh, 28px);
+}
+
+@keyframes dashboard-fade {
+
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
