@@ -33,3 +33,67 @@ const QUIMIA_LINKS = Object.freeze({
     });
   });
 })();
+
+(() => {
+  const tabList = document.getElementById('dashboard-tabs');
+
+  if (!tabList) {
+    return;
+  }
+
+  const tabs = Array.from(tabList.querySelectorAll('.dashboard-tab'));
+  const panels = tabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')));
+  const keySteps = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+
+  const setFocusableTab = (focusTab) => {
+    tabs.forEach((tab) => {
+      tab.tabIndex = tab === focusTab ? 0 : -1;
+    });
+  };
+
+  const selectTab = (selectedTab) => {
+    tabs.forEach((tab, index) => {
+      const isSelected = tab === selectedTab;
+      tab.classList.toggle('active', isSelected);
+      tab.setAttribute('aria-selected', String(isSelected));
+      panels[index].classList.toggle('active', isSelected);
+    });
+
+    setFocusableTab(selectedTab);
+  };
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      selectTab(tab);
+    });
+  });
+
+  tabList.addEventListener('keydown', (event) => {
+    const currentIndex = tabs.indexOf(document.activeElement);
+    let nextIndex;
+
+    if (currentIndex === -1) {
+      return;
+    }
+
+    if (event.key in keySteps) {
+      nextIndex = (currentIndex + keySteps[event.key] + tabs.length) % tabs.length;
+    } else if (event.key === 'Home') {
+      nextIndex = 0;
+    } else if (event.key === 'End') {
+      nextIndex = tabs.length - 1;
+    } else {
+      return;
+    }
+
+    event.preventDefault();
+    setFocusableTab(tabs[nextIndex]);
+    tabs[nextIndex].focus();
+  });
+
+  tabList.addEventListener('focusout', (event) => {
+    if (!tabList.contains(event.relatedTarget)) {
+      setFocusableTab(tabList.querySelector('.dashboard-tab.active'));
+    }
+  });
+})();

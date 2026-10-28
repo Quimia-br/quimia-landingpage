@@ -102,6 +102,118 @@
                     <img src="business-assets/images/registration-spray.jpg" alt="Mão com luva azul segurando um borrifador de produto de limpeza" class="registration-image" width="900" height="1352" loading="lazy">
                 </div>
             </section>
+            <section id="dashboards" aria-labelledby="dashboards-title">
+                <h2 class="title" id="dashboards-title">Acompanhe em <span class="text-green">dashboards</span> os dados de quem usa seus produtos todos os dias.</h2>
+                    <div id="dashboard-tabs" role="tablist" aria-label="Tipos de dashboard">
+                        <button type="button" role="tab" id="tab-presence" class="dashboard-tab active" aria-selected="true" aria-controls="panel-presence" data-dashboard="presence">
+      Presença
+                            <img src="business-assets/icons/presence.svg" alt="" width="22" height="22">
+                        </button>
+                        <button type="button" role="tab" id="tab-behavior" class="dashboard-tab" aria-selected="false" aria-controls="panel-behavior" data-dashboard="behavior" tabindex="-1">
+      Comportamento
+                            <img src="business-assets/icons/behavior.svg" alt="" width="22" height="22">
+                        </button>
+                        <button type="button" role="tab" id="tab-category" class="dashboard-tab" aria-selected="false" aria-controls="panel-category" data-dashboard="category" tabindex="-1">
+      Categoria
+                            <img src="business-assets/icons/category.svg" alt="" width="22" height="22">
+                        </button>
+                    </div>
+                    <div id="dashboard-panels">
+                        <div role="tabpanel" id="panel-presence" class="dashboard-panel presence active" aria-labelledby="tab-presence" tabindex="0">
+                            <div class="dashboard-visual">
+                                <div class="dashboard-photo-frame">
+                                    <img src="business-assets/images/dashboard-presence.jpg" alt="Notebook exibindo um painel de estatísticas com gráficos verdes" class="dashboard-photo" width="1300" height="851" loading="lazy">
+                                </div>
+                                <figure class="dashboard-card presence-card">
+                                    <figcaption class="visually-hidden">Exemplo ilustrativo: 1.200 pessoas têm o Desinfetante Lavanda, com crescimento de 33% em quatro meses.</figcaption>
+                                    <div class="chart-card-content" aria-hidden="true">
+                                        <span class="chart-chip">Dados ilustrativos</span>
+                                        <p class="chart-number">1.200</p>
+                                        <p class="chart-caption">pessoas têm o Desinfetante Lavanda</p>
+                                        <ol class="presence-bars">
+                                            <li><span class="presence-bar"></span>jul</li>
+                                            <li><span class="presence-bar"></span>ago</li>
+                                            <li><span class="presence-bar"></span>set</li>
+                                            <li class="current"><span class="presence-bar"></span>out</li>
+                                        </ol>
+                                        <p class="chart-trend">+33% em quatro meses</p>
+                                    </div>
+                                </figure>
+                            </div>
+                            <div class="dashboard-text">
+                                <h3 class="dashboard-text-title">Veja onde sua empresa já chegou</h3>
+                                <p>Acompanhe quantos lares têm cada produto, sua evolução mensal e o desempenho da marca frente à média da categoria. Descubra também onde seus produtos são mais encontrados, quais regiões apresentam maior crescimento e quais itens se destacam em cada localidade.</p>
+                            </div>
+                        </div>
+                        <div role="tabpanel" id="panel-behavior" class="dashboard-panel behavior" aria-labelledby="tab-behavior" tabindex="0">
+                            <div class="dashboard-visual">
+                                <div class="dashboard-photo-frame">
+                                    <img src="business-assets/images/dashboard-behavior.jpg" alt="Notebook com painel escuro de gráficos de uso" class="dashboard-photo" width="613" height="399" loading="lazy">
+                                </div>
+                                <figure class="dashboard-card behavior-card">
+                                    <figcaption class="visually-hidden">Exemplo ilustrativo: o Desinfetante Lavanda é usado 62% no banheiro, 27% na cozinha e 11% na área de serviço.</figcaption>
+                                    <div class="chart-card-content" aria-hidden="true">
+                                        <div class="chart-header">
+                                            <p class="chart-product">Desinfetante Lavanda</p>
+                                            <span class="chart-chip">Dados ilustrativos</span>
+                                        </div>
+                                        <div class="behavior-chart">
+                                            <div class="behavior-donut">
+                                                <p><strong>62%</strong>Banheiro</p>
+                                            </div>
+                                            <ul class="behavior-legend">
+                                                <li class="room-bathroom">Banheiro <strong>62%</strong></li>
+                                                <li class="room-kitchen">Cozinha <strong>27%</strong></li>
+                                                <li class="room-laundry">Área de serviço <strong>11%</strong></li>
+                                            </ul>
+                                        </div>
+                                        <p class="chart-note">O <strong>banheiro</strong> se destaca como o ambiente de maior utilização do seu <em>Desinfetante Lavanda</em>.</p>
+                                    </div>
+                                </figure>
+                            </div>
+                            <div class="dashboard-text">
+                                <h3 class="dashboard-text-title">Entenda seus produtos na prática</h3>
+                                <p>Acompanhe padrões de uso dos seus produtos por cômodo, frequência de consulta e interações no app, comparando produtos e acompanhando mudanças ao longo do tempo.</p>
+                            </div>
+                        </div>
+                        <div role="tabpanel" id="panel-category" class="dashboard-panel category" aria-labelledby="tab-category" tabindex="0">
+                            <div class="dashboard-visual">
+                                <div class="dashboard-photo-frame">
+                                    <img src="business-assets/images/dashboard-category.jpg" alt="Pessoa digitando em um notebook com painel de vendas e gráficos" class="dashboard-photo" width="617" height="400" loading="lazy">
+                                </div>
+                                <figure class="dashboard-card category-card">
+                                    <figcaption class="visually-hidden">Exemplo ilustrativo: 6,7% de quem usa desinfetante usa o Desinfetante Lavanda, ou 1.200 de 18.000 pessoas.</figcaption>
+                                    <div class="chart-card-content" aria-hidden="true">
+                                        <div class="chart-header">
+                                            <div>
+                                                <p class="chart-number">6,7%</p>
+                                                <p class="chart-caption">de quem usa desinfetante usa o <em>Desinfetante Lavanda</em></p>
+                                            </div>
+                                            <div class="chart-chips">
+                                                <span class="chart-chip">Dados ilustrativos</span>
+                                                <span class="chart-chip chip-category">Categoria: Desinfetante</span>
+                                            </div>
+                                        </div>
+                                        <div class="category-share">
+                                            <p class="category-share-label">Todos os usuários de desinfetante <strong>18.000 pessoas</strong></p>
+                                            <span class="category-track"><span class="category-fill"></span></span>
+                                            <ul class="category-legend">
+                                                <li class="brand"><strong>1.200</strong> usam o Lavanda</li>
+                                                <li class="others"><strong>16.800</strong> usam outros desinfetantes</li>
+                                            </ul>
+                                        </div>
+                                        <p class="chart-average">Média da categoria: <strong>800 usuários</strong></p>
+                                    </div>
+                                </figure>
+                            </div>
+                            <div class="dashboard-text">
+                                <h3 class="dashboard-text-title">Encontre novas oportunidades de mercado</h3>
+                                <p>Descubra quais categorias de produtos de limpeza estão em alta e onde seus produtos têm maior presença. Compare seu desempenho com a média da categoria e identifique oportunidades para ganhar espaço no mercado.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#plans" class="link-tertiary link-green dashboard-link">Ver planos <svg class="link-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M6.25 17L13.75 9.5L6.25 2"/></svg></a>
+            </section>
         </main>
     <script src="business.js"></script>
 </body>
