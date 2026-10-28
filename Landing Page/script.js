@@ -216,11 +216,11 @@ if (demoVideo && soundButton) {
   var videoVersions = {
     desktop: {
       src: 'assets/videos/quimia-demo-com-voz-desktop.mp4',
-      poster: 'assets/images/capa-desktop.jpg'
+      poster: 'assets/user/images/capa-desktop.jpg'
     },
     mobile: {
       src: 'assets/videos/quimia-demo-com-voz-celular.mp4',
-      poster: 'assets/images/capa-celular.jpg'
+      poster: 'assets/user/images/capa-celular.jpg'
     }
   };
   var currentVersion = '';
