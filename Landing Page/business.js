@@ -114,7 +114,7 @@ const QUIMIA_LINKS = Object.freeze({
 
   setTimeout(() => {
     overlay.classList.remove('is-covering');
-  }, 50);
+  }, 150);
 
   audienceLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
@@ -123,16 +123,16 @@ const QUIMIA_LINKS = Object.freeze({
       }
 
       event.preventDefault();
-      overlay.classList.add('is-covering');
+      overlay.classList.add('is-leaving', 'is-covering');
       setTimeout(() => {
         window.location.href = link.href;
-      }, 350);
+      }, 700);
     });
   });
 
   window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-      overlay.classList.remove('is-covering');
+      overlay.classList.remove('is-leaving', 'is-covering');
     }
   });
 })();
