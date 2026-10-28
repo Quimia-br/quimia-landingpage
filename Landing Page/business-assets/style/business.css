@@ -606,3 +606,96 @@ header {
   text-align: right;
   line-height: 1.5;
 }
+
+#product-registration {
+  display: grid;
+  grid-template-columns: minmax(0, 780px) minmax(0, 426px);
+  grid-template-rows: auto auto 1fr;
+  justify-content: space-between;
+  column-gap: 40px;
+}
+
+#product-registration-title {
+  grid-column: 1;
+  padding-left: 7px;
+}
+
+#product-registration-subtitle {
+  grid-column: 1;
+  margin-top: clamp(10px, 2vh, 22px);
+  padding-left: 7px;
+}
+
+#registration-cards {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 4.4vh, 59px);
+  grid-column: 1;
+  max-width: 620px;
+  margin-top: clamp(20px, 5vh, 70px);
+  padding-left: 3px;
+}
+
+.registration-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-height: clamp(150px, 25vh, 227px);
+  padding: clamp(14px, 2.4vh, 20px) 24px clamp(18px, 3vh, 28px) 20px;
+  background-color: var(--color-surface);
+  border: 3px solid var(--palette-teal-4);
+  border-radius: var(--radius-card);
+}
+
+.registration-card .icon-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #2A3233;
+}
+
+.registration-card .icon-circle img {
+  width: 33px;
+  height: 33px;
+}
+
+.registration-card-title {
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-white);
+}
+
+.registration-card p {
+  margin-top: 10px;
+  font-size: var(--text-size);
+  line-height: 1.4;
+  color: var(--color-body-muted);
+}
+
+#registration-media {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: end;
+  width: 100%;
+  height: calc(100% - clamp(40px, 9vh, 92px));
+  overflow: hidden;
+  border-radius: var(--radius-card);
+}
+
+#registration-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: var(--overlay-image-soft);
+}
+
+.registration-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
