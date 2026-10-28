@@ -97,3 +97,18 @@ const QUIMIA_LINKS = Object.freeze({
     }
   });
 })();
+
+(() => {
+  const faqButtons = document.querySelectorAll('.faq-button[aria-controls]');
+
+  faqButtons.forEach((button) => {
+    const answer = document.getElementById(button.getAttribute('aria-controls'));
+
+    button.addEventListener('click', () => {
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+      button.setAttribute('aria-expanded', String(!isOpen));
+      answer.hidden = isOpen;
+    });
+  });
+})();
