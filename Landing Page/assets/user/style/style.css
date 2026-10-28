@@ -1502,6 +1502,8 @@ footer a.body[aria-disabled="true"] {
   font-size: 20px;
   line-height: 1.5;
   color: var(--color-body);
+}
+
 .page-transition {
   position: fixed;
   inset: 0;
