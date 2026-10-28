@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fale com a equipe Quimia: envie sua dúvida, sugestão ou solicitação e receba retorno por e-mail.">
+  <title>Atendimento ao Cliente - Quimia</title>
+  <link rel="icon" type="image/svg+xml" href="assets/user/icons/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Reem+Kufi:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/support/style/support.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#support-title">Ir para o conteúdo</a>
+  <header id="support-navbar">
+    <div id="support-brand">
+      <a href="index.html" class="support-home" id="support-home" aria-label="Quimia, voltar para a página inicial">
+        <span class="support-brand-name">Quimia</span>
+        <img src="assets/support/icons/logo-quimia.svg" alt="" class="support-logo" width="39" height="44">
+      </a>
+      <span class="support-divider" aria-hidden="true"></span>
+      <p class="support-page-name">Atendimento ao Cliente</p>
+    </div>
+    <a href="index.html" class="support-back" id="support-back">
+      <span class="support-back-long">Voltar para página inicial</span>
+      <span class="support-back-short">Início</span>
+      <img src="assets/support/icons/seta-voltar.svg" alt="" class="support-back-icon" width="22" height="22">
+    </a>
+  </header>
+
+  <main id="support-main">
+    <section id="support-intro" aria-labelledby="support-title">
+      <h1 id="support-title">Como podemos <span class="text-green">ajudar?</span></h1>
+      <p class="support-lead">Estamos aqui para ouvir você. Envie sua dúvida, sugestão ou solicitação à equipe Quimia.</p>
+    </section>
+
+    <section id="support-card" aria-label="Formulário de atendimento">
+      <form id="support-form" novalidate>
+        <fieldset class="support-field" id="field-audience">
+          <legend class="support-label">Quem está entrando em contato?</legend>
+          <div class="support-options">
+            <label class="support-choice">
+              <input type="radio" name="audience" value="Usuário" checked>
+              <span>Sou usuário</span>
+            </label>
+            <label class="support-choice">
+              <input type="radio" name="audience" value="Empresa">
+              <span>Sou empresa</span>
+            </label>
+            <label class="support-choice">
+              <input type="radio" name="audience" value="Outro assunto">
+              <span>Outro assunto</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="support-field" id="field-reason">
+          <label class="support-label" for="reason">Qual o motivo do contato?</label>
+          <div class="support-select-wrap">
+            <select id="reason" name="reason" required aria-describedby="reason-error">
+              <option value="" selected disabled>Selecione</option>
+              <option>Dúvida sobre o app</option>
+              <option>Sugestão</option>
+              <option>Problema técnico</option>
+              <option>Cadastro de produtos</option>
+              <option>Planos e orçamento</option>
+              <option>Privacidade e dados pessoais</option>
+              <option>Outro assunto</option>
+            </select>
+            <img src="assets/support/icons/chevron-down.svg" alt="" class="support-select-icon" width="24" height="24">
+          </div>
+          <p class="support-error" id="reason-error" hidden>Escolha o motivo do seu contato.</p>
+        </div>
+
+        <div class="support-field" id="field-message">
+          <label class="support-label" for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="5" maxlength="1000" required aria-describedby="message-hint message-error"></textarea>
+          <div class="support-meta">
+            <p class="support-error" id="message-error" hidden>Escreva uma mensagem com pelo menos 10 caracteres.</p>
+            <p class="support-hint" id="message-hint"><span id="message-count">0</span>/1000</p>
+          </div>
+        </div>
+
+        <div class="support-field" id="field-consent">
+          <label class="support-consent">
+            <input type="checkbox" id="consent" name="consent" required aria-describedby="consent-error">
+            <span>Autorizo o uso destes dados para responder ao meu contato, conforme a política de privacidade</span>
+          </label>
+          <p class="support-error" id="consent-error" hidden>Para enviar, autorize o uso dos dados.</p>
+        </div>
+
+        <button type="submit" class="support-submit">Enviar para o suporte</button>
+
+        <div id="support-status" role="status" aria-live="polite" hidden>
+          <p class="support-status-title">Quase lá! Abrimos o seu aplicativo de e-mail.</p>
+          <p class="support-status-text">A mensagem já está pronta, é só enviar. Se nada abriu, escreva para <a href="mailto:quimia.app@gmail.com" id="support-mail">quimia.app@gmail.com</a>.</p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="support.js"></script>
+</body>
+
+</html>
