@@ -105,7 +105,7 @@ const QUIMIA_LINKS = Object.freeze({
     const answer = document.getElementById(button.getAttribute('aria-controls'));
 
     button.setAttribute('aria-expanded', String(isOpen));
-    answer.hidden = !isOpen;
+    answer.inert = !isOpen;
   };
 
   faqButtons.forEach((button) => {
