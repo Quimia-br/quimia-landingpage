@@ -1836,3 +1836,645 @@ footer {
   opacity: 1;
   transform: scale(1);
 }
+
+/* Responsividade: navbar e menu mobile */
+@media (max-width: 1024px) {
+  #navbar {
+    position: relative;
+    padding: 0 20px;
+    transition: border-radius 0s linear 0.4s;
+  }
+
+  #navbar.menu-open {
+    border-radius: 0;
+    transition-delay: 0s;
+  }
+
+  #menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    color: var(--color-title);
+    background: none;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  #menu-toggle svg {
+    grid-area: 1 / 1;
+    width: 26px;
+    height: 26px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .close-icon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+  }
+
+  #menu-toggle[aria-expanded="true"] .open-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
+  }
+
+  #menu-toggle[aria-expanded="true"] .close-icon {
+    opacity: 1;
+    transform: none;
+  }
+
+  #main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    background-color: var(--color-surface);
+    border-radius: 0 0 20px 20px;
+    transition: max-height 0.4s ease, visibility 0s linear 0.4s;
+  }
+
+  #main-nav.open {
+    max-height: calc(100vh - var(--navbar-height));
+    max-height: calc(100dvh - var(--navbar-height));
+    overflow-y: auto;
+    visibility: visible;
+    box-shadow: 0 10px 14px rgba(0, 0, 0, 0.3);
+    transition: max-height 0.4s ease, visibility 0s;
+  }
+
+  #nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 20px 20px 28px;
+  }
+
+  #nav-list > li:first-child,
+  #nav-list > li:nth-child(5) {
+    margin: 0;
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 17px;
+  }
+
+  #nav-list .button-small {
+    margin-top: 6px;
+    padding-inline: 24px;
+    font-size: 17px;
+  }
+}
+
+/* Responsividade: dashboards empilhados */
+@media (max-width: 900px) {
+  #dashboards {
+    --du: 1px;
+  }
+
+  #dashboard-tabs {
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .dashboard-panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dashboard-visual {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .dashboard-photo-frame {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 622 / 409;
+  }
+
+  .dashboard-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    align-self: flex-end;
+    width: min(78%, 400px);
+    height: auto;
+    aspect-ratio: 400 / 329;
+    margin-top: -18%;
+    margin-right: 4%;
+    border-radius: 22px;
+  }
+
+  .dashboard-panel.behavior .dashboard-card {
+    align-self: flex-start;
+    margin-right: 0;
+    margin-left: 4%;
+  }
+
+  .dashboard-text,
+  .dashboard-panel.behavior .dashboard-text {
+    width: 100%;
+    margin: 24px 0 0;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-tab {
+    gap: 6px;
+    padding-inline: 10px;
+    font-size: 15px;
+  }
+
+  .dashboard-tab img {
+    display: none;
+  }
+
+  .dashboard-card {
+    width: 86%;
+    margin-top: -12%;
+  }
+}
+
+/* Responsividade: linha do tempo em coluna */
+@media (max-width: 900px) {
+  #steps {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: 28px;
+    padding: 32px 24px;
+  }
+
+  #steps::before {
+    top: 40px;
+    bottom: 40px;
+    left: 51px;
+    width: 2px;
+    height: auto;
+    transform: none;
+  }
+
+  .step,
+  .step:nth-child(even) {
+    grid-row: auto;
+    grid-template-columns: 55px minmax(0, 1fr);
+    grid-template-rows: none;
+    align-items: center;
+    column-gap: 20px;
+    justify-items: start;
+    text-align: left;
+  }
+
+  .step-number {
+    grid-row: 1;
+    grid-column: 1;
+    margin: 0;
+  }
+
+  .step-text,
+  .step:nth-child(even) .step-text,
+  .step:nth-child(n) .step-text {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: center;
+    width: auto;
+    max-width: none;
+  }
+
+  .step-text p {
+    margin-top: 4px;
+    text-wrap: pretty;
+  }
+}
+
+@media (max-width: 480px) {
+  #steps {
+    padding: 28px 18px;
+  }
+
+  #steps::before {
+    left: 45px;
+  }
+
+  .step,
+  .step:nth-child(even) {
+    column-gap: 16px;
+  }
+}
+
+/* Responsividade: sustentabilidade */
+@media (max-width: 1024px) {
+  #sustainability-card {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    padding-inline: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  #sustainability-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    min-height: 0;
+    padding: 40px 28px;
+  }
+
+  #sustainability-title {
+    margin-top: 0;
+  }
+
+  .sustainability-topic {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  #sustainability-card {
+    padding: 32px 20px;
+  }
+
+  .sustainability-topic {
+    padding: 20px;
+  }
+}
+
+/* Responsividade: privacidade dos dados */
+@media (max-width: 1024px) {
+  #privacy-content {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  }
+}
+
+@media (max-width: 900px) {
+  #privacy-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  #privacy-card {
+    justify-self: center;
+    width: min(100%, 531px);
+  }
+
+  .info-list {
+    gap: 24px;
+  }
+
+  #privacy-link {
+    margin-top: 32px;
+  }
+}
+
+/* Responsividade: FAQ */
+@media (max-width: 768px) {
+  #faq-list {
+    gap: 16px;
+  }
+
+  .faq-button {
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .faq-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .faq-answer {
+    padding: 0 20px;
+  }
+
+  .faq-item:has(.faq-button[aria-expanded="true"]) .faq-answer {
+    padding-bottom: 24px;
+  }
+
+  .faq-answer p {
+    font-size: 17px;
+  }
+}
+
+/* Responsividade: planos conforme a largura do bloco */
+@container plans (max-width: 1180px) {
+
+  #plan-cards {
+    column-gap: 20px;
+  }
+
+  .plan-card {
+    padding-inline: 22px;
+  }
+
+  .plan-card .button-plan {
+    padding-inline: 20px;
+  }
+}
+
+@container plans (max-width: 1119px) {
+
+  #plan-cards {
+    grid-template-columns: minmax(0, 460px);
+    grid-template-rows: none;
+    justify-content: center;
+    gap: 48px;
+    min-height: 0;
+  }
+
+  .plan-card {
+    grid-row: auto;
+    grid-template-rows: none;
+    padding: 36px 28px 32px;
+    border-radius: 40px;
+  }
+
+  .plan-header {
+    min-height: 0;
+    padding-bottom: 28px;
+  }
+
+  .plan-card .button-plan {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+/* Responsividade: cards empilhados e imagens em coluna */
+@media (max-width: 900px) {
+  #home-cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .home-card {
+    min-height: 0;
+    padding: 24px 24px 28px;
+  }
+
+  #market-media {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    overflow: visible;
+    isolation: auto;
+    border-radius: 0;
+  }
+
+  #market-media::after {
+    display: none;
+  }
+
+  .market-image {
+    position: relative;
+    inset: auto;
+    z-index: auto;
+    aspect-ratio: 3 / 2;
+    border-radius: var(--radius-card);
+    filter: brightness(0.6);
+  }
+
+  #market-cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: -56px;
+    padding-inline: 16px;
+  }
+
+  .market-card {
+    min-height: 0;
+  }
+
+  #product-registration {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #registration-cards {
+    max-width: none;
+    margin-top: 32px;
+    padding-left: 0;
+  }
+
+  #registration-media {
+    grid-column: auto;
+    grid-row: auto;
+    align-self: auto;
+    height: 260px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  #market-intelligence {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  #market-intelligence-title {
+    grid-row: 1;
+    text-align: left;
+  }
+}
+
+@media (max-width: 900px) {
+  #market-cards {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  #dashboard-tabs {
+    gap: 2px;
+    padding: 4px 6px;
+    justify-content: space-between;
+  }
+
+  .dashboard-tab {
+    padding-inline: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #dashboard-tabs {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: auto;
+    padding: 6px;
+    gap: 4px;
+    border-radius: 24px;
+  }
+
+  .dashboard-tab {
+    justify-content: flex-start;
+    height: 46px;
+    padding: 0 18px;
+    font-size: 16px;
+  }
+
+  .dashboard-tab img {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Responsividade: ilustração da LGPD oculta em celular (a legenda continua disponível) */
+@media (max-width: 480px) {
+  .privacy-card-content {
+    display: none;
+  }
+}
+
+/* Responsividade: navbar em tablets antes do menu mobile */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  #navbar {
+    gap: 12px;
+    padding: 0 24px;
+  }
+
+  #nav-list {
+    gap: 8px;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  #nav-list .button-small {
+    padding-inline: 16px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+
+/* Responsividade: abas do dashboard em tablets */
+@media (min-width: 481px) and (max-width: 1024px) {
+  #dashboard-tabs {
+    padding: 4px 10px;
+  }
+
+  .dashboard-tab {
+    flex-shrink: 0;
+    padding-inline: 16px;
+    font-size: 16px;
+  }
+}
+
+/* Responsividade: menu dos dashboards com ícones; o nome aparece na aba ativa */
+@media (max-width: 1024px) {
+  #dashboard-tabs {
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: var(--menu-height);
+    padding: 4px 8px;
+    border-radius: var(--radius-pill);
+  }
+
+  .dashboard-tab {
+    position: relative;
+    flex: 0 0 auto;
+    justify-content: center;
+    gap: 8px;
+    height: calc(var(--menu-height) - 14px);
+    padding: 0 14px;
+    font-size: 16px;
+  }
+
+  .dashboard-tab img {
+    display: block;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .dashboard-tab:not(.active) .dashboard-tab-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* Responsividade: largura fixa do menu dos dashboards (não muda ao trocar de aba) */
+@media (min-width: 481px) and (max-width: 1024px) {
+  #dashboard-tabs {
+    width: min(100%, 560px);
+    justify-content: space-between;
+    padding: 4px;
+  }
+
+  .dashboard-tab {
+    flex: 1 1 0;
+    min-width: 0;
+    gap: 8px;
+    padding: 0 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #dashboard-tabs {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 4px;
+  }
+
+  .dashboard-tab {
+    flex: 1 1 0;
+    min-width: 0;
+    gap: 0;
+    padding: 0 4px;
+    font-size: 13px;
+  }
+
+  .dashboard-tab img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .dashboard-tab.active img {
+    display: none;
+  }
+
+  .dashboard-tab.active .dashboard-tab-label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+}
+
+/* Responsividade: aba ativa mostra só o nome, sem ícone, para o texto caber melhor */
+@media (max-width: 1024px) {
+  .dashboard-tab.active img {
+    display: none;
+  }
+}
