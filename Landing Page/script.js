@@ -1,3 +1,24 @@
+// FAQ: uma resposta aberta por vez
+(() => {
+  const faqButtons = document.querySelectorAll('.faq-button[aria-controls]');
+
+  const setAnswerState = (button, isOpen) => {
+    const answer = document.getElementById(button.getAttribute('aria-controls'));
+
+    button.setAttribute('aria-expanded', String(isOpen));
+    answer.inert = !isOpen;
+  };
+
+  faqButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+      faqButtons.forEach((otherButton) => {
+        setAnswerState(otherButton, false);
+      });
+      setAnswerState(button, !isOpen);
+    });
+  });
 // Transição ao trocar de landing (usuário / empresa)
 (() => {
   const audienceLinks = document.querySelectorAll('.audience-button:not(.active)');
