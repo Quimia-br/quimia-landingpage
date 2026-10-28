@@ -853,9 +853,9 @@ h1 {
 .feature-showcase {
   display: grid;
   grid-template-columns: minmax(0, 392px) minmax(0, 618px);
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: clamp(40px, 7vw, 120px);
   margin-top: var(--features-gap);
 }
 
