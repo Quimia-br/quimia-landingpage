@@ -158,3 +158,46 @@ const QUIMIA_LINKS = Object.freeze({
     });
   });
 })();
+
+(() => {
+  const navbar = document.getElementById('navbar');
+  const navMenu = document.getElementById('main-nav');
+  const menuButton = document.getElementById('menu-toggle');
+  const largeScreen = window.matchMedia('(min-width: 1101px)');
+
+  const setMenu = (isOpen) => {
+    navbar.classList.toggle('menu-open', isOpen);
+    navMenu.classList.toggle('open', isOpen);
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+  };
+
+  menuButton.addEventListener('click', () => {
+    setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+
+  navMenu.addEventListener('click', (event) => {
+    if (event.target.closest('a')) {
+      setMenu(false);
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navMenu.classList.contains('open')) {
+      setMenu(false);
+      menuButton.focus();
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (navMenu.classList.contains('open') && !navbar.contains(event.target)) {
+      setMenu(false);
+    }
+  });
+
+  largeScreen.addEventListener('change', (event) => {
+    if (event.matches) {
+      setMenu(false);
+    }
+  });
+})();
