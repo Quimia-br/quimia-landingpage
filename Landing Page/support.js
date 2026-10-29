@@ -12,6 +12,7 @@ const SUPPORT_TIMEOUT_MS = 15000;
   document.getElementById('support-home').href = homeUrl;
   document.getElementById('support-back').href = homeUrl;
   document.getElementById('support-success-home').href = homeUrl;
+  document.getElementById('support-privacy-link').href = isCompany ? 'privacy-business.html' : 'privacy.html';
 
   if (isCompany) {
     document.querySelector('input[name="audience"][value="Empresa"]').checked = true;
