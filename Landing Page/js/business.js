@@ -209,6 +209,14 @@ const QUIMIA_LINKS = Object.freeze({
   let scrollLockUntil = 0;
   let scrollFrame = 0;
 
+  const hint = document.createElement('p');
+  hint.className = 'plan-hint';
+  hint.textContent = 'Deslize para ver os outros planos';
+
+  const hideHint = () => {
+    hint.classList.add('is-hidden');
+  };
+
   const dots = document.createElement('div');
   dots.className = 'plan-dots';
 
@@ -217,8 +225,9 @@ const QUIMIA_LINKS = Object.freeze({
 
     dot.type = 'button';
     dot.className = 'plan-dot';
-    dot.setAttribute('aria-label', 'Ver plano ' + card.querySelector('.plan-name').textContent.trim());
+    dot.textContent = card.querySelector('.plan-name').textContent.trim();
     dot.addEventListener('click', () => {
+      hideHint();
       scrollToCard(card, false);
       setActive(card);
     });
@@ -227,7 +236,8 @@ const QUIMIA_LINKS = Object.freeze({
     return dot;
   });
 
-  list.after(dots);
+  list.after(hint, dots);
+  list.addEventListener('pointerdown', hideHint, { once: true });
 
   const setActive = (activeCard) => {
     dotButtons.forEach((dot, index) => {
