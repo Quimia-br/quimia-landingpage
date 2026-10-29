@@ -813,12 +813,12 @@ fieldset.support-field {
 }
 
 /* Tablet em pé e celular: uma coluna centralizada */
-@media (max-width: 960px) {
+@media (max-width: 960px), (max-width: 1100px) and (orientation: portrait) {
 
   #support-main {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
-    max-width: 720px;
+    max-width: 760px;
     padding-top: calc(var(--navbar-height) + 40px);
   }
 
@@ -846,6 +846,74 @@ fieldset.support-field {
 }
 
 /* Notebooks e telas largas porém baixas: formulário mais compacto para caber mais na tela */
+/* Tablets grandes em pé (iPad Pro): tipografia e campos maiores, já que a tela comporta */
+@media (min-width: 700px) and (max-width: 1100px) and (orientation: portrait) {
+
+  #support-main {
+    gap: 36px;
+    padding-top: calc(var(--navbar-height) + 56px);
+    padding-bottom: 64px;
+  }
+
+  #support-title {
+    font-size: clamp(48px, 6.4vw, 64px);
+  }
+
+  .support-lead {
+    font-size: 24px;
+  }
+
+  #support-card {
+    padding: 40px 40px 36px;
+  }
+
+  #support-form {
+    gap: 22px;
+  }
+
+  .support-label {
+    font-size: 20px;
+  }
+
+  .support-choice {
+    font-size: 20px;
+  }
+
+  .support-input,
+  #reason {
+    height: 52px;
+  }
+
+  .support-input,
+  #reason,
+  #message {
+    font-size: 18px;
+  }
+
+  #message {
+    min-height: 130px;
+  }
+
+  .support-audience {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .support-consent,
+  .support-privacy-note,
+  .support-alt,
+  .support-required-note,
+  .support-hint,
+  .support-error {
+    font-size: 15px;
+  }
+
+  .support-submit {
+    min-height: 56px;
+    font-size: 20px;
+  }
+}
+
 @media (min-width: 961px) and (max-height: 820px) {
 
   #support-main {
