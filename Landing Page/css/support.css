@@ -99,7 +99,7 @@ body::after {
 }
 
 body::before {
-  background: url("../images/atendimento-fundo.webp") center / cover no-repeat;
+  background: url("../assets/support/images/atendimento-fundo.webp") center / cover no-repeat;
   transform: scaleX(-1);
 }
 

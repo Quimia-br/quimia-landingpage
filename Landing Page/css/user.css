@@ -407,7 +407,7 @@ header {
   color: var(--mint-white);
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.69), rgba(0, 0, 0, 0.56)),
-    url("../images/background-tela-inicial.jpg") center / cover no-repeat;
+    url("../assets/user/images/background-tela-inicial.jpg") center / cover no-repeat;
   background-color: var(--palette-slate-2);
 }
 
@@ -520,7 +520,7 @@ h1 {
   z-index: -1;
   width: 100%;
   height: 75%;
-  background: url("../images/onda-riscos.svg") center / 100% 100% no-repeat;
+  background: url("../assets/user/images/onda-riscos.svg") center / 100% 100% no-repeat;
   pointer-events: none;
 }
 
@@ -595,7 +595,7 @@ h1 {
   padding: calc(var(--data-wave-height) + clamp(8px, 1.4vh, 100px)) max(var(--page-gutter), calc((100% - var(--data-content-max)) / 2)) clamp(32px, 4.4vh, 80px);
   color: var(--mint-white);
   background:
-    url("../images/onda-dados.svg") top center / 100% var(--data-wave-height) no-repeat,
+    url("../assets/user/images/onda-dados.svg") top center / 100% var(--data-wave-height) no-repeat,
     linear-gradient(to bottom, transparent calc(var(--data-wave-height) - 2px), var(--palette-slate-2) calc(var(--data-wave-height) - 2px));
 }
 
@@ -612,7 +612,7 @@ h1 {
   right: -64px;
   width: 384px;
   height: 370px;
-  background: url("../images/dados-circulos.svg") center / contain no-repeat;
+  background: url("../assets/user/images/dados-circulos.svg") center / contain no-repeat;
 }
 
 #data::after {
@@ -620,7 +620,7 @@ h1 {
   left: -135px;
   width: 510px;
   height: 130px;
-  background: url("../images/dados-onda-inferior.svg") center / contain no-repeat;
+  background: url("../assets/user/images/dados-onda-inferior.svg") center / contain no-repeat;
 }
 
 .data.title {
@@ -1268,7 +1268,7 @@ video::cue {
   z-index: -1;
   width: max(100%, 1100px);
   aspect-ratio: 1440 / 212;
-  background: url("../images/equipe-onda.svg") center / 100% 100% no-repeat;
+  background: url("../assets/user/images/equipe-onda.svg") center / 100% 100% no-repeat;
   transform: translateX(-50%);
   pointer-events: none;
 }
@@ -1302,7 +1302,7 @@ video::cue {
   z-index: -1;
   width: 176.53%;
   height: 122.65%;
-  background: url("../images/equipe-formas.svg") center / 100% 100% no-repeat;
+  background: url("../assets/user/images/equipe-formas.svg") center / 100% 100% no-repeat;
   pointer-events: none;
 }
 
@@ -1842,7 +1842,7 @@ footer a.body[aria-disabled="true"] {
     z-index: -1;
     width: 100%;
     aspect-ratio: 1440 / 765;
-    background: url("../images/onda-riscos.svg") center / 100% 100% no-repeat;
+    background: url("../assets/user/images/onda-riscos.svg") center / 100% 100% no-repeat;
     transform: rotate(180deg);
     pointer-events: none;
   }
