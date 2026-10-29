@@ -165,14 +165,60 @@ setInterval(changePhrase, pauseTime + duration * 2);
   const screens = Array.from(panel.querySelectorAll('.feature-image'));
   const keySteps = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
 
+  // No celular, as telas viram um carrossel que se arrasta para o lado
+  const carousel = window.matchMedia('(max-width: 768px)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const scrollLockMs = 600;
+  let scrollLockUntil = 0;
+  let scrollFrame = 0;
+
+  const dots = document.createElement('div');
+  dots.className = 'feature-dots';
+
+  const dotButtons = tabs.map((tab) => {
+    const dot = document.createElement('button');
+
+    dot.type = 'button';
+    dot.className = 'feature-dot';
+    dot.setAttribute('aria-label', 'Ver recurso: ' + tab.querySelector('.feature.title').textContent.trim());
+    dot.addEventListener('click', () => {
+      selectFeature(tab, { scroll: true });
+    });
+    dots.appendChild(dot);
+
+    return dot;
+  });
+
+  panel.after(dots);
+
+  const scrollToScreen = (featureKey, instant) => {
+    const screen = screens.find((item) => item.dataset.feature === featureKey);
+
+    scrollLockUntil = performance.now() + (instant ? 0 : scrollLockMs);
+    panel.scrollTo({
+      left: screen.offsetLeft - (panel.clientWidth - screen.offsetWidth) / 2,
+      behavior: instant || reducedMotion.matches ? 'auto' : 'smooth'
+    });
+  };
+
   const setFocusableTab = (focusTab) => {
     tabs.forEach((tab) => {
       tab.tabIndex = tab === focusTab ? 0 : -1;
     });
   };
 
-  const selectFeature = (selectedTab) => {
+  const selectFeature = (selectedTab, { scroll = false } = {}) => {
     const featureKey = selectedTab.dataset.feature;
+
+    dotButtons.forEach((dot, index) => {
+      const isSelected = tabs[index] === selectedTab;
+      dot.classList.toggle('active', isSelected);
+      dot.setAttribute('aria-current', String(isSelected));
+    });
+
+    if (scroll && carousel.matches) {
+      scrollToScreen(featureKey);
+    }
 
     tabs.forEach((tab) => {
       const isSelected = tab === selectedTab;
@@ -215,6 +261,12 @@ setInterval(changePhrase, pauseTime + duration * 2);
     }
 
     event.preventDefault();
+
+    // No carrossel só o recurso ativo aparece, então a seta já o troca
+    if (carousel.matches) {
+      selectFeature(tabs[nextIndex], { scroll: true });
+    }
+
     setFocusableTab(tabs[nextIndex]);
     tabs[nextIndex].focus();
   });
@@ -224,6 +276,42 @@ setInterval(changePhrase, pauseTime + duration * 2);
       setFocusableTab(tabList.querySelector('.feature-card.active'));
     }
   });
+
+  // Arrastar o carrossel troca o recurso mostrado embaixo do celular
+  panel.addEventListener('scroll', () => {
+    if (!carousel.matches || scrollFrame || performance.now() < scrollLockUntil) {
+      return;
+    }
+
+    scrollFrame = requestAnimationFrame(() => {
+      const middle = panel.scrollLeft + panel.clientWidth / 2;
+      let nearest = 0;
+      let nearestDistance = Infinity;
+
+      scrollFrame = 0;
+
+      screens.forEach((screen, index) => {
+        const distance = Math.abs(screen.offsetLeft + screen.offsetWidth / 2 - middle);
+
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearest = index;
+        }
+      });
+
+      if (!tabs[nearest].classList.contains('active')) {
+        selectFeature(tabs[nearest]);
+      }
+    });
+  });
+
+  carousel.addEventListener('change', () => {
+    if (carousel.matches) {
+      scrollToScreen(tabList.querySelector('.feature-card.active').dataset.feature, true);
+    }
+  });
+
+  selectFeature(tabList.querySelector('.feature-card.active'));
 })();
 
 /* Responsiveness */
