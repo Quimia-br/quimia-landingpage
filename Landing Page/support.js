@@ -6,12 +6,28 @@ const SUPPORT_TIMEOUT_MS = 15000;
 
 // Origem do acesso: define a landing de volta e o perfil já marcado
 (() => {
-  const isCompany = new URLSearchParams(window.location.search).get('origem') === 'empresa';
+  const params = new URLSearchParams(window.location.search);
+  const isCompany = params.get('origem') === 'empresa';
+  const fromPrivacy = params.get('de') === 'privacidade';
   const homeUrl = isCompany ? 'business.html' : 'index.html';
+  const privacyUrl = isCompany ? 'privacy-business.html' : 'privacy.html';
 
   document.getElementById('support-home').href = homeUrl;
   document.getElementById('support-back').href = homeUrl;
   document.getElementById('support-success-home').href = homeUrl;
+  document.getElementById('support-privacy-link').href = privacyUrl;
+
+  // Vindo da Declaração de Privacidade, o caminho de volta leva para ela
+  if (fromPrivacy) {
+    const back = document.getElementById('support-back');
+    const successHome = document.getElementById('support-success-home');
+
+    back.href = privacyUrl;
+    back.querySelector('.support-back-long').textContent = 'Voltar à Declaração de Privacidade';
+    back.querySelector('.support-back-short').textContent = 'Voltar';
+    successHome.href = privacyUrl;
+    successHome.textContent = 'Voltar à Declaração de Privacidade';
+  }
 
   if (isCompany) {
     document.querySelector('input[name="audience"][value="Empresa"]').checked = true;

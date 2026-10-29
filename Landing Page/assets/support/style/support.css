@@ -345,6 +345,12 @@ body::after {
   color: var(--color-muted);
 }
 
+.support-consent a {
+  font-weight: 700;
+  color: var(--color-link);
+  text-underline-offset: 2px;
+}
+
 .support-choice input,
 .support-consent input {
   appearance: none;
