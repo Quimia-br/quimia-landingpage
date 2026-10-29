@@ -1,8 +1,8 @@
 const SUPPORT_EMAIL = 'quimia.app@gmail.com';
-// Serviço de formulário que entrega as mensagens no e-mail do suporte.
-// Depois de ativado, trocar o e-mail do endereço pelo código aleatório fornecido pelo serviço.
-const SUPPORT_ENDPOINT = 'https://formsubmit.co/ajax/' + SUPPORT_EMAIL;
-const SUPPORT_TIMEOUT_MS = 15000;
+// Serviço próprio de atendimento (Google Apps Script na conta do suporte).
+// O código dele fica em apps-script/Code.gs; se for reimplantado com outro endereço, trocar aqui.
+const SUPPORT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx4Ggb3mtZwGRqtZvocKCzdTDmoZTrVzTald9Uum6x7Ok64gjSAvVDWi-TxsR5WeWfsgA/exec';
+const SUPPORT_TIMEOUT_MS = 20000;
 
 // Origem do acesso: define a landing de volta e o perfil já marcado
 (() => {
@@ -221,32 +221,17 @@ const SUPPORT_TIMEOUT_MS = 15000;
   const honeypot = document.getElementById('website');
   const fallbackLink = document.getElementById('support-fallback-mail');
 
-  const buildPayload = () => {
-    const method = getContactMethod();
-    const hasTopic = needsTopic() && topic.value.trim();
-    const payload = {
-      Nome: nameInput.value.trim() || 'Não informado',
-      Perfil: form.elements.audience.value,
-      'Retorno por': method,
-      [method]: contact.value.trim(),
-      Motivo: reason.value || 'Não informado',
-      Mensagem: message.value.trim(),
-      _subject: '[Atendimento Quimia] ' + (hasTopic ? topic.value.trim() : reason.value || 'Contato pelo site'),
-      _template: 'table',
-      _captcha: 'false',
-      _honey: honeypot.value
-    };
-
-    if (hasTopic) {
-      payload.Assunto = topic.value.trim();
-    }
-
-    if (method === 'E-mail') {
-      payload.email = contact.value.trim();
-    }
-
-    return payload;
-  };
+  // Campos esperados pelo serviço de atendimento (apps-script/Code.gs)
+  const buildPayload = () => ({
+    nome: nameInput.value.trim(),
+    perfil: form.elements.audience.value,
+    retorno: getContactMethod(),
+    contato: contact.value.trim(),
+    motivo: reason.value,
+    assunto: needsTopic() ? topic.value.trim() : '',
+    mensagem: message.value.trim(),
+    honey: honeypot.value
+  });
 
   // Plano B: se o envio falhar, o visitante manda a mesma mensagem pelo próprio aplicativo de e-mail
   const buildMailto = () => {
@@ -276,15 +261,16 @@ const SUPPORT_TIMEOUT_MS = 15000;
     const timer = setTimeout(() => controller.abort(), SUPPORT_TIMEOUT_MS);
 
     try {
+      // Texto simples evita a checagem prévia (preflight) que o Apps Script não responde
       const response = await fetch(SUPPORT_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(buildPayload()),
         signal: controller.signal
       });
       const result = await response.json().catch(() => ({}));
 
-      return response.ok && result.success !== false && result.success !== 'false';
+      return response.ok && result.ok === true;
     } catch (error) {
       return false;
     } finally {
