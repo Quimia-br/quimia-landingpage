@@ -43,19 +43,26 @@
 
         <fieldset class="support-field" id="field-audience">
           <legend class="support-label">Quem está entrando em contato?</legend>
-          <div class="support-options">
-            <label class="support-choice">
-              <input type="radio" name="audience" value="Usuário" checked>
-              <span>Sou usuário</span>
-            </label>
-            <label class="support-choice">
-              <input type="radio" name="audience" value="Empresa">
-              <span>Sou empresa</span>
-            </label>
-            <label class="support-choice">
-              <input type="radio" name="audience" value="Outro assunto">
-              <span>Outro assunto</span>
-            </label>
+          <div class="support-audience">
+            <div class="support-mascot" id="support-mascot">
+              <img src="assets/support/images/mascote-usuario.jpg" alt="" class="support-mascot-img is-active" data-audience="Usuário" width="275" height="170">
+              <img src="assets/support/images/mascote-empresa.webp" alt="" class="support-mascot-img" data-audience="Empresa" width="640" height="395" loading="lazy">
+              <img src="assets/support/images/mascote-outro-assunto.webp" alt="" class="support-mascot-img" data-audience="Outro assunto" width="640" height="395" loading="lazy">
+            </div>
+            <div class="support-options">
+              <label class="support-choice">
+                <input type="radio" name="audience" value="Usuário" checked>
+                <span>Sou usuário</span>
+              </label>
+              <label class="support-choice">
+                <input type="radio" name="audience" value="Empresa">
+                <span>Sou empresa</span>
+              </label>
+              <label class="support-choice">
+                <input type="radio" name="audience" value="Outro assunto">
+                <span>Outro assunto</span>
+              </label>
+            </div>
           </div>
         </fieldset>
 
@@ -65,22 +72,24 @@
           <p class="support-error" id="name-error" hidden>Informe seu nome.</p>
         </div>
 
-        <fieldset class="support-field" id="field-contact">
-          <legend class="support-label">Como prefere receber o retorno?</legend>
-          <div class="support-segmented" role="radiogroup" aria-label="Forma de retorno">
-            <label class="support-segment">
-              <input type="radio" name="contactMethod" value="E-mail" checked>
-              <span>E-mail</span>
-            </label>
-            <label class="support-segment">
-              <input type="radio" name="contactMethod" value="Celular">
-              <span>Celular</span>
-            </label>
+        <div class="support-field" id="field-contact" role="group" aria-labelledby="contact-legend">
+          <div class="support-contact-head">
+            <p class="support-label" id="contact-legend">Como prefere o retorno?</p>
+            <div class="support-segmented">
+              <label class="support-segment">
+                <input type="radio" name="contactMethod" value="E-mail" checked>
+                <span>E-mail</span>
+              </label>
+              <label class="support-segment">
+                <input type="radio" name="contactMethod" value="Celular">
+                <span>Celular</span>
+              </label>
+            </div>
           </div>
           <label class="support-sublabel" for="contact" id="contact-label">Seu e-mail</label>
           <input type="email" id="contact" name="contact" class="support-input" autocomplete="email" inputmode="email" maxlength="120" placeholder="nome@exemplo.com" required aria-describedby="contact-error">
           <p class="support-error" id="contact-error" hidden>Informe um e-mail válido, como nome@exemplo.com.</p>
-        </fieldset>
+        </div>
 
         <div class="support-field" id="field-reason">
           <label class="support-label" for="reason">Qual o motivo do contato?</label>
@@ -108,7 +117,7 @@
 
         <div class="support-field" id="field-message">
           <label class="support-label" for="message">Mensagem</label>
-          <textarea id="message" name="message" rows="5" maxlength="1000" required aria-describedby="message-hint message-error"></textarea>
+          <textarea id="message" name="message" rows="3" maxlength="1000" required aria-describedby="message-hint message-error"></textarea>
           <div class="support-meta">
             <p class="support-error" id="message-error" hidden>Escreva uma mensagem com pelo menos 10 caracteres.</p>
             <p class="support-hint" id="message-hint"><span id="message-count">0</span>/1000</p>
