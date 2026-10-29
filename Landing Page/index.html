@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quimia: tudo o que você precisa saber sobre seus produtos de limpeza, em um só lugar.">
+  <title>Principal - Quimia</title>
+  <link rel="icon" type="image/svg+xml" href="assets/user/icons/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Reem+Kufi:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+  <header>
+    <div id="navbar">
+      <a href="#home" class="nav-home">
+        <img src="assets/user/icons/logo.svg" alt="" id="nav-logo" width="36" height="36">
+      </a>
+      <nav id="main-nav">
+        <ul id="nav-list">
+          <li><a href="#purpose" class="nav-link">Riscos Domésticos</a></li>
+          <li><a href="#about" class="nav-link">Quimia</a></li>
+          <li><a href="#features" class="nav-link">Principais Recursos</a></li>
+          <li><a href="#accessibility" class="nav-link">Para Todos</a></li>
+          <li><a href="#team" class="nav-link">Equipe</a></li>
+          <li class="nav-button-item">
+            <a href="#" class="button-default button-dark" data-link="appDownload">Baixe o app</a>
+          </li>
+        </ul>
+      </nav>
+        <button type="button" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+          <svg class="open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </header>
+
+  <main id="main-content">
+    <section id="home">
+      <nav id="audience-switch">
+        <a class="audience-button user active" href="#para-voce">Para você</a>
+        <a class="audience-button company" href="business.html">Para sua empresa</a>
+      </nav>
+
+      <div id="hero-text">
+        <h1 id="home-title">Viva a limpeza de um jeito <span class="text-green-light">completamente diferente</span></h1>
+        <p class="hero-phrase active">Tudo o que você precisa saber sobre seus produtos de limpeza, em um só lugar
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="button-default button-light" data-link="appDownload">Baixe o app</a>
+          <a href="#features" class="button-default button-outline button-large">Veja como funciona</a>
+        </div>
+      </div>
+
+      <ul id="hero-highlights">
+        <li class="hero-highlight">
+          <img src="assets/user/icons/frase-inicio-1.svg" alt="" class="hero-highlight-icon" width="50" height="50">
+          <p>Transforme a forma como você limpa sua casa</p>
+        </li>
+        <li class="hero-highlight">
+          <img src="assets/user/icons/frase-inicio-2.svg" alt="" class="hero-highlight-icon" width="50" height="50">
+          <p>Traga maior segurança para o seu dia a dia</p>
+        </li>
+        <li class="hero-highlight">
+          <img src="assets/user/icons/frase-inicio-3.svg" alt="" class="hero-highlight-icon" width="50" height="50">
+          <p>Entenda a complexidade de cada produto</p>
+        </li>
+      </ul>
+    </section>
+    <section id="purpose">
+      <h2 class="purpose title" id="purpose-title">O lado <span class="text-blue">pouco conhecido</span> dos produtos de limpeza</h2>
+      <p class="purpose subtitle">Entenda o que torna a faxina do cotidiano mais perigosa do que parece.</p>
+      <ul id="purpose-cards">
+        <li class="purpose-card">
+            <img src="assets/user/icons/dificuldade.svg" alt="" class="purpose-icon" width="84" height="84">
+            <h3 class="purpose-text title">Dificuldade de entender rótulos</h3>
+            <p class="purpose-text body">Os rótulos estão cheios de termos técnicos que a maioria dos consumidores não consegue interpretar, comprometendo o uso seguro dos produtos.</p>
+        </li>
+        <li class="purpose-card">
+          <img src="assets/user/icons/misturas-inadequadas.svg" alt="" class="purpose-icon" width="84" height="84">
+          <h3 class="purpose-text title">Misturas inadequadas</h3>
+          <p class="purpose-text body">Combinações que parecem inofensivas podem gerar reações químicas graves, e é assim que grande parte dos acidentes domésticos acontecem.</p>
+        </li>
+        <li class="purpose-card">
+          <img src="assets/user/icons/descarte-incorreto.svg" alt="" class="purpose-icon" width="84" height="84">
+          <h3 class="purpose-text title">Descarte incorreto</h3>
+          <p class="purpose-text body">Descartados no lixo comum ou na pia, esses produtos contaminam solo e água, colocando em risco quem os manuseia sem saber o que contém.</p>
+        </li>
+      </ul>
+    </section>
+    <section id="data">
+      <h2 class="data title" id="data-title">Os <span class="text-sky">dados</span> por trás dessa realidade</h2>
+      <p class="data subtitle">Entenda a dimensão dos desafios relacionados ao uso de produtos domésticos.</p>
+      <div id="data-cards">
+        <article class="data-card data-case" aria-labelledby="data-case-title">
+          <h3 class="data-card-title" id="data-case-title">Caso real - Camaçari (BA)</h3>
+          <div class="data-stats">
+            <p class="data-stat data-stat-age">
+              <span class="data-number">39</span>
+              <span class="data-unit">anos</span>
+            </p>
+            <p class="data-stat data-stat-date">
+              <time datetime="2026-04-07">
+                <span class="data-unit">07 de abril de</span>
+                <span class="data-number">2026</span>
+              </time>
+            </p>
+          </div>
+          <p class="data-text">Segundo o G1, uma mulher foi encontrada caída no banheiro, após passar mal durante a limpeza. No local, havia um forte cheiro de <strong>água sanitária</strong> e, segundo o Samu, a causa da morte foi uma <strong>parada cardiorrespiratória</strong>.</p>
+          <p class="data-source">Fonte: <a href="https://g1.globo.com/ba/bahia/noticia/2026/04/16/mulher-morre-na-bahia.ghtml" target="_blank" rel="noopener noreferrer">https://g1.globo.com/ba/bahia/noticia/2026/04/16/mulher-morre-na-bahia.ghtml</a></p>
+        </article>
+        <article class="data-card data-survey" aria-labelledby="data-survey-title">
+          <h3 class="data-card-title" id="data-survey-title">Pesquisa de campo - Setembro de 2024</h3>
+          <div class="data-stats">
+            <p class="data-stat data-stat-wide">
+              <span class="data-number">72%</span>
+              <span class="data-description">já misturaram produtos de limpeza <strong>sem nenhum conhecimento técnico</strong></span>
+            </p>
+            <p class="data-stat">
+              <span class="data-number">42%</span>
+              <span class="data-description">fazem essas misturas <strong>sempre</strong></span>
+            </p>
+            <p class="data-stat">
+              <span class="data-number">40%</span>
+              <span class="data-description"><strong>não conhecem os riscos</strong> dessas combinações</span>
+            </p>
+          </div>
+          <p class="data-text">A pesquisa investigou <strong>erros no uso</strong> de produtos de limpeza e a <strong>consciência sobre os riscos</strong> das misturas químicas.</p>
+          <p class="data-source">Fonte: Repositório Centro Paula Souza: Análise da composição de produtos de limpeza (PDF)</p>
+        </article>
+      </div>
+    </section>
+    <section id="about">
+      <div id="about-content">
+        <h2 id="about-title" class="title">Quimia: uma nova perspectiva sobre o <span class="text-teal">cuidado doméstico</span></h2>
+        <ul class="info-list">
+          <li class="info-item">
+            <img src="assets/user/icons/quimia-bolhas.svg" alt="" class="info-icon" width="60" height="60">
+            <p class="about body">O uso de produtos de limpeza faz parte do cotidiano, mas compreender suas informações e orientações nem sempre é simples.</p>
+          </li>
+          <li class="info-item">
+            <img src="assets/user/icons/quimia-limpeza.svg" alt="" class="info-icon" width="60" height="60">
+            <p class="about body">O Quimia busca tornar esse conhecimento mais acessível, contribuindo para uma rotina de limpeza mais segura, prática e descomplicada.</p>
+          </li>
+        </ul>
+        <a href="#" class="button-default button-dark" data-link="appDownload">Baixe o app</a>
+      </div>
+      <div id="about-images">
+        <img src="assets/user/images/mockup-boas-vindas.png" alt="Tela de boas-vindas do app Quimia" id="phone-mockup" width="450" height="724">
+      </div>
+    </section>
+    <section id="features">
+      <h2 class="features title" id="features-title">Recursos pensados para o seu <span class="text-green-dark">cotidiano</span></h2>
+      <div class="feature-showcase">
+        <div class="feature-left">
+          <div id="feature-panel" role="tabpanel">
+            <img src="assets/user/images/tela-escanear.png" alt="Tela de escaneamento de rótulo do app Quimia" class="feature-image active" data-feature="scan" width="360" height="724">
+            <img src="assets/user/images/tela-misturas.png" alt="Tela de alerta de mistura perigosa do app Quimia" class="feature-image" data-feature="mixtures" width="360" height="724" aria-hidden="true">
+            <img src="assets/user/images/tela-estante.png" alt="Tela da estante virtual do app Quimia" class="feature-image" data-feature="shelf" width="360" height="724" aria-hidden="true">
+            <img src="assets/user/images/tela-proximidades.png" alt="Tela de pontos de descarte e lojas próximas do app Quimia" class="feature-image" data-feature="nearby" width="360" height="724" aria-hidden="true">
+          </div>
+        </div>
+        <div class="feature-right" role="tablist" aria-label="Recursos do Quimia" aria-orientation="vertical">
+          <button type="button" class="feature-card active" id="feature-tab-scan" role="tab" aria-selected="true" aria-controls="feature-panel" data-feature="scan">
+            <span class="feature-text">
+              <span class="feature title">Escaneie <span class="text-green-deep">produtos</span></span>
+              <span class="feature body">Cadastre seus produtos pelo rótulo e consulte instruções de uso, alertas de segurança e orientações de limpeza.</span>
+            </span>
+          </button>
+          <button type="button" class="feature-card" id="feature-tab-mixtures" role="tab" aria-selected="false" aria-controls="feature-panel" data-feature="mixtures" tabindex="-1">
+            <span class="feature-text">
+              <span class="feature title">Evite misturas <span class="text-green-deep">perigosas</span></span>
+              <span class="feature body">Verifique a compatibilidade entre seus produtos, evite misturas arriscadas e faça escolhas mais seguras.</span>
+            </span>
+          </button>
+          <button type="button" class="feature-card" id="feature-tab-shelf" role="tab" aria-selected="false" aria-controls="feature-panel" data-feature="shelf" tabindex="-1">
+            <span class="feature-text">
+              <span class="feature title">Monte sua <span class="text-green-deep">estante virtual</span></span>
+              <span class="feature body">Organize seus produtos em uma estante personalizada e consulte suas informações sempre que precisar.</span>
+            </span>
+          </button>
+          <button type="button" class="feature-card" id="feature-tab-nearby" role="tab" aria-selected="false" aria-controls="feature-panel" data-feature="nearby" tabindex="-1">
+            <span class="feature-text">
+              <span class="feature title">Explore suas <span class="text-green-deep">proximidades</span></span>
+              <span class="feature body">Encontre pontos de descarte e lojas próximas, facilitando sua rotina e incentivando práticas mais sustentáveis.</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="demo">
+      <h2 class="demo title" id="demo-title">Veja o Quimia <span class="text-green-dark">em ação</span></h2>
+      <p class="demo subtitle">Em menos de um minuto, veja como evitar misturas perigosas em casa.</p>
+      <div class="quimia-video">
+        <video id="quimiaVideo" autoplay muted loop playsinline preload="metadata" poster="assets/user/images/capa-desktop.jpg" aria-label="Demonstração do app Quimia" width="1920" height="980">
+          <source src="assets/user/videos/quimia-demo-com-voz-desktop.mp4" type="video/mp4">
+          <track kind="captions" src="assets/user/videos/quimia-legenda.vtt" srclang="pt-BR" label="Português">
+        </video>
+      </div>
+      <div class="demo-actions">
+        <button id="quimiaSom" class="demo-button demo-button-secondary" type="button" aria-pressed="false">&#128266; Ativar som</button>
+        <!-- TODO: substituir o href pelo link de download do app -->
+        <a href="#" class="demo-button demo-button-primary" data-link="appDownload">
+          Baixe o app
+        </a>
+      </div>
+    </section>
+    <section id="accessibility">
+      <h2 class="accessibility title" id="accessibility-title">Diferentes realidades, a <span class="text-green">mesma necessidade</span> de informação</h2>
+      <div class="accessibility-content">
+        <ul class="info-list">
+          <li class="info-item">
+            <img src="assets/user/icons/para-todos-celular.svg" alt="" class="info-icon" width="60" height="60">
+            <p class="accessibility body">O Quimia foi pensado para pessoas de diferentes idades e níveis de familiaridade com a tecnologia.</p>
+          </li>
+          <li class="info-item">
+            <img src="assets/user/icons/para-todos-usuario.svg" alt="" class="info-icon" width="60" height="60">
+            <p class="accessibility body">Nosso app busca tornar a informação acessível a todos, de jovens a idosos, respeitando a necessidade de cada pessoa.</p>
+          </li>
+          <li class="info-item">
+            <img src="assets/user/icons/para-todos-orientacoes.svg" alt="" class="info-icon" width="60" height="60">
+            <p class="accessibility body">Orientações claras facilitam a compreensão dos cuidados necessários com produtos de limpeza.</p>
+          </li>
+          <li class="info-item">
+            <img src="assets/user/icons/para-todos-inclusao.svg" alt="" class="info-icon" width="60" height="60">
+            <p class="accessibility body">A proposta é tornar o acesso à informação mais inclusivo, considerando diferentes necessidades e realidades.</p>
+          </li>
+        </ul>
+        <img src="assets/user/images/para-todos.jpg" alt="Avós e neta deitados lado a lado, sorrindo" class="accessibility-image" width="1400" height="932" loading="lazy">
+      </div>
+    </section>
+    <section id="team">
+      <div id="team-box">
+        <h2 class="team title" id="team-title">Descubra <span class="text-teal">quem</span> está por trás do Quimia</h2>
+        <p class="team subtitle">Composta por alunos do 1º e 2º ano do Instituto J&amp;F, unidos por um propósito: fazer a diferença.</p>
+        <div class="team-photo-wrapper">
+          <img src="assets/user/images/equipe.jpg" alt="Equipe do Quimia reunida em frente a um jardim vertical" id="team-photo" width="1280" height="847" loading="lazy">
+        </div>
+      </div>
+    </section>
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 class="title" id="faq-title">Perguntas <span class="text-teal">frequentes</span></h2>
+      <ul id="faq-list">
+        <li class="faq-item">
+          <h3 class="faq-heading">
+            <button type="button" class="faq-button" id="faq-question-1" aria-expanded="false" aria-controls="faq-answer-1">
+              <span class="faq-question">O que é uma Ficha de Segurança (FDS)?</span>
+              <img src="assets/user/icons/chevron-down.svg" alt="" class="faq-icon" width="40" height="40">
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" inert>
+            <p>A Ficha com Dados de Segurança (FDS) é um documento que reúne informações sobre os perigos de um produto químico, seus cuidados de manuseio, armazenamento, medidas de proteção e procedimentos de emergência. No Quimia, ela serve como fonte de informações para orientar o uso seguro dos produtos.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <h3 class="faq-heading">
+            <button type="button" class="faq-button" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">
+              <span class="faq-question">Onde posso descartar meus produtos de limpeza?</span>
+              <img src="assets/user/icons/chevron-down.svg" alt="" class="faq-icon" width="40" height="40">
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" inert>
+            <p>No app, a função “Explore suas proximidades” mostra pontos de descarte e lojas próximas de você. O descarte correto evita que esses produtos contaminem solo e água, assim contribuem para um mundo mais sustentável.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <h3 class="faq-heading">
+            <button type="button" class="faq-button" id="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3">
+              <span class="faq-question">De onde vêm as informações dos produtos?</span>
+              <img src="assets/user/icons/chevron-down.svg" alt="" class="faq-icon" width="40" height="40">
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" inert>
+            <p>As informações vêm das empresas que fabricam os produtos e são validadas por elas, a partir de materiais como as Fichas com Dados de Segurança (FDSs). Assim, o que você consulta no app vem de quem conhece o produto.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <h3 class="faq-heading">
+            <button type="button" class="faq-button" id="faq-question-4" aria-expanded="false" aria-controls="faq-answer-4">
+              <span class="faq-question">Preciso criar uma conta no Quimia?</span>
+              <img src="assets/user/icons/chevron-down.svg" alt="" class="faq-icon" width="40" height="40">
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" inert>
+            <p>Sim! Para acessar os recursos personalizados do Quimia, é necessário criar uma conta na plataforma. Com ela, você poderá utilizar as funcionalidades disponíveis para consultar informações sobre produtos de limpeza, compreender seus riscos e cuidados de uso e encontrar orientações que contribuam para uma utilização mais segura. Basta realizar o cadastro com as informações solicitadas e acessar a plataforma com sua conta.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <h3 class="faq-heading">
+            <button type="button" class="faq-button" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5">
+              <span class="faq-question">Como faço o cadastro dos meus produtos no app?</span>
+              <img src="assets/user/icons/chevron-down.svg" alt="" class="faq-icon" width="40" height="40">
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5" inert>
+            <p>Aponte a câmera do celular para o rótulo do produto para encontrá-lo no Quimia, ou escolha uma foto da galeria. Depois, consulte instruções de uso, alertas de segurança e orientações de limpeza. Para usar a câmera, é preciso permitir o acesso nas configurações do aparelho.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <div id="footer-brand">
+      <p class="footer-brand-name">Quimia</p>
+      <img src="assets/user/icons/logo.svg" alt="" id="footer-logo" width="44" height="44">
+    </div>
+    <div id="footer-body">
+      <div id="contact-info">
+        <h2 class="footer-title">Informações de contato</h2>
+        <ul id="contact-links">
+          <li id="github">
+            <a href="https://github.com/Quimia-br" class="body" target="_blank" rel="noopener noreferrer">
+              <img src="assets/user/icons/github.svg" alt="" class="footer-icon" width="24" height="24">
+            Quimia-br
+            </a>
+          </li>
+          <li id="instagram">
+            <a href="https://www.instagram.com/quimia.app/" class="body" target="_blank" rel="noopener noreferrer">
+              <img src="assets/user/icons/arroba.svg" alt="" class="footer-icon" width="24" height="24">
+            quimia.app
+            </a>
+          </li>
+          <li id="email">
+            <a href="mailto:quimia.app@gmail.com?subject=Entrar%20em%20Contato&body=Ol%C3%A1%2C%20tudo%20bem%3F" class="body">
+              <img src="assets/user/icons/email.svg" alt="" class="footer-icon" width="24" height="24">
+            quimia.app@gmail.com
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div id="quick-links">
+        <h2 class="footer-title">Links rápidos</h2>
+        <ul class="footer-links">
+          <li>
+            <a href="#home" class="body">
+              <img src="assets/user/icons/voltar-inicio.svg" alt="" class="footer-icon" width="24" height="24">
+            Voltar ao início
+            </a>
+          </li>
+          <li>
+            <a href="#" class="body" data-link="restrictedArea">
+              <img src="assets/user/icons/area-restrita.svg" alt="" class="footer-icon" width="24" height="24">
+            Área restrita
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div id="help">
+        <h2 class="footer-title">Ajuda</h2>
+        <div id="support">
+          <a href="support.html" class="body">
+            <img src="assets/user/icons/atendimento-cliente.svg" alt="" class="footer-icon" width="24" height="24">
+          Atendimento ao cliente
+          </a>
+        </div>
+      </div>
+    </div>
+    <a href="privacy.html" id="privacy-policy">Política de privacidade 2026</a>
+  </footer>
+  <!-- Pop-up de download: abrir com downloadModal.showModal() e fechar com downloadModal.close() -->
+  <dialog id="downloadModal" class="download-modal" aria-labelledby="download-modal-title">
+    <div class="download-modal-accent"></div>
+    <button type="button" id="downloadModalClose" class="download-modal-close" aria-label="Fechar">
+      <img src="assets/user/icons/fechar.svg" alt="" width="24" height="24">
+    </button>
+    <div class="download-modal-content">
+      <div class="download-modal-header">
+        <h2 id="download-modal-title" class="download-modal-title">Baixe o Quimia</h2>
+        <p class="download-modal-text">Aponte a câmera do celular para o QR code ou escolha sua loja.</p>
+      </div>
+      <div class="download-modal-qr">
+        <!-- Contêiner do QR code: o JS desenha o QR aqui dentro e substitui a imagem de exemplo -->
+        <div id="downloadQr" class="download-modal-qr-box">
+          <img src="assets/user/images/qr-code-placeholder.svg" alt="QR code para baixar o app Quimia" width="206" height="206">
+        </div>
+        <p class="download-modal-qr-caption">Escaneie com a câmera do celular</p>
+      </div>
+      <div class="download-modal-stores">
+        <a href="#" id="downloadAppStore" class="download-modal-store" target="_blank" rel="noopener noreferrer">
+          <img src="assets/user/images/selo-app-store.svg" alt="Baixar na App Store" width="155" height="52">
+        </a>
+        <a href="#" id="downloadPlayStore" class="download-modal-store" target="_blank" rel="noopener noreferrer">
+          <img src="assets/user/images/selo-google-play.svg" alt="Disponível no Google Play" width="175" height="52">
+        </a>
+      </div>
+    </div>
+  </dialog>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="js/store-links.js"></script>
+  <script src="js/download-modal.js"></script>
+  <script src="js/user.js"></script>
+</body>
+
+</html>

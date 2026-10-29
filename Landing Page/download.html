@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Baixe o Quimia</title>
+  <link rel="icon" type="image/svg+xml" href="assets/user/icons/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+  <main class="download-page">
+    <img src="assets/user/icons/logo.svg" alt="Quimia" class="download-page-logo" width="64" height="72">
+    <h1 class="download-page-title">Baixe o Quimia</h1>
+    <p id="downloadPageText" class="download-page-text">Escolha a sua loja para baixar o app.</p>
+    <div class="download-modal-stores">
+      <a href="#" id="downloadAppStore" class="download-modal-store">
+        <img src="assets/user/images/selo-app-store.svg" alt="Baixar na App Store" width="155" height="52">
+      </a>
+      <a href="#" id="downloadPlayStore" class="download-modal-store">
+        <img src="assets/user/images/selo-google-play.svg" alt="Disponível no Google Play" width="175" height="52">
+      </a>
+    </div>
+  </main>
+  <script src="js/store-links.js"></script>
+  <script>
+    document.getElementById('downloadAppStore').href = appStoreUrl;
+    document.getElementById('downloadPlayStore').href = playStoreUrl;
+
+    // Em iPhone ou Android, vai direto para a loja do aparelho
+    var storeUrl = getMobileStoreUrl();
+
+    if (storeUrl) {
+      document.getElementById('downloadPageText').textContent = 'Abrindo a loja...';
+      window.location.replace(storeUrl);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fale com a equipe Quimia: envie sua dúvida, sugestão ou solicitação e receba retorno por e-mail.">
+  <title>Atendimento ao Cliente - Quimia</title>
+  <link rel="icon" type="image/svg+xml" href="assets/user/icons/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Reem+Kufi:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/support.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#support-title">Ir para o conteúdo</a>
+  <header id="support-navbar">
+    <div id="support-brand">
+      <a href="index.html" class="support-home" id="support-home" aria-label="Quimia, voltar para a página inicial">
+        <span class="support-brand-name">Quimia</span>
+        <img src="assets/support/icons/logo-quimia.svg" alt="" class="support-logo" width="39" height="44">
+      </a>
+      <span class="support-divider" aria-hidden="true"></span>
+      <p class="support-page-name">Atendimento ao Cliente</p>
+    </div>
+    <a href="index.html" class="support-back" id="support-back">
+      <span class="support-back-long">Voltar para página inicial</span>
+      <span class="support-back-short">Início</span>
+      <img src="assets/support/icons/seta-voltar.svg" alt="" class="support-back-icon" width="22" height="22">
+    </a>
+  </header>
+
+  <main id="support-main">
+    <section id="support-intro" aria-labelledby="support-title">
+      <h1 id="support-title">Como podemos <span class="text-green">ajudar?</span></h1>
+      <p class="support-lead">Estamos aqui para ouvir você. Envie sua dúvida, sugestão ou solicitação à equipe Quimia.</p>
+      <p class="support-response">
+        <svg class="support-response-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span>Respondemos em até <strong>2 dias</strong>.</span>
+      </p>
+    </section>
+
+    <section id="support-card" aria-label="Formulário de atendimento">
+      <form id="support-form" novalidate>
+        <p class="support-required-note">Os campos sem “opcional” são obrigatórios.</p>
+
+        <fieldset class="support-field" id="field-audience">
+          <legend class="support-label">Quem está entrando em contato?</legend>
+          <div class="support-audience">
+            <div class="support-mascot" id="support-mascot">
+              <img src="assets/support/images/mascote-usuario.jpg" alt="" class="support-mascot-img is-active" data-audience="Usuário" width="275" height="170">
+              <img src="assets/support/images/mascote-empresa.webp" alt="" class="support-mascot-img" data-audience="Empresa" width="640" height="395" loading="lazy">
+              <img src="assets/support/images/mascote-outro-assunto.webp" alt="" class="support-mascot-img" data-audience="Outro assunto" width="640" height="395" loading="lazy">
+            </div>
+            <div class="support-options">
+              <label class="support-choice">
+                <input type="radio" name="audience" value="Usuário" checked>
+                <span>Sou usuário</span>
+              </label>
+              <label class="support-choice">
+                <input type="radio" name="audience" value="Empresa">
+                <span>Sou empresa</span>
+              </label>
+              <label class="support-choice">
+                <input type="radio" name="audience" value="Outro assunto">
+                <span>Outro assunto</span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="support-row">
+          <div class="support-field" id="field-name">
+            <label class="support-label" for="name">Nome <span class="support-optional">(opcional)</span></label>
+            <input type="text" id="name" name="name" class="support-input" autocomplete="name" maxlength="80" placeholder="Seu nome" aria-describedby="name-error">
+            <p class="support-error" id="name-error" hidden>Escreva pelo menos 2 letras ou deixe o nome em branco.</p>
+          </div>
+
+          <div class="support-field" id="field-reason">
+            <label class="support-label" for="reason">Motivo <span class="support-optional">(opcional)</span></label>
+            <div class="support-select-wrap">
+              <select id="reason" name="reason">
+                <option value="" selected disabled>Selecione</option>
+                <option>Dúvida sobre o app</option>
+                <option>Sugestão</option>
+                <option>Problema técnico</option>
+                <option>Cadastro de produtos</option>
+                <option>Planos e orçamento</option>
+                <option>Privacidade e dados pessoais</option>
+                <option>Outro assunto</option>
+              </select>
+              <img src="assets/support/icons/chevron-down.svg" alt="" class="support-select-icon" width="24" height="24">
+            </div>
+          </div>
+        </div>
+
+        <div class="support-field" id="field-topic" hidden>
+          <label class="support-label" for="topic">Qual assunto você gostaria de tratar?</label>
+          <input type="text" id="topic" name="topic" class="support-input" maxlength="80" placeholder="Resuma em poucas palavras" aria-describedby="topic-error">
+          <p class="support-error" id="topic-error" hidden>Conte qual assunto você gostaria de tratar.</p>
+        </div>
+
+        <div class="support-field" id="field-contact" role="group" aria-labelledby="contact-legend">
+          <div class="support-contact-head">
+            <p class="support-label" id="contact-legend">Como prefere o retorno?</p>
+            <div class="support-segmented">
+              <label class="support-segment">
+                <input type="radio" name="contactMethod" value="E-mail" checked>
+                <span>E-mail</span>
+              </label>
+              <label class="support-segment">
+                <input type="radio" name="contactMethod" value="Celular">
+                <span>Celular</span>
+              </label>
+            </div>
+          </div>
+          <label class="support-sublabel" for="contact" id="contact-label">Seu e-mail</label>
+          <input type="email" id="contact" name="contact" class="support-input" autocomplete="email" inputmode="email" maxlength="120" placeholder="nome@exemplo.com" required aria-describedby="contact-error">
+          <p class="support-error" id="contact-error" hidden>Informe um e-mail válido, como nome@exemplo.com.</p>
+        </div>
+
+        <div class="support-field" id="field-message">
+          <label class="support-label" for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="3" maxlength="1000" required aria-describedby="message-hint message-error"></textarea>
+          <div class="support-meta">
+            <p class="support-error" id="message-error" hidden>Escreva uma mensagem com pelo menos 10 caracteres.</p>
+            <p class="support-hint" id="message-hint"><span id="message-count">0</span>/1000</p>
+          </div>
+        </div>
+
+        <div class="support-field" id="field-consent">
+          <label class="support-consent">
+            <input type="checkbox" id="consent" name="consent" required aria-describedby="consent-error">
+            <span>Autorizo o uso destes dados para responder ao meu contato, conforme a <a href="privacy.html" id="support-privacy-link" target="_blank" rel="noopener">política de privacidade</a></span>
+          </label>
+          <p class="support-error" id="consent-error" hidden>Para enviar, autorize o uso dos dados.</p>
+        </div>
+
+        <p class="support-privacy-note">Seus dados são enviados à equipe Quimia por um serviço de formulário (FormSubmit) e usados apenas para responder ao seu contato.</p>
+
+        <div class="support-honeypot" aria-hidden="true">
+          <label for="website">Não preencha este campo</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="support-submit" id="support-submit">Enviar para o suporte</button>
+
+        <p class="support-alt">Prefere escrever direto? Mande um e-mail para <a href="mailto:quimia.app@gmail.com">quimia.app@gmail.com</a>.</p>
+
+        <div id="support-status" role="alert" hidden>
+          <p class="support-status-title">Não foi possível enviar agora.</p>
+          <p class="support-status-text">Confira sua conexão e tente de novo. Se preferir, escreva para <a href="mailto:quimia.app@gmail.com">quimia.app@gmail.com</a>.</p>
+        </div>
+      </form>
+
+      <div id="support-success" role="status" tabindex="-1" hidden>
+        <span class="support-success-icon" aria-hidden="true"></span>
+        <h2 class="support-success-title">Mensagem enviada!</h2>
+        <p class="support-success-text" id="support-success-text">Recebemos o seu contato e vamos responder em breve.</p>
+        <div class="support-success-actions">
+          <a href="index.html" class="support-submit support-success-home" id="support-success-home">Voltar para a página inicial</a>
+          <button type="button" class="support-link-button" id="support-again">Enviar outra mensagem</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/support.js"></script>
+</body>
+
+</html>
