@@ -992,7 +992,7 @@ video::cue {
   white-space: nowrap;
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background-color var(--transition-base), color var(--transition-base);
+  transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
 }
 
 .demo-button-secondary {
@@ -1004,8 +1004,8 @@ video::cue {
 }
 
 .demo-button-secondary:hover {
-  color: var(--mint-white);
-  background-color: var(--palette-slate-1);
+  color: var(--palette-blue-4);
+  border-color: var(--palette-blue-4);
 }
 
 .demo-button-primary {
