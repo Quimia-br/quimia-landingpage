@@ -846,6 +846,27 @@ fieldset.support-field {
   text-underline-offset: 2px;
 }
 
+.support-fallback-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  margin-top: 12px;
+  padding: 8px 22px;
+  font-family: var(--font-title);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-white);
+  text-decoration: none;
+  background-color: var(--color-accent);
+  border-radius: var(--radius-field);
+  transition: background-color var(--transition-base);
+}
+
+.support-fallback-button:hover {
+  background-color: var(--color-accent-hover);
+}
+
 /* Tablet em pé e celular: uma coluna centralizada */
 @media (max-width: 960px), (max-width: 1100px) and (orientation: portrait) {
 

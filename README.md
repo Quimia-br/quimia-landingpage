@@ -47,6 +47,9 @@ Landing Page/
     ├── user/                  icons/, images/ e videos/
     ├── business/              icons/ e images/
     └── support/               icons/ e images/
+
+apps-script/
+└── Code.gs                    Serviço de atendimento (Google Apps Script); não vai para o site publicado
 ```
 
 ### Convenções
@@ -96,11 +99,11 @@ Alguns pontos precisam de decisão ou de conta externa antes da publicação:
 |---|---|---|
 | Links das lojas (App Store e Google Play) | `js/store-links.js` | Hoje apontam para um app de exemplo e precisam ser trocados pelos links do Quimia |
 | Página de download do QR code | `js/store-links.js` (`downloadPageUrl`) | O QR aponta para `https://quimia.tech/download`, então o domínio precisa servir o `download.html` nesse endereço |
-| Envio do formulário de atendimento | `js/support.js` (`SUPPORT_ENDPOINT`) | Usa o serviço FormSubmit. É preciso ativá-lo com o e-mail de ativação e, depois, trocar o e-mail do endereço pelo código aleatório que o serviço fornece |
+| Serviço de atendimento (formulário) | `apps-script/Code.gs` e `js/support.js` (`SUPPORT_ENDPOINT`) | Script do Google Apps Script na conta do suporte, que envia o e-mail e registra a mensagem numa planilha. Se for reimplantado com outro endereço, trocar o `SUPPORT_ENDPOINT` |
 | Texto da Declaração de Privacidade | `privacy.html` e `privacy-business.html` | O conteúdo veio do design e precisa ser revisado por quem responde pelo jurídico antes de publicar |
 | Prazo de resposta do atendimento | `support.html` e `js/support.js` | Hoje diz "até 2 dias" |
 
-Serviços de terceiros usados: Google Fonts, `qrcodejs` (via CDN) e FormSubmit.
+Serviços de terceiros usados: Google Fonts, `qrcodejs` (via CDN) e Google Apps Script (atendimento).
 
 ## Fluxo de trabalho
 
