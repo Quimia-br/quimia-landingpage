@@ -218,7 +218,7 @@ body::after {
 
 #support-intro {
   position: sticky;
-  top: calc(var(--navbar-height) + 32px);
+  top: calc(var(--navbar-height) + 48px);
   padding-top: clamp(0px, 2vw, 32px);
 }
 
