@@ -1,4 +1,8 @@
 const SUPPORT_EMAIL = 'quimia.app@gmail.com';
+// Serviço de formulário que entrega as mensagens no e-mail do suporte.
+// Depois de ativado, trocar o e-mail do endereço pelo código aleatório fornecido pelo serviço.
+const SUPPORT_ENDPOINT = 'https://formsubmit.co/ajax/' + SUPPORT_EMAIL;
+const SUPPORT_TIMEOUT_MS = 15000;
 
 // Origem do acesso: define a landing de volta e o perfil já marcado
 (() => {
@@ -7,6 +11,7 @@ const SUPPORT_EMAIL = 'quimia.app@gmail.com';
 
   document.getElementById('support-home').href = homeUrl;
   document.getElementById('support-back').href = homeUrl;
+  document.getElementById('support-success-home').href = homeUrl;
 
   if (isCompany) {
     document.querySelector('input[name="audience"][value="Empresa"]').checked = true;
@@ -45,7 +50,7 @@ const SUPPORT_EMAIL = 'quimia.app@gmail.com';
       inputmode: 'tel',
       autocomplete: 'tel-national',
       placeholder: '(11) 91234-5678',
-      error: 'Informe um celular com DDD, como (11) 91234-5678.'
+      error: 'Informe um celular com DDD e 9 dígitos, como (11) 91234-5678.'
     }
   };
 
@@ -73,11 +78,13 @@ const SUPPORT_EMAIL = 'quimia.app@gmail.com';
     const value = contact.value.trim();
 
     if (getContactMethod() === 'E-mail') {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+      return value.length <= 120
+        && !value.includes('..')
+        && /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/.test(value);
     }
 
     const digits = value.replace(/\D/g, '');
-    return (digits.length === 10 || digits.length === 11) && Number(digits.slice(0, 2)) >= 11;
+    return digits.length === 11 && Number(digits.slice(0, 2)) >= 11 && digits[2] === '9';
   };
 
   const rules = [
@@ -171,30 +178,80 @@ const SUPPORT_EMAIL = 'quimia.app@gmail.com';
     counter.textContent = message.value.length;
   });
 
-  const buildMailto = () => {
-    const audience = form.elements.audience.value;
-    const method = getContactMethod();
-    const subjectText = needsTopic() && topic.value.trim() ? topic.value.trim() : reason.value;
-    const lines = [
-      'Nome: ' + nameInput.value.trim(),
-      'Perfil: ' + audience,
-      'Retorno por ' + method.toLowerCase() + ': ' + contact.value.trim(),
-      'Motivo: ' + reason.value
-    ];
+  const submitButton = document.getElementById('support-submit');
+  const success = document.getElementById('support-success');
+  const successText = document.getElementById('support-success-text');
+  const honeypot = document.getElementById('website');
 
-    if (needsTopic() && topic.value.trim()) {
-      lines.push('Assunto: ' + topic.value.trim());
+  const buildPayload = () => {
+    const method = getContactMethod();
+    const hasTopic = needsTopic() && topic.value.trim();
+    const payload = {
+      Nome: nameInput.value.trim(),
+      Perfil: form.elements.audience.value,
+      'Retorno por': method,
+      [method]: contact.value.trim(),
+      Motivo: reason.value,
+      Mensagem: message.value.trim(),
+      _subject: '[Atendimento Quimia] ' + (hasTopic ? topic.value.trim() : reason.value),
+      _template: 'table',
+      _captcha: 'false',
+      _honey: honeypot.value
+    };
+
+    if (hasTopic) {
+      payload.Assunto = topic.value.trim();
     }
 
-    lines.push('', message.value.trim());
+    if (method === 'E-mail') {
+      payload.email = contact.value.trim();
+    }
 
-    return 'mailto:' + SUPPORT_EMAIL
-      + '?subject=' + encodeURIComponent('[Atendimento] ' + subjectText)
-      + '&body=' + encodeURIComponent(lines.join('\n'));
+    return payload;
   };
 
-  form.addEventListener('submit', (event) => {
+  const sendMessage = async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), SUPPORT_TIMEOUT_MS);
+
+    try {
+      const response = await fetch(SUPPORT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(buildPayload()),
+        signal: controller.signal
+      });
+      const result = await response.json().catch(() => ({}));
+
+      return response.ok && result.success !== false && result.success !== 'false';
+    } catch (error) {
+      return false;
+    } finally {
+      clearTimeout(timer);
+    }
+  };
+
+  const setSending = (isSending) => {
+    submitButton.disabled = isSending;
+    submitButton.textContent = isSending ? 'Enviando...' : 'Enviar para o suporte';
+    form.setAttribute('aria-busy', String(isSending));
+  };
+
+  const showSuccess = () => {
+    const method = getContactMethod() === 'E-mail' ? 'o e-mail' : 'o celular';
+
+    successText.textContent = 'Recebemos o seu contato e vamos responder em breve, usando ' + method + ' que você informou.';
+    form.hidden = true;
+    success.hidden = false;
+    success.focus();
+  };
+
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    if (submitButton.disabled) {
+      return;
+    }
 
     const invalidRules = rules.filter((rule) => isActive(rule) && !rule.isValid());
 
@@ -206,7 +263,32 @@ const SUPPORT_EMAIL = 'quimia.app@gmail.com';
       return;
     }
 
-    status.hidden = false;
-    window.location.href = buildMailto();
+    clearStatus();
+    setSending(true);
+
+    const sent = await sendMessage();
+
+    setSending(false);
+
+    if (sent) {
+      showSuccess();
+    } else {
+      status.hidden = false;
+    }
+  });
+
+  // Enviar outra mensagem: limpa o formulário e volta ao início
+  document.getElementById('support-again').addEventListener('click', () => {
+    form.reset();
+    storedContacts['E-mail'] = '';
+    storedContacts.Celular = '';
+    currentMethod = getContactMethod();
+    applyContactMode(currentMethod);
+    counter.textContent = '0';
+    updateTopic();
+    rules.forEach((rule) => setError(rule, false));
+    success.hidden = true;
+    form.hidden = false;
+    nameInput.focus();
   });
 })();

@@ -39,6 +39,8 @@
 
     <section id="support-card" aria-label="Formulário de atendimento">
       <form id="support-form" novalidate>
+        <p class="support-required-note">Todos os campos são obrigatórios.</p>
+
         <fieldset class="support-field" id="field-audience">
           <legend class="support-label">Quem está entrando em contato?</legend>
           <div class="support-options">
@@ -121,13 +123,30 @@
           <p class="support-error" id="consent-error" hidden>Para enviar, autorize o uso dos dados.</p>
         </div>
 
-        <button type="submit" class="support-submit">Enviar para o suporte</button>
+        <p class="support-privacy-note">Seus dados são enviados à equipe Quimia por um serviço de formulário (FormSubmit) e usados apenas para responder ao seu contato.</p>
 
-        <div id="support-status" role="status" aria-live="polite" hidden>
-          <p class="support-status-title">Quase lá! Abrimos o seu aplicativo de e-mail.</p>
-          <p class="support-status-text">A mensagem já está pronta, é só enviar. Se nada abriu, escreva para <a href="mailto:quimia.app@gmail.com" id="support-mail">quimia.app@gmail.com</a>.</p>
+        <div class="support-honeypot" aria-hidden="true">
+          <label for="website">Não preencha este campo</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="support-submit" id="support-submit">Enviar para o suporte</button>
+
+        <div id="support-status" role="alert" hidden>
+          <p class="support-status-title">Não foi possível enviar agora.</p>
+          <p class="support-status-text">Confira sua conexão e tente de novo. Se preferir, escreva para <a href="mailto:quimia.app@gmail.com">quimia.app@gmail.com</a>.</p>
         </div>
       </form>
+
+      <div id="support-success" role="status" tabindex="-1" hidden>
+        <span class="support-success-icon" aria-hidden="true"></span>
+        <h2 class="support-success-title">Mensagem enviada!</h2>
+        <p class="support-success-text" id="support-success-text">Recebemos o seu contato e vamos responder em breve.</p>
+        <div class="support-success-actions">
+          <a href="index.html" class="support-submit support-success-home" id="support-success-home">Voltar para a página inicial</a>
+          <button type="button" class="support-link-button" id="support-again">Enviar outra mensagem</button>
+        </div>
+      </div>
     </section>
   </main>
 
