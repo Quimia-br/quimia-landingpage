@@ -66,10 +66,35 @@
           </div>
         </fieldset>
 
-        <div class="support-field" id="field-name">
-          <label class="support-label" for="name">Nome <span class="support-optional">(opcional)</span></label>
-          <input type="text" id="name" name="name" class="support-input" autocomplete="name" maxlength="80" placeholder="Como podemos chamar você?" aria-describedby="name-error">
-          <p class="support-error" id="name-error" hidden>Escreva pelo menos 2 letras ou deixe o nome em branco.</p>
+        <div class="support-row">
+          <div class="support-field" id="field-name">
+            <label class="support-label" for="name">Nome <span class="support-optional">(opcional)</span></label>
+            <input type="text" id="name" name="name" class="support-input" autocomplete="name" maxlength="80" placeholder="Seu nome" aria-describedby="name-error">
+            <p class="support-error" id="name-error" hidden>Escreva pelo menos 2 letras ou deixe o nome em branco.</p>
+          </div>
+
+          <div class="support-field" id="field-reason">
+            <label class="support-label" for="reason">Motivo <span class="support-optional">(opcional)</span></label>
+            <div class="support-select-wrap">
+              <select id="reason" name="reason">
+                <option value="" selected disabled>Selecione</option>
+                <option>Dúvida sobre o app</option>
+                <option>Sugestão</option>
+                <option>Problema técnico</option>
+                <option>Cadastro de produtos</option>
+                <option>Planos e orçamento</option>
+                <option>Privacidade e dados pessoais</option>
+                <option>Outro assunto</option>
+              </select>
+              <img src="assets/support/icons/chevron-down.svg" alt="" class="support-select-icon" width="24" height="24">
+            </div>
+          </div>
+        </div>
+
+        <div class="support-field" id="field-topic" hidden>
+          <label class="support-label" for="topic">Qual assunto você gostaria de tratar?</label>
+          <input type="text" id="topic" name="topic" class="support-input" maxlength="80" placeholder="Resuma em poucas palavras" aria-describedby="topic-error">
+          <p class="support-error" id="topic-error" hidden>Conte qual assunto você gostaria de tratar.</p>
         </div>
 
         <div class="support-field" id="field-contact" role="group" aria-labelledby="contact-legend">
@@ -89,29 +114,6 @@
           <label class="support-sublabel" for="contact" id="contact-label">Seu e-mail</label>
           <input type="email" id="contact" name="contact" class="support-input" autocomplete="email" inputmode="email" maxlength="120" placeholder="nome@exemplo.com" required aria-describedby="contact-error">
           <p class="support-error" id="contact-error" hidden>Informe um e-mail válido, como nome@exemplo.com.</p>
-        </div>
-
-        <div class="support-field" id="field-reason">
-          <label class="support-label" for="reason">Qual o motivo do contato? <span class="support-optional">(opcional)</span></label>
-          <div class="support-select-wrap">
-            <select id="reason" name="reason">
-              <option value="" selected disabled>Selecione</option>
-              <option>Dúvida sobre o app</option>
-              <option>Sugestão</option>
-              <option>Problema técnico</option>
-              <option>Cadastro de produtos</option>
-              <option>Planos e orçamento</option>
-              <option>Privacidade e dados pessoais</option>
-              <option>Outro assunto</option>
-            </select>
-            <img src="assets/support/icons/chevron-down.svg" alt="" class="support-select-icon" width="24" height="24">
-          </div>
-        </div>
-
-        <div class="support-field" id="field-topic" hidden>
-          <label class="support-label" for="topic">Qual assunto você gostaria de tratar?</label>
-          <input type="text" id="topic" name="topic" class="support-input" maxlength="80" placeholder="Resuma em poucas palavras" aria-describedby="topic-error">
-          <p class="support-error" id="topic-error" hidden>Conte qual assunto você gostaria de tratar.</p>
         </div>
 
         <div class="support-field" id="field-message">

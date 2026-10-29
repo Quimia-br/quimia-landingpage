@@ -89,12 +89,14 @@ const SUPPORT_TIMEOUT_MS = 15000;
 
   const rules = [
     { input: nameInput, field: 'field-name', error: 'name-error', isValid: () => nameInput.value.trim() === '' || nameInput.value.trim().length >= 2 },
-    { input: contact, field: 'field-contact', error: 'contact-error', isValid: isValidContact },
     { input: reason, field: 'field-reason', error: null, isValid: () => true },
     { input: topic, field: 'field-topic', error: 'topic-error', isActive: needsTopic, isValid: () => topic.value.trim().length >= 3 },
+    { input: contact, field: 'field-contact', error: 'contact-error', isValid: isValidContact },
     { input: message, field: 'field-message', error: 'message-error', isValid: () => message.value.trim().length >= minMessageLength },
     { input: consent, field: 'field-consent', error: 'consent-error', isValid: () => consent.checked }
   ];
+
+  const ruleOf = (input) => rules.find((rule) => rule.input === input);
 
   const isActive = (rule) => !rule.isActive || rule.isActive();
 
@@ -136,7 +138,7 @@ const SUPPORT_TIMEOUT_MS = 15000;
     contact.value = storedContacts[method];
     contactLabel.textContent = mode.label;
     contactError.textContent = mode.error;
-    setError(rules[1], false);
+    setError(ruleOf(contact), false);
   };
 
   let currentMethod = getContactMethod();
@@ -182,7 +184,7 @@ const SUPPORT_TIMEOUT_MS = 15000;
     topic.required = show;
 
     if (!show) {
-      setError(rules[3], false);
+      setError(ruleOf(topic), false);
     }
   };
 

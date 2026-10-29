@@ -208,7 +208,7 @@ body::after {
 /* Conteúdo */
 #support-main {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
   align-items: start;
   gap: clamp(32px, 5vw, 72px);
   width: min(100%, 1440px);
@@ -260,6 +260,13 @@ body::after {
 
 #support-form[hidden] {
   display: none;
+}
+
+.support-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 16px;
+  align-items: start;
 }
 
 .support-field {
@@ -884,6 +891,10 @@ fieldset.support-field {
 
   .support-segmented {
     width: 100%;
+  }
+
+  .support-row {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
