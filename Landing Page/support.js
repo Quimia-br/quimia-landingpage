@@ -261,7 +261,7 @@ const SUPPORT_TIMEOUT_MS = 15000;
   const showSuccess = () => {
     const method = getContactMethod() === 'E-mail' ? 'o e-mail' : 'o celular';
 
-    successText.textContent = 'Recebemos o seu contato e vamos responder em breve, usando ' + method + ' que você informou.';
+    successText.textContent = 'Recebemos o seu contato e vamos responder em até 2 dias, usando ' + method + ' que você informou.';
     form.hidden = true;
     success.hidden = false;
     success.focus();
