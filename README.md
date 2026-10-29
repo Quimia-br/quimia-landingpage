@@ -69,6 +69,25 @@ python -m http.server 8000
 
 Depois abra `http://localhost:8000`. Evite abrir os arquivos direto pelo navegador (`file://`), porque alguns recursos, como as legendas do vídeo, só funcionam via servidor.
 
+## Publicação (GitHub Pages)
+
+O site é publicado pelo GitHub Pages por meio do workflow `.github/workflows/pages.yml`, que envia a pasta `Landing Page/` sempre que a `main` recebe um merge. Também dá para rodá-lo à mão pela aba *Actions* (*Run workflow*).
+
+Configuração única, feita por quem administra o repositório:
+
+1. Em *Settings → Pages → Build and deployment → Source*, escolher **GitHub Actions**.
+2. Mergear na `main`. O endereço aparece na aba *Actions* e em *Settings → Pages*.
+
+Todos os caminhos do site são relativos, então ele funciona tanto no endereço padrão (`<organização>.github.io/quimia-landingpage/`) quanto em domínio próprio.
+
+Para usar o domínio `quimia.tech`:
+
+1. Em *Settings → Pages → Custom domain*, informar o domínio e, quando o certificado for emitido, marcar *Enforce HTTPS*.
+2. No DNS do domínio, criar os registros indicados na documentação do GitHub Pages.
+3. Adicionar um arquivo `CNAME` com o domínio dentro de `Landing Page/`, para ele não se perder a cada publicação.
+
+O QR code do app aponta para `https://quimia.tech/download`, então esse endereço precisa abrir o `download.html`.
+
 ## Configurações que dependem da equipe
 
 Alguns pontos precisam de decisão ou de conta externa antes da publicação:
