@@ -219,6 +219,7 @@ const SUPPORT_TIMEOUT_MS = 15000;
   const success = document.getElementById('support-success');
   const successText = document.getElementById('support-success-text');
   const honeypot = document.getElementById('website');
+  const fallbackLink = document.getElementById('support-fallback-mail');
 
   const buildPayload = () => {
     const method = getContactMethod();
@@ -245,6 +246,29 @@ const SUPPORT_TIMEOUT_MS = 15000;
     }
 
     return payload;
+  };
+
+  // Plano B: se o envio falhar, o visitante manda a mesma mensagem pelo próprio aplicativo de e-mail
+  const buildMailto = () => {
+    const method = getContactMethod();
+    const hasTopic = needsTopic() && topic.value.trim();
+    const subjectText = hasTopic ? topic.value.trim() : reason.value || 'Contato pelo site';
+    const lines = [
+      'Nome: ' + (nameInput.value.trim() || 'Não informado'),
+      'Perfil: ' + form.elements.audience.value,
+      'Retorno por ' + method.toLowerCase() + ': ' + contact.value.trim(),
+      'Motivo: ' + (reason.value || 'Não informado')
+    ];
+
+    if (hasTopic) {
+      lines.push('Assunto: ' + topic.value.trim());
+    }
+
+    lines.push('', message.value.trim());
+
+    return 'mailto:' + SUPPORT_EMAIL
+      + '?subject=' + encodeURIComponent('[Atendimento Quimia] ' + subjectText)
+      + '&body=' + encodeURIComponent(lines.join('\n'));
   };
 
   const sendMessage = async () => {
@@ -310,6 +334,7 @@ const SUPPORT_TIMEOUT_MS = 15000;
     if (sent) {
       showSuccess();
     } else {
+      fallbackLink.href = buildMailto();
       status.hidden = false;
     }
   });
