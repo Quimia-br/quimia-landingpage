@@ -2215,6 +2215,77 @@ footer {
     white-space: normal;
   }
 }
+/* Celulares: planos em carrossel que se arrasta para o lado */
+.plan-dots {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  #plans {
+    --plan-width: min(84vw, 340px);
+  }
+
+  #plan-cards {
+    position: relative;
+    display: flex;
+    grid-template-columns: none;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 16px;
+    margin-inline: calc(50% - 50vw);
+    margin-top: 0;
+    padding: 44px calc(50vw - var(--plan-width) / 2) 28px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  #plan-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  #plan-cards .plan-card {
+    flex: 0 0 var(--plan-width);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .plan-dots {
+    display: flex;
+    justify-content: center;
+  }
+
+  .plan-dot {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .plan-dot::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--palette-green-6);
+    border-radius: var(--radius-pill);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
+
+  .plan-dot.active::before {
+    width: 26px;
+    background-color: var(--palette-green-7);
+  }
+}
+
 /* Responsividade: cards empilhados e imagens em coluna */
 @media (max-width: 900px) {
   #home-cards {
