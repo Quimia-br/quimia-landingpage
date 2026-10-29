@@ -430,7 +430,7 @@ header {
   text-align: center;
   background:
     linear-gradient(var(--overlay-image), var(--overlay-image)),
-    url("../images/hero-products.jpg") center / cover no-repeat;
+    url("../assets/business/images/hero-products.jpg") center / cover no-repeat;
   background-color: var(--color-surface);
 }
 
@@ -441,7 +441,7 @@ header {
   bottom: -1px;
   left: 0;
   height: var(--home-curve-height);
-  background: url("../images/hero-curve.svg") center bottom / 100% 100% no-repeat;
+  background: url("../assets/business/images/hero-curve.svg") center bottom / 100% 100% no-repeat;
   pointer-events: none;
 }
 
@@ -1354,7 +1354,7 @@ header {
   overflow: hidden;
   background:
     linear-gradient(var(--overlay-image), var(--overlay-image)),
-    url("../images/sustainability-forest.jpg") center / cover no-repeat;
+    url("../assets/business/images/sustainability-forest.jpg") center / cover no-repeat;
   background-color: var(--color-surface);
   border-radius: var(--radius-card);
 }
@@ -1629,7 +1629,7 @@ header {
   flex-shrink: 0;
   width: 15px;
   height: 15px;
-  background: url("../icons/check.svg") center / contain no-repeat;
+  background: url("../assets/business/icons/check.svg") center / contain no-repeat;
 }
 
 #faq-title {
