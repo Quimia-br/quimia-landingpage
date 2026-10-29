@@ -39,7 +39,7 @@
 
     <section id="support-card" aria-label="Formulário de atendimento">
       <form id="support-form" novalidate>
-        <p class="support-required-note">Todos os campos são obrigatórios.</p>
+        <p class="support-required-note">Os campos sem “opcional” são obrigatórios.</p>
 
         <fieldset class="support-field" id="field-audience">
           <legend class="support-label">Quem está entrando em contato?</legend>
@@ -67,9 +67,9 @@
         </fieldset>
 
         <div class="support-field" id="field-name">
-          <label class="support-label" for="name">Nome</label>
-          <input type="text" id="name" name="name" class="support-input" autocomplete="name" maxlength="80" placeholder="Como podemos chamar você?" required aria-describedby="name-error">
-          <p class="support-error" id="name-error" hidden>Informe seu nome.</p>
+          <label class="support-label" for="name">Nome <span class="support-optional">(opcional)</span></label>
+          <input type="text" id="name" name="name" class="support-input" autocomplete="name" maxlength="80" placeholder="Como podemos chamar você?" aria-describedby="name-error">
+          <p class="support-error" id="name-error" hidden>Escreva pelo menos 2 letras ou deixe o nome em branco.</p>
         </div>
 
         <div class="support-field" id="field-contact" role="group" aria-labelledby="contact-legend">
@@ -92,9 +92,9 @@
         </div>
 
         <div class="support-field" id="field-reason">
-          <label class="support-label" for="reason">Qual o motivo do contato?</label>
+          <label class="support-label" for="reason">Qual o motivo do contato? <span class="support-optional">(opcional)</span></label>
           <div class="support-select-wrap">
-            <select id="reason" name="reason" required aria-describedby="reason-error">
+            <select id="reason" name="reason">
               <option value="" selected disabled>Selecione</option>
               <option>Dúvida sobre o app</option>
               <option>Sugestão</option>
@@ -106,7 +106,6 @@
             </select>
             <img src="assets/support/icons/chevron-down.svg" alt="" class="support-select-icon" width="24" height="24">
           </div>
-          <p class="support-error" id="reason-error" hidden>Escolha o motivo do seu contato.</p>
         </div>
 
         <div class="support-field" id="field-topic" hidden>
@@ -140,6 +139,8 @@
         </div>
 
         <button type="submit" class="support-submit" id="support-submit">Enviar para o suporte</button>
+
+        <p class="support-alt">Prefere escrever direto? Mande um e-mail para <a href="mailto:quimia.app@gmail.com">quimia.app@gmail.com</a>.</p>
 
         <div id="support-status" role="alert" hidden>
           <p class="support-status-title">Não foi possível enviar agora.</p>

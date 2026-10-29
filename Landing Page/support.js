@@ -88,9 +88,9 @@ const SUPPORT_TIMEOUT_MS = 15000;
   };
 
   const rules = [
-    { input: nameInput, field: 'field-name', error: 'name-error', isValid: () => nameInput.value.trim().length >= 2 },
+    { input: nameInput, field: 'field-name', error: 'name-error', isValid: () => nameInput.value.trim() === '' || nameInput.value.trim().length >= 2 },
     { input: contact, field: 'field-contact', error: 'contact-error', isValid: isValidContact },
-    { input: reason, field: 'field-reason', error: 'reason-error', isValid: () => reason.value !== '' },
+    { input: reason, field: 'field-reason', error: null, isValid: () => true },
     { input: topic, field: 'field-topic', error: 'topic-error', isActive: needsTopic, isValid: () => topic.value.trim().length >= 3 },
     { input: message, field: 'field-message', error: 'message-error', isValid: () => message.value.trim().length >= minMessageLength },
     { input: consent, field: 'field-consent', error: 'consent-error', isValid: () => consent.checked }
@@ -100,7 +100,9 @@ const SUPPORT_TIMEOUT_MS = 15000;
 
   const setError = (rule, hasError) => {
     document.getElementById(rule.field).classList.toggle('has-error', hasError);
-    document.getElementById(rule.error).hidden = !hasError;
+    if (rule.error) {
+      document.getElementById(rule.error).hidden = !hasError;
+    }
     rule.input.setAttribute('aria-invalid', String(hasError));
   };
 
@@ -204,13 +206,13 @@ const SUPPORT_TIMEOUT_MS = 15000;
     const method = getContactMethod();
     const hasTopic = needsTopic() && topic.value.trim();
     const payload = {
-      Nome: nameInput.value.trim(),
+      Nome: nameInput.value.trim() || 'Não informado',
       Perfil: form.elements.audience.value,
       'Retorno por': method,
       [method]: contact.value.trim(),
-      Motivo: reason.value,
+      Motivo: reason.value || 'Não informado',
       Mensagem: message.value.trim(),
-      _subject: '[Atendimento Quimia] ' + (hasTopic ? topic.value.trim() : reason.value),
+      _subject: '[Atendimento Quimia] ' + (hasTopic ? topic.value.trim() : reason.value || 'Contato pelo site'),
       _template: 'table',
       _captcha: 'false',
       _honey: honeypot.value

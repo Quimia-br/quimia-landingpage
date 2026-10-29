@@ -217,6 +217,8 @@ body::after {
 }
 
 #support-intro {
+  position: sticky;
+  top: calc(var(--navbar-height) + 32px);
   padding-top: clamp(0px, 2vw, 32px);
 }
 
@@ -645,6 +647,25 @@ fieldset.support-field {
   color: var(--color-muted);
 }
 
+.support-optional {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.support-alt {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.support-alt a {
+  font-weight: 700;
+  color: var(--color-link);
+  text-underline-offset: 2px;
+}
+
 .support-privacy-note {
   font-size: 14px;
   line-height: 1.5;
@@ -794,6 +815,7 @@ fieldset.support-field {
   }
 
   #support-intro {
+    position: static;
     padding-top: 0;
   }
 
