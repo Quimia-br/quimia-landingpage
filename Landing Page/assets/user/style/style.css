@@ -2075,11 +2075,11 @@ footer a.body[aria-disabled="true"] {
 }
 
 /* Tablet (retrato): hero com mais presença e conteúdo equilibrado na vertical */
-@media (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+@media (min-width: 601px) and (max-width: 1100px) and (orientation: portrait) {
 
   #hero-text {
     margin-top: auto;
-    max-width: 720px;
+    max-width: 860px;
   }
 
   h1 {
