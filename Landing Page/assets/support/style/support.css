@@ -99,7 +99,7 @@ body::after {
 }
 
 body::before {
-  background: url("../images/atendimento-fundo.png") center / cover no-repeat;
+  background: url("../images/atendimento-fundo.webp") center / cover no-repeat;
   transform: scaleX(-1);
 }
 
@@ -144,27 +144,27 @@ body::after {
 
 .support-brand-name {
   font-family: var(--font-brand);
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 500;
   line-height: 1;
 }
 
 .support-logo {
-  width: 39px;
+  width: 34px;
   height: auto;
 }
 
 .support-divider {
   flex-shrink: 0;
   width: 3px;
-  height: 41px;
+  height: 34px;
   background-color: var(--color-ink);
   border-radius: 2px;
 }
 
 .support-page-name {
   font-family: var(--font-title);
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
   color: var(--color-ink);
@@ -179,7 +179,7 @@ body::after {
   min-height: 44px;
   padding: 8px 12px;
   font-family: var(--font-title);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--color-link);
   text-decoration: none;
@@ -208,12 +208,12 @@ body::after {
 /* Conteúdo */
 #support-main {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 578px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
   align-items: start;
   gap: clamp(32px, 5vw, 72px);
   width: min(100%, 1440px);
   margin: 0 auto;
-  padding: calc(var(--navbar-height) + 64px) var(--gutter) 56px;
+  padding: calc(var(--navbar-height) + 48px) var(--gutter) 48px;
 }
 
 #support-intro {
@@ -222,7 +222,7 @@ body::after {
 
 #support-title {
   font-family: var(--font-title);
-  font-size: clamp(44px, 5.2vw, 70px);
+  font-size: clamp(38px, 4.4vw, 58px);
   font-weight: 800;
   line-height: 1.3;
   color: var(--surface-page);
@@ -236,7 +236,7 @@ body::after {
 .support-lead {
   max-width: 620px;
   margin-top: clamp(16px, 3vw, 32px);
-  font-size: clamp(20px, 2.1vw, 30px);
+  font-size: clamp(18px, 1.7vw, 24px);
   line-height: 1.45;
   color: var(--color-white);
   text-wrap: pretty;
@@ -244,7 +244,7 @@ body::after {
 
 /* Cartão do formulário */
 #support-card {
-  padding: 44px 40px 40px;
+  padding: 28px 32px 28px;
   color: var(--color-ink);
   background-color: var(--surface-page);
   border-radius: var(--radius-card);
@@ -253,7 +253,7 @@ body::after {
 #support-form {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 18px;
 }
 
 #support-form[hidden] {
@@ -268,12 +268,43 @@ body::after {
 .support-label {
   display: block;
   padding: 0;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   font-family: var(--font-title);
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.3;
   color: var(--color-ink);
+}
+
+.support-audience {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+
+.support-mascot {
+  position: relative;
+  aspect-ratio: 275 / 170;
+  overflow: hidden;
+  background-color: var(--surface-field);
+  border-radius: 16px;
+}
+
+.support-mascot-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.4s ease, transform 0.6s ease;
+}
+
+.support-mascot-img.is-active {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .support-options {
@@ -288,11 +319,12 @@ body::after {
   align-items: center;
   gap: 12px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .support-choice {
-  min-height: 44px;
-  font-size: 22px;
+  min-height: 40px;
+  font-size: 18px;
   line-height: 1.3;
   color: var(--color-text);
 }
@@ -359,7 +391,7 @@ body::after {
 #message {
   width: 100%;
   font-family: var(--font-body);
-  font-size: 22px;
+  font-size: 17px;
   line-height: 1.3;
   color: var(--color-ink);
   background-color: var(--surface-field);
@@ -370,8 +402,8 @@ body::after {
 
 #reason {
   appearance: none;
-  height: 52px;
-  padding: 0 52px 0 20px;
+  height: 46px;
+  padding: 0 48px 0 16px;
   cursor: pointer;
 }
 
@@ -397,8 +429,8 @@ body::after {
 }
 
 .support-input {
-  height: 52px;
-  padding: 0 20px;
+  height: 46px;
+  padding: 0 16px;
 }
 
 .support-input::placeholder,
@@ -410,11 +442,25 @@ fieldset.support-field {
   padding: 0;
 }
 
+.support-contact-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 2px;
+}
+
+.support-contact-head .support-label {
+  margin-bottom: 0;
+}
+
 .support-segmented {
   display: inline-grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 4px;
-  width: 100%;
+  width: 190px;
+  max-width: 100%;
   padding: 4px;
   background-color: var(--surface-field);
   border-radius: var(--radius-field);
@@ -439,9 +485,9 @@ fieldset.support-field {
 .support-segment span {
   display: grid;
   place-items: center;
-  min-height: 44px;
+  min-height: 34px;
   font-family: var(--font-title);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--color-text);
   border-radius: 7px;
@@ -464,8 +510,8 @@ fieldset.support-field {
 
 .support-sublabel {
   display: block;
-  margin: 16px 0 8px;
-  font-size: 17px;
+  margin: 12px 0 6px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.3;
   color: var(--color-text);
@@ -499,8 +545,8 @@ fieldset.support-field {
 }
 
 #message {
-  min-height: 147px;
-  padding: 14px 20px;
+  min-height: 112px;
+  padding: 12px 16px;
   resize: vertical;
 }
 
@@ -514,7 +560,7 @@ fieldset.support-field {
 
 .support-hint {
   margin-left: auto;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.4;
   color: var(--color-muted);
 }
@@ -523,7 +569,7 @@ fieldset.support-field {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
   color: var(--color-error);
@@ -569,11 +615,11 @@ fieldset.support-field {
 
 .support-submit {
   align-self: flex-start;
-  min-width: 247px;
-  min-height: 55px;
+  min-width: 220px;
+  min-height: 50px;
   padding: 8px 24px;
   font-family: var(--font-title);
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.2;
   color: var(--color-white);
@@ -594,13 +640,13 @@ fieldset.support-field {
 
 .support-required-note {
   margin-top: -8px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.4;
   color: var(--color-muted);
 }
 
 .support-privacy-note {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--color-muted);
 }
@@ -760,11 +806,11 @@ fieldset.support-field {
 @media (max-width: 900px) {
 
   .support-page-name {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .support-brand-name {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 
@@ -801,20 +847,33 @@ fieldset.support-field {
     border-radius: 24px;
   }
 
-  .support-label {
-    font-size: 20px;
+  .support-audience {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 14px;
   }
 
-  .support-choice,
-  .support-input,
-  #reason,
-  #message {
-    font-size: 19px;
+  .support-choice {
+    font-size: 16px;
   }
 
   .support-submit {
     width: 100%;
-    font-size: 20px;
+  }
+
+  .support-segmented {
+    width: 100%;
+  }
+}
+
+/* Telas de toque: alvos de pelo menos 44px */
+@media (pointer: coarse) {
+
+  .support-choice {
+    min-height: 44px;
+  }
+
+  .support-segment span {
+    min-height: 44px;
   }
 }
 

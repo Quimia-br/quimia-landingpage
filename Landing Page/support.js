@@ -156,6 +156,23 @@ const SUPPORT_TIMEOUT_MS = 15000;
   });
 
   // Assunto livre: aparece quando o motivo ou o perfil é "Outro assunto"
+  // Mascote: troca a imagem conforme o perfil escolhido
+  const mascotImages = document.querySelectorAll('.support-mascot-img');
+
+  const updateMascot = () => {
+    const audience = form.elements.audience.value;
+
+    mascotImages.forEach((image) => {
+      image.classList.toggle('is-active', image.dataset.audience === audience);
+    });
+  };
+
+  form.querySelectorAll('input[name="audience"]').forEach((radio) => {
+    radio.addEventListener('change', updateMascot);
+  });
+
+  updateMascot();
+
   const updateTopic = () => {
     const show = needsTopic();
 
