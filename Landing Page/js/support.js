@@ -103,8 +103,29 @@ const SUPPORT_TIMEOUT_MS = 20000;
     return digits.length === 11 && Number(digits.slice(0, 2)) >= 11 && digits[2] === '9';
   };
 
+  const invalidNameChars = /[^\p{L}\s'’.-]/u;
+
+  // Nome: só letras (com acento), espaço, apóstrofo, ponto e hífen; vazio é permitido
+  const nameProblem = () => {
+    const value = nameInput.value.trim();
+
+    if (value === '') {
+      return '';
+    }
+
+    if (invalidNameChars.test(value)) {
+      return 'O nome deve ter só letras, sem números ou símbolos.';
+    }
+
+    if ((value.match(/\p{L}/gu) || []).length < 2) {
+      return 'Escreva pelo menos 2 letras ou deixe o nome em branco.';
+    }
+
+    return '';
+  };
+
   const rules = [
-    { input: nameInput, field: 'field-name', error: 'name-error', isValid: () => nameInput.value.trim() === '' || nameInput.value.trim().length >= 2 },
+    { input: nameInput, field: 'field-name', error: 'name-error', message: nameProblem, isValid: () => nameProblem() === '' },
     { input: reason, field: 'field-reason', error: null, isValid: () => true },
     { input: topic, field: 'field-topic', error: 'topic-error', isActive: needsTopic, isValid: () => topic.value.trim().length >= 3 },
     { input: contact, field: 'field-contact', error: 'contact-error', isValid: isValidContact },
@@ -119,7 +140,13 @@ const SUPPORT_TIMEOUT_MS = 20000;
   const setError = (rule, hasError) => {
     document.getElementById(rule.field).classList.toggle('has-error', hasError);
     if (rule.error) {
-      document.getElementById(rule.error).hidden = !hasError;
+      const errorElement = document.getElementById(rule.error);
+
+      if (hasError && rule.message) {
+        errorElement.textContent = rule.message();
+      }
+
+      errorElement.hidden = !hasError;
     }
     rule.input.setAttribute('aria-invalid', String(hasError));
   };
@@ -137,6 +164,13 @@ const SUPPORT_TIMEOUT_MS = 20000;
       }
       clearStatus();
     });
+  });
+
+  // Número ou símbolo no nome é avisado na hora, sem esperar o envio
+  nameInput.addEventListener('input', () => {
+    if (invalidNameChars.test(nameInput.value)) {
+      setError(ruleOf(nameInput), true);
+    }
   });
 
   // Forma de retorno: troca o tipo do campo e guarda o que foi digitado em cada opção
@@ -278,8 +312,19 @@ const SUPPORT_TIMEOUT_MS = 20000;
     }
   };
 
+  // O botão fica cinza e inativo até a pessoa autorizar o uso dos dados
+  let isSendingNow = false;
+
+  const updateSubmitState = () => {
+    submitButton.disabled = isSendingNow || !consent.checked;
+  };
+
+  consent.addEventListener('change', updateSubmitState);
+  updateSubmitState();
+
   const setSending = (isSending) => {
-    submitButton.disabled = isSending;
+    isSendingNow = isSending;
+    updateSubmitState();
     submitButton.textContent = isSending ? 'Enviando...' : 'Enviar para o suporte';
     form.setAttribute('aria-busy', String(isSending));
   };
@@ -335,6 +380,7 @@ const SUPPORT_TIMEOUT_MS = 20000;
     counter.textContent = '0';
     updateTopic();
     rules.forEach((rule) => setError(rule, false));
+    updateSubmitState();
     success.hidden = true;
     form.hidden = false;
     nameInput.focus();
