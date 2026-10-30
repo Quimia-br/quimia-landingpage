@@ -721,13 +721,23 @@ fieldset.support-field {
   overflow: hidden;
 }
 
-.support-submit:disabled {
-  cursor: progress;
-  opacity: 0.75;
+.support-submit:disabled,
+.support-submit:disabled:hover {
+  color: #727B79;
+  cursor: not-allowed;
+  background-color: #D9DEDD;
 }
 
-.support-submit:disabled:hover {
+.support-submit:disabled:active {
+  transform: none;
+}
+
+#support-form[aria-busy="true"] .support-submit:disabled,
+#support-form[aria-busy="true"] .support-submit:disabled:hover {
+  color: var(--color-white);
+  cursor: progress;
   background-color: var(--color-accent);
+  opacity: 0.75;
 }
 
 #support-success {
