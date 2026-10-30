@@ -193,3 +193,109 @@ const QUIMIA_LINKS = Object.freeze({
     }
   });
 })();
+
+/* Planos: no celular viram um carrossel e o plano recomendado abre centralizado */
+(() => {
+  const list = document.getElementById('plan-cards');
+
+  if (!list) {
+    return;
+  }
+
+  const cards = Array.from(list.querySelectorAll('.plan-card'));
+  const carousel = window.matchMedia('(max-width: 768px)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const scrollLockMs = 600;
+  let scrollLockUntil = 0;
+  let scrollFrame = 0;
+
+  const hint = document.createElement('p');
+  hint.className = 'plan-hint';
+  hint.textContent = 'Deslize para ver os outros planos';
+
+  const hideHint = () => {
+    hint.classList.add('is-hidden');
+  };
+
+  const dots = document.createElement('div');
+  dots.className = 'plan-dots';
+
+  const dotButtons = cards.map((card) => {
+    const dot = document.createElement('button');
+
+    dot.type = 'button';
+    dot.className = 'plan-dot';
+    dot.textContent = card.querySelector('.plan-name').textContent.trim();
+    dot.addEventListener('click', () => {
+      hideHint();
+      scrollToCard(card, false);
+      setActive(card);
+    });
+    dots.appendChild(dot);
+
+    return dot;
+  });
+
+  list.after(hint, dots);
+  list.addEventListener('pointerdown', hideHint, { once: true });
+
+  const setActive = (activeCard) => {
+    dotButtons.forEach((dot, index) => {
+      const isActive = cards[index] === activeCard;
+      dot.classList.toggle('active', isActive);
+      dot.setAttribute('aria-current', String(isActive));
+    });
+  };
+
+  const scrollToCard = (card, instant) => {
+    scrollLockUntil = performance.now() + (instant ? 0 : scrollLockMs);
+    list.scrollTo({
+      left: card.offsetLeft - (list.clientWidth - card.offsetWidth) / 2,
+      behavior: instant || reducedMotion.matches ? 'auto' : 'smooth'
+    });
+  };
+
+  list.addEventListener('scroll', () => {
+    if (!carousel.matches || scrollFrame || performance.now() < scrollLockUntil) {
+      return;
+    }
+
+    scrollFrame = requestAnimationFrame(() => {
+      const middle = list.scrollLeft + list.clientWidth / 2;
+      let nearest = cards[0];
+      let nearestDistance = Infinity;
+
+      scrollFrame = 0;
+
+      cards.forEach((card) => {
+        const distance = Math.abs(card.offsetLeft + card.offsetWidth / 2 - middle);
+
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearest = card;
+        }
+      });
+
+      setActive(nearest);
+    });
+  });
+
+  const recommended = list.querySelector('.plan-card.pro') || cards[0];
+
+  const showRecommended = () => {
+    scrollToCard(recommended, true);
+    setActive(recommended);
+  };
+
+  carousel.addEventListener('change', () => {
+    if (carousel.matches) {
+      showRecommended();
+    }
+  });
+
+  setActive(recommended);
+
+  if (carousel.matches) {
+    showRecommended();
+  }
+})();

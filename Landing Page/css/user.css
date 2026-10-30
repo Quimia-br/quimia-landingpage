@@ -2177,3 +2177,114 @@ footer a.body[aria-disabled="true"] {
     font-size: 17px;
   }
 }
+
+/* Celulares: telas do app em carrossel e texto do recurso embaixo */
+.feature-dots {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  #features {
+    --slide-width: min(62vw, 240px, calc(60vh * 360 / 724));
+  }
+
+  #features .feature-showcase {
+    gap: 12px;
+  }
+
+  #features .feature-left {
+    display: block;
+    margin-inline: calc(50% - 50vw);
+  }
+
+  #features #feature-panel {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    padding-inline: calc(50% - var(--slide-width) / 2);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    aspect-ratio: auto;
+  }
+
+  #feature-panel::-webkit-scrollbar {
+    display: none;
+  }
+
+  #feature-panel .feature-image {
+    position: static;
+    flex: 0 0 var(--slide-width);
+    width: var(--slide-width);
+    height: auto;
+    aspect-ratio: 360 / 724;
+    opacity: 0.45;
+    transform: scale(0.9);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  #feature-panel .feature-image.active {
+    opacity: 1;
+    transform: none;
+  }
+
+  .feature-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .feature-dot {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .feature-dot::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--palette-green-6);
+    border-radius: var(--radius-pill);
+    transform: translate(-50%, -50%);
+    transition: width var(--transition-base), background-color var(--transition-base);
+  }
+
+  .feature-dot.active::before {
+    width: 26px;
+    background-color: var(--palette-green-5);
+  }
+
+  /* Os quatro textos ocupam o mesmo espaço: só o do recurso ativo aparece e a altura não pula */
+  #features .feature-right {
+    display: grid;
+    gap: 0;
+  }
+
+  #features .feature-card {
+    grid-area: 1 / 1;
+    text-align: center;
+    cursor: default;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+  }
+
+  #features .feature-card.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
