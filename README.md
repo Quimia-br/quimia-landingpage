@@ -101,7 +101,7 @@ Alguns pontos precisam de decisão ou de conta externa antes da publicação:
 | Página de download do QR code | `js/store-links.js` (`downloadPageUrl`) | O QR aponta para `https://quimia.tech/download`, então o domínio precisa servir o `download.html` nesse endereço |
 | Serviço de atendimento (formulário) | `apps-script/Code.gs` e `js/support.js` (`SUPPORT_ENDPOINT`) | Script do Google Apps Script na conta do suporte, que envia o e-mail e registra a mensagem numa planilha. Se for reimplantado com outro endereço, trocar o `SUPPORT_ENDPOINT` |
 | Texto da Declaração de Privacidade | `privacy.html` e `privacy-business.html` | O conteúdo veio do design e precisa ser revisado por quem responde pelo jurídico antes de publicar |
-| Prazo de resposta do atendimento | `support.html` e `js/support.js` | Hoje diz "até 2 dias" |
+| Prazo de resposta do atendimento | `support.html` e `js/support.js` | Hoje diz "até 15 dias" |
 
 Serviços de terceiros usados: Google Fonts, `qrcodejs` (via CDN) e Google Apps Script (atendimento).
 
