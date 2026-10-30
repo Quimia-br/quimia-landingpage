@@ -312,15 +312,27 @@ const SUPPORT_TIMEOUT_MS = 20000;
     }
   };
 
-  // O botão fica cinza e inativo até a pessoa autorizar o uso dos dados
+  // O botão fica cinza e inativo até os campos obrigatórios estarem válidos e o uso dos dados autorizado
   let isSendingNow = false;
 
+  const isFormComplete = () => rules.every((rule) => !isActive(rule) || rule.isValid());
+
   const updateSubmitState = () => {
-    submitButton.disabled = isSendingNow || !consent.checked;
+    submitButton.disabled = isSendingNow || !isFormComplete();
   };
 
-  consent.addEventListener('change', updateSubmitState);
+  form.addEventListener('input', updateSubmitState);
+  form.addEventListener('change', updateSubmitState);
   updateSubmitState();
+
+  // Sem o botão para apontar o erro, um campo preenchido errado é avisado ao sair dele
+  form.addEventListener('focusout', (event) => {
+    const rule = ruleOf(event.target);
+
+    if (rule && rule.input.type !== 'checkbox' && rule.input.value.trim() !== '' && !rule.isValid()) {
+      setError(rule, true);
+    }
+  });
 
   const setSending = (isSending) => {
     isSendingNow = isSending;
