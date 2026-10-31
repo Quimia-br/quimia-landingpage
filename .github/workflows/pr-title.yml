@@ -15,6 +15,7 @@ permissions:
 
 jobs:
   title:
+    name: conventional-title
     runs-on: ubuntu-latest
     steps:
       - name: Conferir o formato do título
