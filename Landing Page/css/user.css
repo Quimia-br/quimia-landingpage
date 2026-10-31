@@ -627,6 +627,10 @@ h1 {
   color: var(--mint-white);
 }
 
+#data-title .text-sky {
+  color: #A8E8F2;
+}
+
 .data.subtitle {
   margin-top: clamp(6px, 1.2vh, 20px);
   color: #E4F1EE;
@@ -734,7 +738,7 @@ h1 {
 .data-description strong,
 .data-text strong {
   font-weight: 700;
-  color: var(--palette-slate-5);
+  color: #CFF3F7;
 }
 
 .data-text {
