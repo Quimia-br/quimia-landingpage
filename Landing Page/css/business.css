@@ -612,9 +612,9 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: center;
   align-self: stretch;
-  gap: clamp(20px, 3vh, 28px);
+  gap: clamp(28px, 5vh, 48px);
 }
 
 #market-benefits {
