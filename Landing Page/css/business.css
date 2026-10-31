@@ -2429,11 +2429,6 @@ footer {
     flex-direction: row;
     text-align: left;
   }
-
-  #market-cta {
-    grid-row: 4;
-    justify-self: start;
-  }
 }
 
 @media (max-width: 900px) {
