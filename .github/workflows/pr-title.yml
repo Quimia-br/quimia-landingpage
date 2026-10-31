@@ -1,0 +1,33 @@
+name: Validar título da PR
+
+# O título da PR precisa seguir o Conventional Commits, por exemplo:
+#   feat(business): add the questions list to the market section
+#   fix: center the eye icon
+# É ele que alimenta o histórico e as notas das releases.
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    branches: [develop, main]
+
+permissions:
+  contents: read
+
+jobs:
+  title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Conferir o formato do título
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          pattern='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9._/-]+\))?!?: .+'
+
+          if [[ "$TITLE" =~ $pattern ]]; then
+            echo "Título válido: $TITLE"
+            exit 0
+          fi
+
+          echo "::error title=Título fora do padrão::O título deve seguir o Conventional Commits, como 'feat(escopo): descrição' ou 'fix: descrição'. Recebido: $TITLE"
+          echo "Tipos aceitos: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert"
+          exit 1
