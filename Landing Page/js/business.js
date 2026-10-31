@@ -299,3 +299,33 @@ const QUIMIA_LINKS = Object.freeze({
     showRecommended();
   }
 })();
+
+
+/* Inteligência de mercado: as perguntas aparecem em sequência, uma vez, ao entrar na tela */
+(() => {
+  const questions = document.getElementById('market-questions');
+
+  if (!questions) {
+    return;
+  }
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  // Sem animação (ou sem suporte), as perguntas já ficam prontas
+  if (reducedMotion.matches || !('IntersectionObserver' in window)) {
+    return;
+  }
+
+  questions.classList.add('is-armed');
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) {
+      return;
+    }
+
+    observer.disconnect();
+    questions.classList.add('is-drawn');
+  }, { threshold: 0.4 });
+
+  observer.observe(questions);
+})();
