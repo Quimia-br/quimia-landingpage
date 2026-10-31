@@ -648,7 +648,8 @@ h1 {
   display: flex;
   flex-direction: column;
   padding: clamp(18px, 3vh, 40px) clamp(24px, 2.6vw, 40px) clamp(16px, 2.8vh, 36px);
-  background-color: var(--palette-slate-3);
+  color: #22353E;
+  background-color: #9DB8C2;
   border-radius: var(--radius-card);
 }
 
@@ -656,7 +657,7 @@ h1 {
   font-family: var(--font-title);
   font-size: clamp(16px, 2.1vh, 20px);
   font-weight: 700;
-  color: var(--mint-white);
+  color: #22353E;
 }
 
 .data-stats {
@@ -682,7 +683,7 @@ h1 {
   gap: 6px;
   min-height: clamp(88px, 13.5vh, 150px);
   padding: clamp(12px, 2vh, 20px) 20px;
-  background-color: var(--palette-slate-4);
+  background-color: #B8CFD7;
   border-radius: var(--radius-card);
 }
 
@@ -691,7 +692,7 @@ h1 {
   font-size: clamp(32px, min(5vw, 6.2vh), 72px);
   font-weight: 700;
   line-height: 1;
-  color: var(--mint-white);
+  color: #22353E;
 }
 
 .data-unit {
@@ -732,13 +733,13 @@ h1 {
 .data-description {
   font-size: clamp(15px, min(1.4vw, 2.2vh), 19px);
   line-height: 1.35;
-  color: var(--mint-white);
+  color: #22353E;
 }
 
 .data-description strong,
 .data-text strong {
   font-weight: 700;
-  color: #CFF3F7;
+  color: #2A4550;
 }
 
 .data-text {
@@ -761,7 +762,7 @@ h1 {
   padding-top: clamp(8px, 1.2vh, 36px);
   font-size: clamp(13px, 1.5vh, 14px);
   line-height: 1.4;
-  color: rgba(240, 255, 252, 0.78);
+  color: #2A4550;
   overflow-wrap: anywhere;
 }
 
@@ -771,7 +772,7 @@ h1 {
 }
 
 .data-source a:hover {
-  color: var(--mint-white);
+  color: #22353E;
 }
 
 #about {
