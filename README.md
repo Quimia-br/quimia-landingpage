@@ -331,7 +331,7 @@ Depois de mudar o código, é preciso criar uma nova versão da implantação.
 - [ ] **Links das lojas** (App Store e Google Play) em `js/store-links.js`: hoje apontam para um app de exemplo.
 - [ ] **Botão de download do vídeo** em `index.html`: o `href` ainda é `#` (há um `TODO` no código).
 - [ ] **Texto das Declarações de Privacidade** (`privacy.html` e `privacy-business.html`): o conteúdo veio do design e precisa ser revisado por quem responde pelo jurídico.
-- [ ] **Prazo de resposta do atendimento** em `support.html` e `js/support.js`: hoje diz "até 2 dias".
+- [ ] **Prazo de resposta do atendimento** em `support.html` e `js/support.js`: hoje diz "até 15 dias".
 - [x] **Domínio próprio** `quimia.tech` configurado no GitHub Pages.
 - [x] **Serviço de atendimento** publicado no Google Apps Script, com alternativa por e-mail.
 
