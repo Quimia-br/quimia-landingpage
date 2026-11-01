@@ -2,9 +2,9 @@
 
 <div align="center">
 
-<img src="Landing%20Page/assets/user/icons/logo.svg" alt="Logo do Quimia" width="88">
+<img src="site/assets/user/icons/logo.svg" alt="Logo do Quimia" width="88">
 
-# Quimia · Landing Pages
+# Quimia · Site
 
 **Site institucional do Quimia, o app que ajuda a evitar misturas perigosas de produtos de limpeza.**
 
@@ -30,7 +30,7 @@
 
 <br>
 
-<img src="Landing%20Page/assets/user/images/capa-desktop.jpg" alt="Capa do site: Dá pra misturar esses dois? Água sanitária e limpador com amônia" width="85%">
+<img src="site/assets/user/images/capa-desktop.jpg" alt="Capa do site: Dá pra misturar esses dois? Água sanitária e limpador com amônia" width="85%">
 
 </div>
 
@@ -66,7 +66,7 @@ Este repositório reúne todo o site público do **Quimia**: duas landing pages 
 
 | Escanear | Estante | Misturas | Proximidades |
 |:---:|:---:|:---:|:---:|
-| <img src="Landing%20Page/assets/user/images/tela-escanear.png" alt="Tela de escanear rótulo" width="170"> | <img src="Landing%20Page/assets/user/images/tela-estante.png" alt="Tela da estante de produtos" width="170"> | <img src="Landing%20Page/assets/user/images/tela-misturas.png" alt="Tela de alerta de mistura perigosa" width="170"> | <img src="Landing%20Page/assets/user/images/tela-proximidades.png" alt="Tela de pontos de descarte próximos" width="170"> |
+| <img src="site/assets/user/images/tela-escanear.png" alt="Tela de escanear rótulo" width="170"> | <img src="site/assets/user/images/tela-estante.png" alt="Tela da estante de produtos" width="170"> | <img src="site/assets/user/images/tela-misturas.png" alt="Tela de alerta de mistura perigosa" width="170"> | <img src="site/assets/user/images/tela-proximidades.png" alt="Tela de pontos de descarte próximos" width="170"> |
 | Encontra o produto pelo rótulo | Organiza os produtos da casa | Avisa quando uma mistura é perigosa | Mostra pontos de descarte e compra |
 
 </div>
@@ -104,12 +104,12 @@ flowchart LR
 
 | Página | Arquivo | Para quê |
 |---|---|---|
-| Landing do usuário | [`index.html`](Landing%20Page/index.html) | Apresenta o app, os recursos e o vídeo de demonstração |
-| Landing da empresa | [`business.html`](Landing%20Page/business.html) | Apresenta os dashboards, os planos e a privacidade dos dados |
-| Atendimento ao cliente | [`support.html`](Landing%20Page/support.html) | Formulário de contato (aceita `?origem=empresa` e `?de=privacidade`) |
-| Privacidade do usuário | [`privacy.html`](Landing%20Page/privacy.html) | Declaração de Privacidade para quem usa o app |
-| Privacidade da empresa | [`privacy-business.html`](Landing%20Page/privacy-business.html) | Declaração de Privacidade para empresas |
-| Download do app | [`download.html`](Landing%20Page/download.html) | Destino do QR code: no celular vai direto para a loja, no computador mostra as lojas |
+| Landing do usuário | [`index.html`](site/index.html) | Apresenta o app, os recursos e o vídeo de demonstração |
+| Landing da empresa | [`business.html`](site/business.html) | Apresenta os dashboards, os planos e a privacidade dos dados |
+| Atendimento ao cliente | [`support.html`](site/support.html) | Formulário de contato (aceita `?origem=empresa` e `?de=privacidade`) |
+| Privacidade do usuário | [`privacy.html`](site/privacy.html) | Declaração de Privacidade para quem usa o app |
+| Privacidade da empresa | [`privacy-business.html`](site/privacy-business.html) | Declaração de Privacidade para empresas |
+| Download do app | [`download.html`](site/download.html) | Destino do QR code: no celular vai direto para a loja, no computador mostra as lojas |
 
 ```mermaid
 flowchart TD
@@ -144,7 +144,7 @@ flowchart TD
 
 ## Como rodar localmente
 
-Sirva a pasta `Landing Page/` com qualquer servidor estático:
+Sirva a pasta `site/` com qualquer servidor estático:
 
 <table>
 <tr><th>Python</th><th>Node.js</th><th>VS Code</th></tr>
@@ -152,7 +152,7 @@ Sirva a pasta `Landing Page/` com qualquer servidor estático:
 <td>
 
 ```bash
-cd "Landing Page"
+cd site
 python -m http.server 8000
 ```
 
@@ -160,13 +160,13 @@ python -m http.server 8000
 <td>
 
 ```bash
-npx serve "Landing Page"
+npx serve site
 ```
 
 </td>
 <td>
 
-Extensão **Live Server**, com a pasta `Landing Page/` aberta
+Extensão **Live Server**, com a pasta `site/` aberta
 
 </td>
 </tr>
@@ -181,7 +181,7 @@ Depois abra <http://localhost:8000> (ou o endereço que o servidor mostrar).
 
 ## Estrutura de pastas
 
-O site publicável fica dentro de `Landing Page/`, que é a raiz do site.
+O site publicável fica dentro de `site/`, que é a raiz do site.
 
 <details>
 <summary><b>Ver a árvore completa</b></summary>
@@ -189,7 +189,7 @@ O site publicável fica dentro de `Landing Page/`, que é a raiz do site.
 <br>
 
 ```
-Landing Page/
+site/
 ├── index.html                 Landing do usuário
 ├── business.html              Landing da empresa
 ├── support.html               Atendimento ao cliente
@@ -255,7 +255,7 @@ apps-script/
 
 ## Publicação (GitHub Pages)
 
-O workflow [`pages.yml`](.github/workflows/pages.yml) publica a pasta `Landing Page/` sempre que a `main` recebe um merge. Também dá para rodá-lo à mão pela aba *Actions* (*Run workflow*).
+O workflow [`pages.yml`](.github/workflows/pages.yml) publica a pasta `site/` sempre que a `main` recebe um merge. Também dá para rodá-lo à mão pela aba *Actions* (*Run workflow*).
 
 ```mermaid
 flowchart LR
