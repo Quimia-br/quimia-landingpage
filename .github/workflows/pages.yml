@@ -30,7 +30,7 @@ jobs:
       - name: Empacotar o site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "Landing Page"
+          path: site
 
       - name: Publicar
         id: deployment
