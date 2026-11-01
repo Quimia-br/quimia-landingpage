@@ -85,11 +85,14 @@ flowchart LR
 
     DB[("PostgreSQL<br/>Aiven")]
     APP["App Quimia"]
+    SITE["Site web da empresa<br/>quimia.app"]
     VIS(["Visitantes e empresas"])
     GAS["Google Apps Script<br/>atendimento"]
 
     VIS --> LP
     LP -- "QR code / lojas" --> APP
+    LP -- "planos da empresa" --> SITE
+    LP -- "área restrita" --> WEB
     LP -- "formulário" --> GAS
     BD -- "DDL + seed" --> DB
     WEB -- "JPA" --> DB
@@ -119,10 +122,11 @@ flowchart TD
     U --> P["privacy.html"]
     B --> PB["privacy-business.html"]
     P -- "?de=privacidade" --> S
-    PB -- "?origem=empresa&de=privacidade" --> S
+    PB -- "?origem=empresa<br/>&de=privacidade" --> S
     U -- "pop-up com QR code" --> D["download.html"]
     P -- "pop-up com QR code" --> D
     D -- "celular" --> L["App Store / Google Play"]
+    B -- "planos (nova aba)" --> W["quimia.app<br/>site web da empresa"]
 ```
 
 <p align="right"><a href="#top">voltar ao topo</a></p>
@@ -233,7 +237,7 @@ apps-script/
 - **Mídia por público.** Cada landing tem a sua pasta em `assets/`, para ficar claro o que pertence a cada uma.
 - **Caminhos nos CSS** são relativos à pasta `css/` (por exemplo `../assets/user/images/capa.jpg`). Caminhos nos JS e nos HTML são relativos à raiz do site.
 - **Cores, fontes e espaçamentos** ficam como variáveis CSS no início de cada arquivo de estilos.
-- **Fontes:** Nunito, PT Sans e Reem Kufi, carregadas do Google Fonts.
+- **Fontes:** Nunito, PT Sans e Reem Kufi, hospedadas em `assets/fonts/` (woff2, licença OFL) e declaradas com `@font-face` no começo de cada CSS.
 - **Formatação:** o [`.editorconfig`](.editorconfig) define UTF-8, LF, 2 espaços e linha final em branco.
 
 <details>
@@ -335,7 +339,7 @@ Depois de mudar o código, é preciso criar uma nova versão da implantação.
 - [x] **Domínio próprio** `quimia.tech` configurado no GitHub Pages.
 - [x] **Serviço de atendimento** publicado no Google Apps Script, com alternativa por e-mail.
 
-Serviços de terceiros usados: Google Fonts, `qrcodejs` (via cdnjs) e Google Apps Script.
+Serviço de terceiros usado: Google Apps Script. As fontes e o `qrcode.min.js` ficam no próprio repositório.
 
 <p align="right"><a href="#top">voltar ao topo</a></p>
 
