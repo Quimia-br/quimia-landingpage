@@ -85,11 +85,14 @@ flowchart LR
 
     DB[("PostgreSQL<br/>Aiven")]
     APP["App Quimia"]
+    SITE["Site web da empresa<br/>quimia.app"]
     VIS(["Visitantes e empresas"])
     GAS["Google Apps Script<br/>atendimento"]
 
     VIS --> LP
     LP -- "QR code / lojas" --> APP
+    LP -- "planos da empresa" --> SITE
+    LP -- "área restrita" --> WEB
     LP -- "formulário" --> GAS
     BD -- "DDL + seed" --> DB
     WEB -- "JPA" --> DB
@@ -119,10 +122,11 @@ flowchart TD
     U --> P["privacy.html"]
     B --> PB["privacy-business.html"]
     P -- "?de=privacidade" --> S
-    PB -- "?origem=empresa&de=privacidade" --> S
+    PB -- "?origem=empresa<br/>&de=privacidade" --> S
     U -- "pop-up com QR code" --> D["download.html"]
     P -- "pop-up com QR code" --> D
     D -- "celular" --> L["App Store / Google Play"]
+    B -- "planos (nova aba)" --> W["quimia.app<br/>site web da empresa"]
 ```
 
 <p align="right"><a href="#top">voltar ao topo</a></p>
