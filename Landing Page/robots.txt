@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://quimia.tech/sitemap.xml
