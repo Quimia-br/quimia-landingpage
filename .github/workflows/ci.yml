@@ -1,0 +1,66 @@
+name: Validar o site
+
+# Roda em toda PR para a develop ou a main e confere o HTML, os links internos e o Lighthouse.
+# Por enquanto só o HTML e os links internos reprovam a PR; o Lighthouse só avisa.
+
+on:
+  pull_request:
+    branches: [develop, main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  html:
+    name: html-validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v7
+
+      - name: Instalar o Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Validar o HTML
+        run: npx --yes html-validate@11.18.0 "site/**/*.html"
+
+  links:
+    name: internal-links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v7
+
+      # Só links e arquivos do próprio site (HTML e url() do CSS). Endereços externos não são conferidos.
+      - name: Conferir links internos
+        run: python3 .github/scripts/check-links.py site
+
+  lighthouse:
+    name: lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v7
+
+      - name: Instalar o Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      # O lhci serve a pasta site/ com o próprio servidor estático (ver lighthouserc.json). As asserções são só avisos.
+      - name: Rodar o Lighthouse
+        run: npx --yes @lhci/cli@0.15.1 autorun
+
+      - name: Guardar os relatórios
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse
+          path: .lighthouseci
+          if-no-files-found: ignore
