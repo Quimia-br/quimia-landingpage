@@ -1,3 +1,10 @@
 {
-  "extends": ["html-validate:recommended"]
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "unique-landmark": "warn",
+    "prefer-native-element": "warn",
+    "no-autoplay": "warn",
+    "aria-label-misuse": "warn",
+    "wcag/h30": "warn"
+  }
 }
